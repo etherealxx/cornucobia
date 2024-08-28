@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cspyvaqkpt2mw"]
+
+[sub_resource type="Curve" id="Curve_wix8u"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="SplatParticle" type="CPUParticles2D"]
+emitting = false
+amount = 6
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.2
+randomness = 0.1
+emission_shape = 3
+emission_rect_extents = Vector2(20, 20)
+direction = Vector2(-1, 0)
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 6.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_wix8u")
+color = Color(0.796078, 0.301961, 0.407843, 1)

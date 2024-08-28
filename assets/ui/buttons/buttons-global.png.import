@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ond6lwpwlhtb"
-path="res://.godot/imported/snake.png-9033f7746695cff0737edcc17c2b422a.ctex"
+uid="uid://bag2pvpm80skp"
+path="res://.godot/imported/buttons-global.png-860ce82ce5fb7db8b58fd45c96777444.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/snake.png"
-dest_files=["res://.godot/imported/snake.png-9033f7746695cff0737edcc17c2b422a.ctex"]
+source_file="res://assets/ui/buttons/buttons-global.png"
+dest_files=["res://.godot/imported/buttons-global.png-860ce82ce5fb7db8b58fd45c96777444.ctex"]
 
 [params]
 

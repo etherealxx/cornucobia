@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1cm54ab41bdo"
-path="res://.godot/imported/chicken.png-ab075bd7cb0687867833fb09021e23dc.ctex"
+uid="uid://dc5u6auynling"
+path="res://.godot/imported/tileset_forest.png-f92d241faf7526f15c541b574cac31e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/chicken.png"
-dest_files=["res://.godot/imported/chicken.png-ab075bd7cb0687867833fb09021e23dc.ctex"]
+source_file="res://assets/gamesprites/tileset/tileset_forest.png"
+dest_files=["res://.godot/imported/tileset_forest.png-f92d241faf7526f15c541b574cac31e2.ctex"]
 
 [params]
 

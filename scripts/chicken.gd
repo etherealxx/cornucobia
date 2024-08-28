@@ -79,5 +79,7 @@ func switch_direction():
 		$ChickenSprite.offset = Vector2(0, 0)
 
 func _on_wall_detector_body_entered(body: Node2D) -> void:
-	if body.is_in_group("wall"):
-		switch_direction()
+	## Uncomment for auto turn around when colliding with wall
+	#if body.is_in_group("wall"):
+		#switch_direction()
+	pass

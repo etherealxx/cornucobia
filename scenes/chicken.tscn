@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://d05ojgxmduaa8"]
 
 [ext_resource type="Script" path="res://scripts/chicken.gd" id="1_af6pf"]
-[ext_resource type="Texture2D" uid="uid://1cm54ab41bdo" path="res://assets/player/chicken.png" id="2_es6ny"]
+[ext_resource type="Texture2D" uid="uid://1cm54ab41bdo" path="res://assets/gamesprites/player/chicken.png" id="2_es6ny"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wxtfm"]
 size = Vector2(201.5, 156.5)

@@ -17,13 +17,14 @@ func _ready() -> void:
 												DisplayServer.screen_get_size().y - usable_screen_height))
 	
 	$Chicken.key_press.connect(_on_key_press)
+	$AudioStreamPlayer.get_stream().set_loop(true)
 
 func _on_key_press(key : String):
-	$Label.text = "Key Press: " + key
+	%Label.text = "Key Press: " + key
 	$LabelResetTimer.stop()
 	$LabelResetTimer.start(1)
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("labelbounce")
 
 func _on_label_reset_timer_timeout() -> void:
-	$Label.text = "Key Press: "
+	%Label.text = "Key Press: "
