@@ -5,7 +5,7 @@ size = Vector2(113.5, 335)
 
 [node name="SolidWall" type="StaticBody2D" groups=["wall"]]
 position = Vector2(0, 133)
-collision_layer = 4
+collision_layer = 8
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

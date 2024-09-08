@@ -11,10 +11,15 @@ config_version=5
 [application]
 
 config/name="Cornucobia"
-config/version="0.0.2"
+config/version="0.0.3"
 run/main_scene="res://scenes/maintest_real.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://cornucobia_icon.png"
+
+[autoload]
+
+Shaker="*res://addons/shaker/src/Shaker.gd"
+CollisionCalc="*res://scripts/autoloads/collision_calc.gd"
 
 [display]
 
@@ -23,6 +28,10 @@ window/size/viewport_height=1920
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SimpleTODO/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/simple_tool_button/plugin.cfg")
 
 [input]
 
@@ -54,7 +63,8 @@ pointing/emulate_touch_from_mouse=true
 
 2d_physics/layer_1="chara"
 2d_physics/layer_2="enemies"
-2d_physics/layer_3="groundwall"
+2d_physics/layer_3="ground"
+2d_physics/layer_4="wall"
 
 [rendering]
 

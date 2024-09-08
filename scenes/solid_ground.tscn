@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://bibeyf3dlpbc4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfb0x"]
-size = Vector2(1070, 78)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uec64"]
+size = Vector2(1740, 78)
 
 [node name="SolidGround" type="StaticBody2D" groups=["bottom", "ground"]]
 position = Vector2(112, 1813)
@@ -10,4 +10,4 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(423, 40)
-shape = SubResource("RectangleShape2D_xfb0x")
+shape = SubResource("RectangleShape2D_uec64")
