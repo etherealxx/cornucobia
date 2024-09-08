@@ -1,0 +1,247 @@
+[gd_scene load_steps=23 format=3 uid="uid://k0em1dn6s2ry"]
+
+[ext_resource type="Script" path="res://scripts/maintest.gd" id="1_cxf2o"]
+[ext_resource type="AudioStream" uid="uid://bqes06odj2353" path="res://assets/musics/265549__vikuserro__cheap-flash-game-tune.mp3" id="2_opx3g"]
+[ext_resource type="Texture2D" uid="uid://c85umkm50513w" path="res://assets/gamesprites/level/cropsfloor.png" id="3_0n1ap"]
+[ext_resource type="PackedScene" uid="uid://bibeyf3dlpbc4" path="res://scenes/solid_ground.tscn" id="4_gebf1"]
+[ext_resource type="PackedScene" uid="uid://c0s8jfpqlxyv3" path="res://scenes/solid_wall.tscn" id="5_yx8fw"]
+[ext_resource type="PackedScene" uid="uid://blxylhx4frguu" path="res://scenes/snake.tscn" id="6_upyfv"]
+[ext_resource type="Texture2D" uid="uid://bag2pvpm80skp" path="res://assets/ui/buttons/buttons-global.png" id="8_ol31h"]
+[ext_resource type="Texture2D" uid="uid://cnrrmvqd244o1" path="res://assets/references/candiesss.jpg" id="9_0xmsg"]
+[ext_resource type="Script" path="res://scripts/debug/debug_button.gd" id="10_lcaud"]
+[ext_resource type="PackedScene" uid="uid://brb0icctws8db" path="res://scenes/cobia.tscn" id="12_bhyiv"]
+
+[sub_resource type="Animation" id="Animation_r0r68"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI_Main/Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q5psc"]
+resource_name = "labelbounce"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI_Main/Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ojkvo"]
+_data = {
+"RESET": SubResource("Animation_r0r68"),
+"labelbounce": SubResource("Animation_q5psc")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_ll3m6"]
+font_size = 51
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5div"]
+atlas = ExtResource("8_ol31h")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbxi7"]
+atlas = ExtResource("8_ol31h")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj2hy"]
+atlas = ExtResource("8_ol31h")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1y6d"]
+atlas = ExtResource("8_ol31h")
+region = Rect2(80, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqptt"]
+atlas = ExtResource("8_ol31h")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85ws3"]
+atlas = ExtResource("8_ol31h")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gsey"]
+atlas = ExtResource("8_ol31h")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5aab"]
+atlas = ExtResource("8_ol31h")
+region = Rect2(48, 32, 16, 16)
+
+[node name="Pixelated2DMain" type="Node2D" node_paths=PackedStringArray("character")]
+texture_filter = 1
+position = Vector2(0, -100)
+script = ExtResource("1_cxf2o")
+character = NodePath("Cobia")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_opx3g")
+volume_db = -5.0
+pitch_scale = 1.1
+autoplay = true
+
+[node name="CropsRows" type="Node2D" parent="."]
+position = Vector2(1090, 0)
+
+[node name="Row2" type="Sprite2D" parent="CropsRows"]
+position = Vector2(-551, 1617)
+scale = Vector2(5, 5)
+texture = ExtResource("3_0n1ap")
+
+[node name="Row3" type="Sprite2D" parent="CropsRows"]
+position = Vector2(-551, 1252)
+scale = Vector2(5, 5)
+texture = ExtResource("3_0n1ap")
+
+[node name="Row4" type="Sprite2D" parent="CropsRows"]
+position = Vector2(-551, 887.5)
+scale = Vector2(5, 5)
+texture = ExtResource("3_0n1ap")
+
+[node name="Row5" type="Sprite2D" parent="CropsRows"]
+position = Vector2(-551, 522.5)
+scale = Vector2(5, 5)
+texture = ExtResource("3_0n1ap")
+
+[node name="Grounds" type="Node2D" parent="."]
+position = Vector2(0, -90)
+
+[node name="SolidGround" parent="Grounds" instance=ExtResource("4_gebf1")]
+
+[node name="SolidGround2" parent="Grounds" instance=ExtResource("4_gebf1")]
+position = Vector2(112, 1445)
+
+[node name="SolidGround3" parent="Grounds" instance=ExtResource("4_gebf1")]
+position = Vector2(112, 1080)
+
+[node name="SolidGround4" parent="Grounds" instance=ExtResource("4_gebf1")]
+position = Vector2(112, 712)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="SolidWall" parent="Walls" instance=ExtResource("5_yx8fw")]
+position = Vector2(-100, 293)
+
+[node name="SolidWall2" parent="Walls" instance=ExtResource("5_yx8fw")]
+position = Vector2(-100, 671)
+
+[node name="SolidWall3" parent="Walls" instance=ExtResource("5_yx8fw")]
+position = Vector2(-100, 1026)
+
+[node name="SolidWall4" parent="Walls" instance=ExtResource("5_yx8fw")]
+position = Vector2(-100, 1395)
+
+[node name="SolidWall5" parent="Walls" instance=ExtResource("5_yx8fw")]
+position = Vector2(1060, 1395)
+
+[node name="SolidWall6" parent="Walls" instance=ExtResource("5_yx8fw")]
+position = Vector2(1060, 1028)
+
+[node name="SolidWall7" parent="Walls" instance=ExtResource("5_yx8fw")]
+position = Vector2(1060, 673)
+
+[node name="SolidWall8" parent="Walls" instance=ExtResource("5_yx8fw")]
+position = Vector2(1060, 290)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Snake" parent="Enemies" instance=ExtResource("6_upyfv")]
+position = Vector2(591, 1609)
+collision_layer = 1
+
+[node name="Snake2" parent="Enemies" instance=ExtResource("6_upyfv")]
+position = Vector2(810, 1249)
+collision_layer = 1
+
+[node name="Snake3" parent="Enemies" instance=ExtResource("6_upyfv")]
+position = Vector2(470, 874)
+collision_layer = 1
+
+[node name="Snake4" parent="Enemies" instance=ExtResource("6_upyfv")]
+position = Vector2(710, 519)
+collision_layer = 1
+
+[node name="Cobia" parent="." instance=ExtResource("12_bhyiv")]
+position = Vector2(120, 1590)
+downward_travel_offset = 10
+
+[node name="LabelResetTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ojkvo")
+}
+
+[node name="Candies" type="Sprite2D" parent="." groups=["references"]]
+visible = false
+position = Vector2(0, -268)
+scale = Vector2(1.48889, 1.48889)
+texture = ExtResource("9_0xmsg")
+centered = false
+
+[node name="UI_Main" type="Node2D" parent="."]
+position = Vector2(0, 100)
+
+[node name="Label" type="Label" parent="UI_Main"]
+unique_name_in_owner = true
+offset_left = 144.0
+offset_right = 406.0
+offset_bottom = 70.0
+text = "Key Press: "
+label_settings = SubResource("LabelSettings_ll3m6")
+
+[node name="Buttons" type="Node2D" parent="UI_Main"]
+
+[node name="DebugButton" type="TouchScreenButton" parent="UI_Main/Buttons"]
+modulate = Color(1, 1, 1, 0.623529)
+position = Vector2(636, 1696)
+scale = Vector2(12, 12)
+texture_normal = SubResource("AtlasTexture_c5div")
+texture_pressed = SubResource("AtlasTexture_cbxi7")
+action = "swap_direction"
+script = ExtResource("10_lcaud")
+
+[node name="SwapButton" type="TouchScreenButton" parent="UI_Main/Buttons"]
+modulate = Color(1, 1, 1, 0.623529)
+position = Vector2(844, 1696)
+scale = Vector2(12, 12)
+texture_normal = SubResource("AtlasTexture_pj2hy")
+texture_pressed = SubResource("AtlasTexture_l1y6d")
+action = "debugpress"
+
+[node name="UpButton" type="TouchScreenButton" parent="UI_Main/Buttons"]
+modulate = Color(1, 1, 1, 0.623529)
+position = Vector2(220, 1696)
+scale = Vector2(12, 12)
+texture_normal = SubResource("AtlasTexture_gqptt")
+texture_pressed = SubResource("AtlasTexture_85ws3")
+action = "switch_lane_up"
+
+[node name="DownButton" type="TouchScreenButton" parent="UI_Main/Buttons"]
+modulate = Color(1, 1, 1, 0.623529)
+position = Vector2(428, 1696)
+scale = Vector2(12, 12)
+texture_normal = SubResource("AtlasTexture_8gsey")
+texture_pressed = SubResource("AtlasTexture_s5aab")
+action = "switch_lane_down"
+
+[connection signal="timeout" from="LabelResetTimer" to="." method="_on_label_reset_timer_timeout"]

@@ -1,5 +1,6 @@
 extends Node
 
+@export var character : CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,7 +17,7 @@ func _ready() -> void:
 			DisplayServer.window_set_position(	Vector2i(DisplayServer.screen_get_size().x / 2 - width_scaled / 2,
 												DisplayServer.screen_get_size().y - usable_screen_height))
 	
-	$Chicken.key_press.connect(_on_key_press)
+	character.key_press.connect(_on_key_press)
 	$AudioStreamPlayer.get_stream().set_loop(true)
 
 func _on_key_press(key : String):

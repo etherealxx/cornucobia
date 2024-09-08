@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/maintest.gd" id="1_nx5aw"]
 [ext_resource type="AudioStream" uid="uid://bqes06odj2353" path="res://assets/musics/265549__vikuserro__cheap-flash-game-tune.mp3" id="2_g4mbr"]
 [ext_resource type="PackedScene" uid="uid://d05ojgxmduaa8" path="res://scenes/chicken.tscn" id="2_vwlvf"]
-[ext_resource type="PackedScene" uid="uid://1muwvmjjuogq" path="res://scenes/solid_ground.tscn" id="4_83h8e"]
+[ext_resource type="PackedScene" uid="uid://1muwvmjjuogq" path="res://scenes/tests/solid_ground_test.tscn" id="4_83h8e"]
 [ext_resource type="Texture2D" uid="uid://dc5u6auynling" path="res://assets/gamesprites/tileset/tileset_forest.png" id="4_bv1uc"]
 [ext_resource type="PackedScene" uid="uid://c0s8jfpqlxyv3" path="res://scenes/solid_wall.tscn" id="5_7eigg"]
 [ext_resource type="PackedScene" uid="uid://blxylhx4frguu" path="res://scenes/snake.tscn" id="5_qu73t"]
@@ -110,10 +110,11 @@ region = Rect2(32, 32, 16, 16)
 atlas = ExtResource("7_oullp")
 region = Rect2(48, 32, 16, 16)
 
-[node name="Pixelated2DMain" type="Node2D"]
+[node name="Pixelated2DMain" type="Node2D" node_paths=PackedStringArray("character")]
 texture_filter = 1
 position = Vector2(0, -100)
 script = ExtResource("1_nx5aw")
+character = NodePath("Chicken")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_g4mbr")

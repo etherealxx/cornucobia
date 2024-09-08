@@ -5,6 +5,12 @@ signal key_press
 @export var SPEED := 300.0
 @export var switch_lane_speed_multiplier := 5
 @export var gravity_speed_multiplier := 10
+@export var floor_travel_distance := 440
+@export var downward_travel_offset := 0
+
+@onready var sprite = $CobiaSprite
+@onready var collision = $BodyCollision
+
 const JUMP_VELOCITY := -400.0
 var current_direction := "right"
 var switching_lane := false
@@ -30,16 +36,16 @@ func _physics_process(delta: float) -> void:
 			if current_lane > top_and_bottom_lane.min():
 				posneg = Vector2.UP.y # -1
 				switching_lane = true
-				$BodyCollision.disabled = true
-				switch_lane_target_y = self.position.y - 440
+				collision.disabled = true
+				switch_lane_target_y = self.position.y - floor_travel_distance
 				current_lane -= 1
 		elif Input.is_action_just_pressed("switch_lane_down"):
 			key_press.emit("x (down)")
 			if current_lane < top_and_bottom_lane.max():
 				posneg = Vector2.DOWN.y # -1
 				switching_lane = true
-				$BodyCollision.disabled = true
-				switch_lane_target_y = self.position.y + 440
+				collision.disabled = true
+				switch_lane_target_y = self.position.y + floor_travel_distance + downward_travel_offset
 				current_lane += 1
 			
 	## Add the gravity.
@@ -63,7 +69,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = SPEED * switch_lane_speed_multiplier * posneg
 		else:
 			switching_lane = false
-			$BodyCollision.disabled = false
+			collision.disabled = false
 			switch_lane_target_y = 0
 
 	move_and_slide()
@@ -71,12 +77,10 @@ func _physics_process(delta: float) -> void:
 func switch_direction():
 	if current_direction == "left":
 		current_direction = "right"
-		$ChickenSprite.flip_h = true
-		$ChickenSprite.offset = Vector2(2.85, 0)
-	else:
+		sprite.flip_h = false
+	else: # right
 		current_direction = "left"
-		$ChickenSprite.flip_h = false
-		$ChickenSprite.offset = Vector2(0, 0)
+		sprite.flip_h = true
 
 func _on_wall_detector_body_entered(_body: Node2D) -> void:
 	## Uncomment for auto turn around when colliding with wall

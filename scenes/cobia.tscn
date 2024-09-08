@@ -1,0 +1,119 @@
+[gd_scene load_steps=16 format=3 uid="uid://brb0icctws8db"]
+
+[ext_resource type="Script" path="res://scripts/cobia.gd" id="1_bhlcw"]
+[ext_resource type="Texture2D" uid="uid://bwvgsx5j1xg43" path="res://assets/gamesprites/player/cobia_idle_sheet.png" id="2_nq0sg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g8o0m"]
+radius = 60.0
+height = 200.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36acy"]
+atlas = ExtResource("2_nq0sg")
+region = Rect2(0, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7j2f"]
+atlas = ExtResource("2_nq0sg")
+region = Rect2(45, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klb5r"]
+atlas = ExtResource("2_nq0sg")
+region = Rect2(90, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc7l1"]
+atlas = ExtResource("2_nq0sg")
+region = Rect2(135, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57fd3"]
+atlas = ExtResource("2_nq0sg")
+region = Rect2(180, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6ygr"]
+atlas = ExtResource("2_nq0sg")
+region = Rect2(225, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52bi1"]
+atlas = ExtResource("2_nq0sg")
+region = Rect2(270, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpidt"]
+atlas = ExtResource("2_nq0sg")
+region = Rect2(315, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3g6p"]
+atlas = ExtResource("2_nq0sg")
+region = Rect2(360, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jaimf"]
+atlas = ExtResource("2_nq0sg")
+region = Rect2(405, 0, 45, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hsji"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36acy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7j2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klb5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nc7l1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57fd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6ygr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52bi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpidt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3g6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jaimf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wxl6"]
+size = Vector2(126, 125)
+
+[node name="Cobia" type="CharacterBody2D"]
+collision_mask = 4
+script = ExtResource("1_bhlcw")
+SPEED = 400.0
+floor_travel_distance = 350
+downward_travel_offset = 20
+metadata/_edit_group_ = true
+
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13)
+shape = SubResource("CapsuleShape2D_g8o0m")
+
+[node name="CobiaSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_5hsji")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.854561
+metadata/_edit_lock_ = true
+
+[node name="WallDetector" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallDetector"]
+position = Vector2(0, 24.5)
+shape = SubResource("RectangleShape2D_7wxl6")
+debug_color = Color(0.732743, 0.447599, 0.40903, 0.42)
+
+[connection signal="body_entered" from="WallDetector" to="." method="_on_wall_detector_body_entered"]
