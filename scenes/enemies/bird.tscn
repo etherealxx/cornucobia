@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://d0ms031j0n5dd"]
+
+[ext_resource type="Script" path="res://scripts/enemies/bird.gd" id="1_fjhhk"]
+[ext_resource type="Resource" uid="uid://cyt61rr172ekk" path="res://resources/squirrel_parabolic.tres" id="2_xjt5h"]
+[ext_resource type="Texture2D" uid="uid://6jr5ewipf456" path="res://assets/gamesprites/enemies/bird_sheet.png" id="3_vrjy2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc5ul"]
+atlas = ExtResource("3_vrjy2")
+region = Rect2(0, 0, 39, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdtkp"]
+atlas = ExtResource("3_vrjy2")
+region = Rect2(39, 0, 39, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32jmt"]
+atlas = ExtResource("3_vrjy2")
+region = Rect2(78, 0, 39, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi3wi"]
+atlas = ExtResource("3_vrjy2")
+region = Rect2(117, 0, 39, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbt3w"]
+atlas = ExtResource("3_vrjy2")
+region = Rect2(156, 0, 39, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0cps"]
+atlas = ExtResource("3_vrjy2")
+region = Rect2(195, 0, 39, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwjxp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc5ul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdtkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32jmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi3wi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbt3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0cps")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_map5a"]
+size = Vector2(188, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxq3i"]
+size = Vector2(200, 43.25)
+
+[node name="Bird" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+texture_filter = 1
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_fjhhk")
+gravity_speed_multiplier = 1
+parabolic_stat = ExtResource("2_xjt5h")
+sprite = NodePath("BirdSprite")
+
+[node name="BirdSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_vwjxp")
+autoplay = "default"
+frame_progress = 0.251191
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(98, 114)
+shape = SubResource("RectangleShape2D_map5a")
+
+[node name="WallDetector" type="Area2D" parent="."]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallDetector"]
+position = Vector2(96, 113.625)
+shape = SubResource("RectangleShape2D_pxq3i")
+debug_color = Color(0.732743, 0.447599, 0.40903, 0.42)
+
+[node name="WallCooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="GlideUpCooldown" type="Timer" parent="."]
+process_callback = 0
+
+[connection signal="body_entered" from="WallDetector" to="." method="_on_wall_detector_body_entered"]
+[connection signal="timeout" from="WallCooldown" to="." method="_on_wall_cooldown_timeout"]
+[connection signal="timeout" from="GlideUpCooldown" to="." method="_on_glide_up_cooldown_timeout"]

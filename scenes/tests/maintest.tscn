@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/maintest.gd" id="1_nx5aw"]
 [ext_resource type="AudioStream" uid="uid://bqes06odj2353" path="res://assets/musics/265549__vikuserro__cheap-flash-game-tune.mp3" id="2_g4mbr"]
-[ext_resource type="PackedScene" uid="uid://d05ojgxmduaa8" path="res://scenes/chicken.tscn" id="2_vwlvf"]
+[ext_resource type="PackedScene" uid="uid://d05ojgxmduaa8" path="res://scenes/tests/chicken.tscn" id="2_vwlvf"]
 [ext_resource type="PackedScene" uid="uid://1muwvmjjuogq" path="res://scenes/tests/solid_ground_test.tscn" id="4_83h8e"]
 [ext_resource type="Texture2D" uid="uid://dc5u6auynling" path="res://assets/gamesprites/tileset/tileset_forest.png" id="4_bv1uc"]
 [ext_resource type="PackedScene" uid="uid://c0s8jfpqlxyv3" path="res://scenes/solid_wall.tscn" id="5_7eigg"]
-[ext_resource type="PackedScene" uid="uid://blxylhx4frguu" path="res://scenes/snake.tscn" id="5_qu73t"]
+[ext_resource type="PackedScene" uid="uid://blxylhx4frguu" path="res://scenes/tests/snake.tscn" id="5_qu73t"]
 [ext_resource type="Texture2D" uid="uid://bag2pvpm80skp" path="res://assets/ui/buttons/buttons-global.png" id="7_oullp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cq38f"]

@@ -224,7 +224,7 @@ animations = [{
 size = Vector2(126, 125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4u7e"]
-size = Vector2(10, 158)
+size = Vector2(10, 178.25)
 
 [node name="Cobia" type="CharacterBody2D"]
 collision_mask = 12
@@ -232,7 +232,6 @@ script = ExtResource("1_bhlcw")
 SPEED = 400.0
 floor_travel_distance = 350
 downward_travel_offset = 20
-metadata/_edit_group_ = true
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13)
@@ -263,7 +262,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightDetector"]
-position = Vector2(65, 20)
+position = Vector2(65, 10.25)
 shape = SubResource("RectangleShape2D_e4u7e")
 debug_color = Color(0.385756, 0.602147, 0.320482, 0.42)
 
@@ -272,7 +271,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDetector"]
-position = Vector2(-64.675, 20)
+position = Vector2(-64.675, 10.875)
 shape = SubResource("RectangleShape2D_e4u7e")
 debug_color = Color(0.385756, 0.602147, 0.320482, 0.42)
 

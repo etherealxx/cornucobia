@@ -1,14 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://ci8h3yqpc5swd"]
+[gd_scene load_steps=12 format=3 uid="uid://ci8h3yqpc5swd"]
 
 [ext_resource type="Texture2D" uid="uid://dhc3h3ue4ayap" path="res://assets/gamesprites/enemies/squirrel_sheet.png" id="1_jcrg3"]
-[ext_resource type="Script" path="res://scripts/squirrel.gd" id="1_ocy11"]
-[ext_resource type="Script" path="res://scripts/resources/parabolic.gd" id="2_un80m"]
-
-[sub_resource type="Resource" id="Resource_bh2x1"]
-script = ExtResource("2_un80m")
-initial_velocity = 600.0
-angle_degrees = 20.0
-gravity = 1200.0
+[ext_resource type="Script" path="res://scripts/enemies/squirrel.gd" id="1_ocy11"]
+[ext_resource type="Resource" uid="uid://cyt61rr172ekk" path="res://resources/squirrel_parabolic.tres" id="2_53bcw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vfpo"]
 atlas = ExtResource("1_jcrg3")
@@ -64,14 +58,14 @@ texture_filter = 1
 collision_layer = 2
 collision_mask = 12
 script = ExtResource("1_ocy11")
-parabolic_stat = SubResource("Resource_bh2x1")
+parabolic_stat = ExtResource("2_53bcw")
 
 [node name="SquirrelSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-99, -141)
 scale = Vector2(7, 7)
 sprite_frames = SubResource("SpriteFrames_vwjxp")
 autoplay = "default"
-frame_progress = 0.697416
+frame_progress = 0.0333864
 centered = false
 metadata/_edit_lock_ = true
 

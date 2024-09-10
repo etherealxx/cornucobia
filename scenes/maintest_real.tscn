@@ -1,14 +1,16 @@
-[gd_scene load_steps=31 format=3 uid="uid://k0em1dn6s2ry"]
+[gd_scene load_steps=33 format=3 uid="uid://k0em1dn6s2ry"]
 
 [ext_resource type="Script" path="res://scripts/maintest.gd" id="1_cxf2o"]
 [ext_resource type="AudioStream" uid="uid://bqes06odj2353" path="res://assets/musics/265549__vikuserro__cheap-flash-game-tune.mp3" id="2_opx3g"]
 [ext_resource type="Texture2D" uid="uid://c85umkm50513w" path="res://assets/gamesprites/level/cropsfloor.png" id="3_0n1ap"]
 [ext_resource type="PackedScene" uid="uid://bibeyf3dlpbc4" path="res://scenes/solid_ground.tscn" id="4_gebf1"]
+[ext_resource type="PackedScene" uid="uid://d0ms031j0n5dd" path="res://scenes/enemies/bird.tscn" id="4_r7syv"]
 [ext_resource type="PackedScene" uid="uid://c0s8jfpqlxyv3" path="res://scenes/solid_wall.tscn" id="5_yx8fw"]
 [ext_resource type="PackedScene" uid="uid://xrogsuysb7bi" path="res://scenes/enemy_spawner.tscn" id="6_k0k1j"]
-[ext_resource type="PackedScene" uid="uid://ci8h3yqpc5swd" path="res://scenes/squirrel.tscn" id="6_m275c"]
+[ext_resource type="PackedScene" uid="uid://ci8h3yqpc5swd" path="res://scenes/enemies/squirrel.tscn" id="6_m275c"]
 [ext_resource type="Texture2D" uid="uid://bag2pvpm80skp" path="res://assets/ui/buttons/buttons-global.png" id="8_ol31h"]
 [ext_resource type="Shader" path="res://shaders/cooldown_v3.gdshader" id="9_1ngw6"]
+[ext_resource type="PackedScene" uid="uid://ds343cg4f2rgm" path="res://scenes/enemies/mouse.tscn" id="9_41m2m"]
 [ext_resource type="Texture2D" uid="uid://3pf34rq5hkuc" path="res://assets/ui/buttons/swap_button.png" id="9_r47pa"]
 [ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="9_sywag"]
 [ext_resource type="Texture2D" uid="uid://b6ilhf0pgf38" path="res://assets/ui/buttons/swap_button_pressed.png" id="10_h1gbi"]
@@ -16,6 +18,13 @@
 [ext_resource type="PackedScene" uid="uid://brb0icctws8db" path="res://scenes/cobia.tscn" id="12_bhyiv"]
 [ext_resource type="Script" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="15_i05xd"]
 [ext_resource type="Resource" uid="uid://bs2biqsbifqpu" path="res://resources/shaker_smooth_shake_smaller.tres" id="17_4oy35"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nl51t"]
+font = ExtResource("9_sywag")
+font_size = 86
+
+[sub_resource type="LabelSettings" id="LabelSettings_ll3m6"]
+font_size = 51
 
 [sub_resource type="Animation" id="Animation_r0r68"]
 length = 0.001
@@ -92,18 +101,11 @@ region = Rect2(32, 32, 16, 16)
 atlas = ExtResource("8_ol31h")
 region = Rect2(48, 32, 16, 16)
 
-[sub_resource type="LabelSettings" id="LabelSettings_nl51t"]
-font = ExtResource("9_sywag")
-font_size = 86
-
-[sub_resource type="LabelSettings" id="LabelSettings_ll3m6"]
-font_size = 51
-
 [node name="Pixelated2DMain" type="Node2D" node_paths=PackedStringArray("character")]
 texture_filter = 1
 script = ExtResource("1_cxf2o")
 character = NodePath("Cobia")
-every_enemies = Array[PackedScene]([ExtResource("6_m275c")])
+every_enemies = Array[PackedScene]([ExtResource("6_m275c"), ExtResource("9_41m2m"), ExtResource("4_r7syv")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_opx3g")
@@ -116,6 +118,56 @@ process_callback = 0
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 104.0
+grow_horizontal = 2
+border_width = 2.0
+editor_only = false
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 23.0
+offset_top = 130.0
+offset_right = 313.0
+offset_bottom = 199.0
+text = "Score	: 0"
+label_settings = SubResource("LabelSettings_nl51t")
+
+[node name="HPLabel" type="Label" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 23.0
+offset_top = 193.0
+offset_right = 313.0
+offset_bottom = 262.0
+text = "HP : 0"
+label_settings = SubResource("LabelSettings_nl51t")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 144.0
+offset_top = 100.0
+offset_right = 406.0
+offset_bottom = 170.0
+text = "Key Press: "
+label_settings = SubResource("LabelSettings_ll3m6")
 
 [node name="CropsRows" type="CanvasGroup" parent="."]
 position = Vector2(1090, 0)
@@ -187,37 +239,37 @@ position = Vector2(1060, 290)
 unique_name_in_owner = true
 
 [node name="Spawner" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(-303, 520)
+position = Vector2(-303, 427.3)
 lane = 4
 
 [node name="Spawner2" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(-303, 897)
+position = Vector2(-303, 804.3)
 lane = 3
 
 [node name="Spawner3" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(-303, 1245.3)
+position = Vector2(-303, 1152.6)
 lane = 2
 
 [node name="Spawner4" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(-303, 1622.3)
+position = Vector2(-303, 1529.6)
 
 [node name="Spawner5" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(1372.3, 520)
+position = Vector2(1372.3, 427.3)
 direction_from = "right"
 lane = 4
 
 [node name="Spawner6" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(1372.3, 897)
+position = Vector2(1372.3, 804.3)
 direction_from = "right"
 lane = 3
 
 [node name="Spawner7" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(1372.3, 1245.3)
+position = Vector2(1372.3, 1152.6)
 direction_from = "right"
 lane = 2
 
 [node name="Spawner8" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(1372.3, 1622.3)
+position = Vector2(1372.3, 1529.6)
 direction_from = "right"
 
 [node name="Enemies" type="CanvasGroup" parent="."]
@@ -235,9 +287,13 @@ position = Vector2(710, 786)
 [node name="Squirrel4" parent="Enemies" instance=ExtResource("6_m275c")]
 position = Vector2(300, 456)
 
+[node name="Mouse" parent="Enemies" instance=ExtResource("9_41m2m")]
+position = Vector2(880, 1192)
+
 [node name="Cobia" parent="." instance=ExtResource("12_bhyiv")]
 position = Vector2(120, 1590)
 downward_travel_offset = 10
+metadata/_edit_group_ = true
 
 [node name="LabelResetTimer" type="Timer" parent="."]
 process_callback = 0
@@ -264,8 +320,8 @@ position = Vector2(0, 100)
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.623529)
 material = SubResource("ShaderMaterial_hckqv")
-position = Vector2(408, 1916)
-scale = Vector2(13, 13)
+position = Vector2(384, 1932)
+scale = Vector2(14, 14)
 texture_normal = ExtResource("9_r47pa")
 texture_pressed = ExtResource("10_h1gbi")
 action = "swap_direction"
@@ -294,16 +350,16 @@ action = "debugpress2"
 
 [node name="UpButton" type="TouchScreenButton" parent="UI_Main/Buttons"]
 modulate = Color(1, 1, 1, 0.623529)
-position = Vector2(632, 1692)
-scale = Vector2(13, 13)
+position = Vector2(672, 1692)
+scale = Vector2(14, 14)
 texture_normal = SubResource("AtlasTexture_gqptt")
 texture_pressed = SubResource("AtlasTexture_85ws3")
 action = "switch_lane_up"
 
 [node name="DownButton" type="TouchScreenButton" parent="UI_Main/Buttons"]
 modulate = Color(1, 1, 1, 0.623529)
-position = Vector2(632, 1916)
-scale = Vector2(13, 13)
+position = Vector2(672, 1932)
+scale = Vector2(14, 14)
 texture_normal = SubResource("AtlasTexture_8gsey")
 texture_pressed = SubResource("AtlasTexture_s5aab")
 action = "switch_lane_down"
@@ -331,52 +387,8 @@ anchor_mode = 0
 enabled = false
 zoom = Vector2(0.59, 0.59)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 104.0
-grow_horizontal = 2
-border_width = 2.0
-editor_only = false
-
-[node name="ScoreLabel" type="Label" parent="CanvasLayer/Control"]
-unique_name_in_owner = true
-offset_left = 23.0
-offset_top = 130.0
-offset_right = 313.0
-offset_bottom = 199.0
-text = "Score	: 0"
-label_settings = SubResource("LabelSettings_nl51t")
-
-[node name="HPLabel" type="Label" parent="CanvasLayer/Control"]
-unique_name_in_owner = true
-offset_left = 23.0
-offset_top = 193.0
-offset_right = 313.0
-offset_bottom = 262.0
-text = "HP : 0"
-label_settings = SubResource("LabelSettings_nl51t")
-
-[node name="Label" type="Label" parent="CanvasLayer/Control"]
-unique_name_in_owner = true
-visible = false
-offset_left = 144.0
-offset_top = 100.0
-offset_right = 406.0
-offset_bottom = 170.0
-text = "Key Press: "
-label_settings = SubResource("LabelSettings_ll3m6")
+[node name="Bird" parent="." instance=ExtResource("4_r7syv")]
+position = Vector2(736, 464)
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
 [connection signal="timeout" from="LabelResetTimer" to="." method="_on_label_reset_timer_timeout"]
