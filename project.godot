@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Cornucobia"
-config/version="0.0.3"
+config/version="0.0.5"
 run/main_scene="res://scenes/maintest_real.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://cornucobia_icon.png"
@@ -24,7 +24,7 @@ CollisionCalc="*res://scripts/autoloads/collision_calc.gd"
 [display]
 
 window/size/viewport_width=1080
-window/size/viewport_height=1920
+window/size/viewport_height=2400
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
@@ -51,6 +51,10 @@ switch_lane_down={
 ]
 }
 debugpress={
+"deadzone": 0.5,
+"events": []
+}
+debugpress2={
 "deadzone": 0.5,
 "events": []
 }

@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://bibeyf3dlpbc4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uec64"]
-size = Vector2(1740, 78)
+size = Vector2(2210, 78)
 
 [node name="SolidGround" type="StaticBody2D" groups=["bottom", "ground"]]
 position = Vector2(112, 1813)

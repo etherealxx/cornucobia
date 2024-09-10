@@ -27,6 +27,17 @@ func _ready() -> void:
 	if character.has_signal("add_score"): character.add_score.connect(_on_add_score)
 	$AudioStreamPlayer.get_stream().set_loop(true)
 
+func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("debugpress"):
+		for node in get_children():
+			if node.is_in_group("references"):
+				node.visible = !node.visible
+	elif Input.is_action_just_pressed("debugpress2"):
+		%MainCamera.enabled = !%MainCamera.enabled
+		%MainCamera.visible = !%MainCamera.visible
+		%ZoomedOutCamera.enabled = !%ZoomedOutCamera.enabled
+		%ZoomedOutCamera.visible = !%ZoomedOutCamera.visible
+
 func _on_swap_direction(is_on_cooldown : bool):
 	#if is_on_cooldown: %SwapButton.set_modulate(Color("7070709f"))
 	#else: %SwapButton.set_modulate(Color("ffffff9f"))
@@ -55,9 +66,10 @@ func _on_enemy_spawn_timer_timeout() -> void:
 			spawner_to_remove = spawner
 			break
 	spawners.erase(spawner_to_remove)
+	print(str(spawners.size()))
 	var spawner_node : Marker2D = spawners.pick_random()
 	var new_enemy : CharacterBody2D = every_enemies.pick_random().instantiate()
-	new_enemy.global_position = spawner_node.global_position
+	new_enemy.position = spawner_node.position
 	#print("new enemy spawned at %v" % new_enemy.global_position)
 	%Enemies.add_child(new_enemy)
 	new_enemy.adjust_spawn_direction(spawner_node.direction_from)
@@ -67,4 +79,5 @@ func _on_enemy_spawn_timer_timeout() -> void:
 func _on_add_score(added_score : int):
 	score += added_score
 	%ScoreLabel.text = "Score	: %d" % score
+	%ShakerComponent2D.is_playing = false
 	%ShakerComponent2D.is_playing = true
