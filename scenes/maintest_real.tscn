@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://k0em1dn6s2ry"]
+[gd_scene load_steps=34 format=3 uid="uid://k0em1dn6s2ry"]
 
 [ext_resource type="Script" path="res://scripts/maintest.gd" id="1_cxf2o"]
 [ext_resource type="AudioStream" uid="uid://bqes06odj2353" path="res://assets/musics/265549__vikuserro__cheap-flash-game-tune.mp3" id="2_opx3g"]
@@ -15,6 +15,7 @@
 [ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="9_sywag"]
 [ext_resource type="Texture2D" uid="uid://b6ilhf0pgf38" path="res://assets/ui/buttons/swap_button_pressed.png" id="10_h1gbi"]
 [ext_resource type="Script" path="res://scripts/debug/debug_button.gd" id="10_lcaud"]
+[ext_resource type="PackedScene" uid="uid://bg1yowgs0xhkn" path="res://scenes/grouped_nodes/enemy_spawners.tscn" id="10_vg4ed"]
 [ext_resource type="PackedScene" uid="uid://brb0icctws8db" path="res://scenes/cobia.tscn" id="12_bhyiv"]
 [ext_resource type="Script" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="15_i05xd"]
 [ext_resource type="Resource" uid="uid://bs2biqsbifqpu" path="res://resources/shaker_smooth_shake_smaller.tres" id="17_4oy35"]
@@ -119,6 +120,12 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
+[node name="CorncobSpawnTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 3.0
+one_shot = true
+autostart = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
@@ -146,6 +153,16 @@ offset_top = 130.0
 offset_right = 313.0
 offset_bottom = 199.0
 text = "Score	: 0"
+label_settings = SubResource("LabelSettings_nl51t")
+
+[node name="CornCobLabel" type="Label" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 384.0
+offset_top = 130.0
+offset_right = 674.0
+offset_bottom = 199.0
+text = "Corncob	: 0"
 label_settings = SubResource("LabelSettings_nl51t")
 
 [node name="HPLabel" type="Label" parent="CanvasLayer/Control"]
@@ -235,44 +252,48 @@ position = Vector2(1060, 673)
 [node name="SolidWall8" parent="Walls" instance=ExtResource("5_yx8fw")]
 position = Vector2(1060, 290)
 
-[node name="Spawners" type="CanvasGroup" parent="."]
+[node name="EnemySpawners" parent="." instance=ExtResource("10_vg4ed")]
+unique_name_in_owner = true
+visible = false
+
+[node name="CorncobSpawner" type="CanvasGroup" parent="."]
 unique_name_in_owner = true
 
-[node name="Spawner" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(-303, 427.3)
+[node name="Spawner" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+position = Vector2(99.3, 563.3)
 lane = 4
 
-[node name="Spawner2" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(-303, 804.3)
+[node name="Spawner2" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+position = Vector2(99.3, 940.3)
 lane = 3
 
-[node name="Spawner3" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(-303, 1152.6)
+[node name="Spawner3" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+position = Vector2(99.3, 1288.6)
 lane = 2
 
-[node name="Spawner4" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(-303, 1529.6)
+[node name="Spawner4" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+position = Vector2(99.3, 1665.6)
 
-[node name="Spawner5" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(1372.3, 427.3)
+[node name="Spawner5" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+position = Vector2(979.3, 563.3)
 direction_from = "right"
 lane = 4
 
-[node name="Spawner6" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(1372.3, 804.3)
+[node name="Spawner6" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+position = Vector2(979.3, 940.3)
 direction_from = "right"
 lane = 3
 
-[node name="Spawner7" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(1372.3, 1152.6)
+[node name="Spawner7" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+position = Vector2(979.3, 1288.6)
 direction_from = "right"
 lane = 2
 
-[node name="Spawner8" parent="Spawners" instance=ExtResource("6_k0k1j")]
-position = Vector2(1372.3, 1529.6)
+[node name="Spawner8" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+position = Vector2(979.3, 1665.6)
 direction_from = "right"
 
-[node name="Enemies" type="CanvasGroup" parent="."]
+[node name="Enemies" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Squirrel" parent="Enemies" instance=ExtResource("6_m275c")]
@@ -288,7 +309,10 @@ position = Vector2(710, 786)
 position = Vector2(300, 456)
 
 [node name="Mouse" parent="Enemies" instance=ExtResource("9_41m2m")]
-position = Vector2(880, 1192)
+position = Vector2(216, 824)
+
+[node name="CornCobs" type="CanvasGroup" parent="."]
+unique_name_in_owner = true
 
 [node name="Cobia" parent="." instance=ExtResource("12_bhyiv")]
 position = Vector2(120, 1590)
@@ -391,5 +415,6 @@ zoom = Vector2(0.59, 0.59)
 position = Vector2(736, 464)
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="CorncobSpawnTimer" to="." method="_on_corncob_spawn_timer_timeout"]
 [connection signal="timeout" from="LabelResetTimer" to="." method="_on_label_reset_timer_timeout"]
 [connection signal="timeout" from="UI_Main/Buttons/SwapButton/FlipCooldown" to="UI_Main/Buttons/SwapButton" method="_on_flip_cooldown_timeout"]

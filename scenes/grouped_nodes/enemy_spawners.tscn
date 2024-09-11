@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg1yowgs0xhkn"]
+
+[ext_resource type="PackedScene" uid="uid://xrogsuysb7bi" path="res://scenes/enemy_spawner.tscn" id="1_y8onn"]
+
+[node name="EnemySpawners" type="CanvasGroup"]
+
+[node name="Spawner" parent="." instance=ExtResource("1_y8onn")]
+position = Vector2(-303, 427.3)
+lane = 4
+
+[node name="Spawner2" parent="." instance=ExtResource("1_y8onn")]
+position = Vector2(-303, 804.3)
+lane = 3
+
+[node name="Spawner3" parent="." instance=ExtResource("1_y8onn")]
+position = Vector2(-303, 1152.6)
+lane = 2
+
+[node name="Spawner4" parent="." instance=ExtResource("1_y8onn")]
+position = Vector2(-303, 1529.6)
+
+[node name="Spawner5" parent="." instance=ExtResource("1_y8onn")]
+position = Vector2(1372.3, 427.3)
+direction_from = "right"
+lane = 4
+
+[node name="Spawner6" parent="." instance=ExtResource("1_y8onn")]
+position = Vector2(1372.3, 804.3)
+direction_from = "right"
+lane = 3
+
+[node name="Spawner7" parent="." instance=ExtResource("1_y8onn")]
+position = Vector2(1372.3, 1152.6)
+direction_from = "right"
+lane = 2
+
+[node name="Spawner8" parent="." instance=ExtResource("1_y8onn")]
+position = Vector2(1372.3, 1529.6)
+direction_from = "right"

@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal key_press
 signal swap_direction(is_on_cooldown : bool) # can be either swapstart and swapend
 signal add_score(amount : int)
+signal add_corncob
 
 @export var SPEED := 300.0
 @export var switch_lane_speed_multiplier := 5
@@ -120,10 +121,18 @@ func _on_flip_cooldown_timeout() -> void:
 
 func _on_right_detector_body_entered(body: Node2D) -> void: # only enemy are on this detector's mask
 	if current_direction == "right":
-		add_score.emit(1)
-		body.trigger_death("right")
+		if body.is_in_group("corncob"):
+			add_corncob.emit()
+			body.queue_free()
+		else:
+			add_score.emit(1)
+			body.trigger_death("right")
 
 func _on_left_detector_body_entered(body: Node2D) -> void:# only enemy are on this detector's mask
 	if current_direction == "left":
-		add_score.emit(1)
-		body.trigger_death("left")
+		if body.is_in_group("corncob"):
+			add_corncob.emit()
+			body.queue_free()
+		else:
+			add_score.emit(1)
+			body.trigger_death("left")

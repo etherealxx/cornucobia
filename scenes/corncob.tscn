@@ -1,0 +1,117 @@
+[gd_scene load_steps=15 format=3 uid="uid://bbypr1tjxc72l"]
+
+[ext_resource type="Script" path="res://scripts/corn.gd" id="1_5cb4b"]
+[ext_resource type="Resource" uid="uid://cyt61rr172ekk" path="res://resources/squirrel_parabolic.tres" id="2_px858"]
+[ext_resource type="Texture2D" uid="uid://bswflf87guwh3" path="res://assets/gamesprites/player/corncob_sheet.png" id="3_qi125"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbt3q"]
+atlas = ExtResource("3_qi125")
+region = Rect2(0, 0, 17, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c22q"]
+atlas = ExtResource("3_qi125")
+region = Rect2(17, 0, 17, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcp00"]
+atlas = ExtResource("3_qi125")
+region = Rect2(34, 0, 17, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v7w8"]
+atlas = ExtResource("3_qi125")
+region = Rect2(51, 0, 17, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga72l"]
+atlas = ExtResource("3_qi125")
+region = Rect2(102, 0, 17, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsyfj"]
+atlas = ExtResource("3_qi125")
+region = Rect2(119, 0, 17, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lw11"]
+atlas = ExtResource("3_qi125")
+region = Rect2(136, 0, 17, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lerlt"]
+atlas = ExtResource("3_qi125")
+region = Rect2(153, 0, 17, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwjxp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbt3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c22q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcp00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v7w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga72l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsyfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lw11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lerlt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqten"]
+size = Vector2(44, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xl5pd"]
+size = Vector2(52, 44)
+
+[node name="Corn" type="CharacterBody2D" node_paths=PackedStringArray("sprite") groups=["corncob"]]
+texture_filter = 1
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("1_5cb4b")
+SPEED = 240.0
+parabolic_stat = ExtResource("2_px858")
+sprite = NodePath("CornSprite")
+default_sprite_facing_left = false
+
+[node name="CornSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_vwjxp")
+autoplay = "default"
+frame_progress = 0.73238
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(26, 40)
+shape = SubResource("RectangleShape2D_eqten")
+
+[node name="WallDetector" type="Area2D" parent="."]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallDetector"]
+position = Vector2(26, 38)
+shape = SubResource("RectangleShape2D_xl5pd")
+debug_color = Color(0.732743, 0.447599, 0.40903, 0.42)
+
+[node name="WallCooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="IdleCooldown" type="Timer" parent="."]
+process_callback = 0
+
+[connection signal="body_entered" from="WallDetector" to="." method="_on_wall_detector_body_entered"]
+[connection signal="timeout" from="WallCooldown" to="." method="_on_wall_cooldown_timeout"]
+[connection signal="timeout" from="IdleCooldown" to="." method="_on_idle_cooldown_timeout"]
