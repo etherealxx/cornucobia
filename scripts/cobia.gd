@@ -4,12 +4,14 @@ signal key_press
 signal swap_direction(is_on_cooldown : bool) # can be either swapstart and swapend
 signal add_score(amount : int)
 signal add_corncob
+signal damaged
 
 @export var SPEED := 300.0
 @export var switch_lane_speed_multiplier := 5
 @export var gravity_speed_multiplier := 10
 @export var floor_travel_distance := 440
 @export var downward_travel_offset := 0
+@export var hp := 3
 
 @onready var sprite = $CobiaSprite
 @onready var collision = $BodyCollision
@@ -23,6 +25,9 @@ var top_and_bottom_lane = [1,4]
 var current_lane : int
 var previous_anim : String
 var can_swap_direction := true
+var is_idling := false
+var is_flashing := false
+var is_game_over := false
 
 func _ready():
 	# assuming player got placed on the bottom lane
@@ -33,50 +38,53 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.ZERO
-	if not switching_lane:
-		if Input.is_action_just_pressed("swap_direction"):
-			key_press.emit("z (switch)")
-			if can_swap_direction:
-				swap_direction.emit(true)
-				can_swap_direction = false
-				$FlipCooldown.start()
-				switch_direction()
-		elif Input.is_action_just_pressed("switch_lane_up"):
-			key_press.emit("c (up)")
-			if current_lane > top_and_bottom_lane.min():
-				posneg = Vector2.UP.y # -1
-				switching_lane = true
-				collision.disabled = true
-				switch_lane_target_y = self.position.y - floor_travel_distance
-				current_lane -= 1
-		elif Input.is_action_just_pressed("switch_lane_down"):
-			key_press.emit("x (down)")
-			if current_lane < top_and_bottom_lane.max():
-				posneg = Vector2.DOWN.y # -1
-				switching_lane = true
-				collision.disabled = true
-				switch_lane_target_y = self.position.y + floor_travel_distance + downward_travel_offset
-				current_lane += 1
-			
-		if not is_on_floor():
-			velocity += get_gravity() * delta * gravity_speed_multiplier
+	if not is_game_over: # man i should've used 
+		if not switching_lane:
+			if Input.is_action_just_pressed("swap_direction"):
+				key_press.emit("z (switch)")
+				if can_swap_direction:
+					$TimeBeforeIdle.stop()
+					is_idling = false
+					swap_direction.emit(true)
+					can_swap_direction = false
+					$FlipCooldown.start()
+					switch_direction()
+			elif Input.is_action_just_pressed("switch_lane_up"):
+				key_press.emit("c (up)")
+				if current_lane > top_and_bottom_lane.min():
+					posneg = Vector2.UP.y # -1
+					switching_lane = true
+					collision.disabled = true
+					switch_lane_target_y = self.position.y - floor_travel_distance
+					current_lane -= 1
+			elif Input.is_action_just_pressed("switch_lane_down"):
+				key_press.emit("x (down)")
+				if current_lane < top_and_bottom_lane.max():
+					posneg = Vector2.DOWN.y # -1
+					switching_lane = true
+					collision.disabled = true
+					switch_lane_target_y = self.position.y + floor_travel_distance + downward_travel_offset
+					current_lane += 1
+				
+			if not is_on_floor():
+				velocity += get_gravity() * delta * gravity_speed_multiplier
 
-	else: # switching lane process
-		if (self.position.y > switch_lane_target_y and posneg == -1) or (
-			self.position.y < switch_lane_target_y and posneg == 1):
-			velocity.y = SPEED * switch_lane_speed_multiplier * posneg
-		else:
-			switching_lane = false
-			collision.disabled = false
-			switch_lane_target_y = 0
+		else: # switching lane process
+			if (self.position.y > switch_lane_target_y and posneg == -1) or (
+				self.position.y < switch_lane_target_y and posneg == 1):
+				velocity.y = SPEED * switch_lane_speed_multiplier * posneg
+			else:
+				switching_lane = false
+				collision.disabled = false
+				switch_lane_target_y = 0
 
-	var d : int = 1 if (current_direction == "right") else -1 # "left"
-	#if sprite.get_animation() != "idle":
-	# so that it doesn't push past the wall
-	if !(switching_lane and (self.position.x < 120 or self.position.x > 950)):
-		velocity.x = d * SPEED
-			
-	move_and_slide()
+		var d : int = 1 if (current_direction == "right") else -1 # "left"
+		#if sprite.get_animation() != "idle":
+		# so that it doesn't push past the wall
+		if !(switching_lane and (self.position.x < 120 or self.position.x > 950)):
+			velocity.x = d * SPEED
+				
+		move_and_slide()
 
 func switch_and_flip():
 	if current_direction == "left":
@@ -100,6 +108,7 @@ func _on_animation_finished():
 	match (previous_anim):
 		"run":
 			sprite.play("idle")
+			$TimeBeforeIdle.start()
 		"flip_run_1":
 			previous_anim = "flip_run_2"
 			switch_and_flip()
@@ -119,20 +128,38 @@ func _on_flip_cooldown_timeout() -> void:
 	can_swap_direction = true
 	swap_direction.emit(false)
 
-func _on_right_detector_body_entered(body: Node2D) -> void: # only enemy are on this detector's mask
-	if current_direction == "right":
-		if body.is_in_group("corncob"):
-			add_corncob.emit()
-			body.queue_free()
+func hurt_flash():
+	is_flashing = true
+	var shadermat : ShaderMaterial = sprite.get_material()
+	shadermat.set_shader_parameter("active", true)
+	await get_tree().create_timer(1.5).timeout 
+	shadermat.set_shader_parameter("active", false)
+	is_flashing = false
+
+func handle_colliding(body : Node2D, direction_that_can_take_damage : String):
+	if not is_game_over:
+		if current_direction == direction_that_can_take_damage: # collide from front
+			if body.is_in_group("corncob"):
+				add_corncob.emit()
+				body.queue_free()
+			else:
+				if not is_idling:
+					add_score.emit(1)
+					body.trigger_death(direction_that_can_take_damage)
 		else:
-			add_score.emit(1)
-			body.trigger_death("right")
+			if !body.is_in_group("corncob") and not is_flashing and not is_game_over: # collide from behind
+				hurt_flash()
+				hp -= 1
+				if hp <= 0:
+					hp = 0
+					is_game_over = true
+				damaged.emit()
+			
+func _on_right_detector_body_entered(body: Node2D) -> void: # only enemy are on this detector's mask
+	handle_colliding(body, "right")
 
 func _on_left_detector_body_entered(body: Node2D) -> void:# only enemy are on this detector's mask
-	if current_direction == "left":
-		if body.is_in_group("corncob"):
-			add_corncob.emit()
-			body.queue_free()
-		else:
-			add_score.emit(1)
-			body.trigger_death("left")
+	handle_colliding(body, "left")
+
+func _on_time_before_idle_timeout() -> void:
+	is_idling = true # cannot dash over enemy

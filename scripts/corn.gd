@@ -88,6 +88,10 @@ func _on_wall_cooldown_timeout() -> void:
 	if not is_dead:
 		set_collision_mask(CollisionCalc.mask([3, 4]))
 
+func stop_idle_cooldown_and_go_idle():
+	$IdleCooldown.stop()
+	is_idle = true
+
 func _on_idle_cooldown_timeout() -> void:
 	if is_idle:
 		$IdleCooldown.start(randf_range(2.5,5))

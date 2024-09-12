@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://brb0icctws8db"]
+[gd_scene load_steps=35 format=3 uid="uid://brb0icctws8db"]
 
 [ext_resource type="Script" path="res://scripts/cobia.gd" id="1_bhlcw"]
+[ext_resource type="Shader" path="res://shaders/cobia_flashing.gdshader" id="2_d71ys"]
 [ext_resource type="Texture2D" uid="uid://bwvgsx5j1xg43" path="res://assets/gamesprites/player/cobia_idle_sheet.png" id="2_nq0sg"]
 [ext_resource type="Texture2D" uid="uid://dee0tpr6cuwxk" path="res://assets/gamesprites/player/cobia_run_transition_sheet.png" id="3_vp4te"]
 [ext_resource type="Texture2D" uid="uid://hwkpgl1vlnjj" path="res://assets/gamesprites/player/cobia_running_sheet.png" id="4_ch8lo"]
@@ -8,6 +9,12 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g8o0m"]
 radius = 60.0
 height = 200.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dioe1"]
+shader = ExtResource("2_d71ys")
+shader_parameter/active = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/flash_interval = 0.15
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dp6qi"]
 atlas = ExtResource("3_vp4te")
@@ -238,6 +245,7 @@ position = Vector2(0, 13)
 shape = SubResource("CapsuleShape2D_g8o0m")
 
 [node name="CobiaSprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_dioe1")
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_5hsji")
 animation = &"run"
@@ -255,6 +263,10 @@ debug_color = Color(0.732743, 0.447599, 0.40903, 0.42)
 [node name="FlipCooldown" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.4
+one_shot = true
+
+[node name="TimeBeforeIdle" type="Timer" parent="."]
+process_callback = 0
 one_shot = true
 
 [node name="RightDetector" type="Area2D" parent="."]
@@ -277,5 +289,6 @@ debug_color = Color(0.385756, 0.602147, 0.320482, 0.42)
 
 [connection signal="body_entered" from="WallDetector" to="." method="_on_wall_detector_body_entered"]
 [connection signal="timeout" from="FlipCooldown" to="." method="_on_flip_cooldown_timeout"]
+[connection signal="timeout" from="TimeBeforeIdle" to="." method="_on_time_before_idle_timeout"]
 [connection signal="body_entered" from="RightDetector" to="." method="_on_right_detector_body_entered"]
 [connection signal="body_entered" from="LeftDetector" to="." method="_on_left_detector_body_entered"]

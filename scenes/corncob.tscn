@@ -69,10 +69,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqten"]
-size = Vector2(44, 56)
+size = Vector2(60, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xl5pd"]
-size = Vector2(52, 44)
+size = Vector2(68, 42)
 
 [node name="Corn" type="CharacterBody2D" node_paths=PackedStringArray("sprite") groups=["corncob"]]
 texture_filter = 1
@@ -85,22 +85,22 @@ sprite = NodePath("CornSprite")
 default_sprite_facing_left = false
 
 [node name="CornSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_vwjxp")
 autoplay = "default"
-frame_progress = 0.73238
+frame_progress = 0.630517
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(26, 40)
+position = Vector2(34, 61)
 shape = SubResource("RectangleShape2D_eqten")
 
 [node name="WallDetector" type="Area2D" parent="."]
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallDetector"]
-position = Vector2(26, 38)
+position = Vector2(34, 58)
 shape = SubResource("RectangleShape2D_xl5pd")
 debug_color = Color(0.732743, 0.447599, 0.40903, 0.42)
 

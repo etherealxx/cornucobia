@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="Cornucobia"
-config/version="0.0.7"
+config/version="0.0.8"
 run/main_scene="res://scenes/maintest_real.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://cornucobia_icon.png"
 
 [autoload]
 
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+GlobalVar="*res://scripts/autoloads/GlobalVar.gd"
 Shaker="*res://addons/shaker/src/Shaker.gd"
 CollisionCalc="*res://scripts/autoloads/collision_calc.gd"
 
@@ -31,7 +33,7 @@ window/handheld/orientation=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SimpleTODO/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/simple_tool_button/plugin.cfg")
+enabled=PackedStringArray("res://addons/SimpleTODO/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/silent_wolf/plugin.cfg", "res://addons/simple_tool_button/plugin.cfg")
 
 [input]
 

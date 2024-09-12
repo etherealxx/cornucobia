@@ -172,7 +172,7 @@ offset_left = 23.0
 offset_top = 193.0
 offset_right = 313.0
 offset_bottom = 262.0
-text = "HP : 0"
+text = "HP : 3"
 label_settings = SubResource("LabelSettings_nl51t")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]

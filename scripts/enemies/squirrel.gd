@@ -48,6 +48,7 @@ func start_wall_cooldown():
 	$WallCooldown.start()
 
 func trigger_death(from_direction):
+	#print("death triggered")
 	is_dead = true
 	set_collision_mask(0)
 	set_collision_layer(0)
