@@ -116,6 +116,8 @@ func _on_damaged():
 			corn.stop_idle_cooldown_and_go_idle()
 		GlobalVar.score = score
 		if score > GlobalVar.high_score: GlobalVar.high_score = score
+		if GlobalVar.silentwolf_configured:
+			await SilentWolf.Scores.save_score("Ether", score)
 		await get_tree().create_timer(2).timeout
 		get_tree().change_scene_to_file(gameoverscene_path)
 	
