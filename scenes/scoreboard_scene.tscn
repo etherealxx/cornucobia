@@ -57,7 +57,7 @@ font_size = 160
 outline_size = 20
 outline_color = Color(0.89, 0.335233, 0.2848, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jrq60"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtpwa"]
 shader = ExtResource("12_kh7dl")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.705882, 0.482353, 0.254902, 1)
@@ -68,15 +68,15 @@ shader_parameter/u_interpolation_factor = 1.0
 
 [sub_resource type="PlaceholderMesh" id="PlaceholderMesh_08wxu"]
 
-[sub_resource type="MeshTexture" id="MeshTexture_qdo15"]
+[sub_resource type="MeshTexture" id="MeshTexture_5arj4"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_fn707"]
+[sub_resource type="MeshTexture" id="MeshTexture_bv1js"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_18fus"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bl2rb"]
 shader = ExtResource("12_kh7dl")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.705882, 0.482353, 0.254902, 1)
@@ -85,15 +85,15 @@ shader_parameter/u_replacement_color2 = Color(0.427451, 0.294118, 0.152941, 1)
 shader_parameter/u_tolerance = 0.1
 shader_parameter/u_interpolation_factor = 1.0
 
-[sub_resource type="MeshTexture" id="MeshTexture_27ued"]
+[sub_resource type="MeshTexture" id="MeshTexture_jinh2"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_y5og2"]
+[sub_resource type="MeshTexture" id="MeshTexture_bw0y6"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e48c6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7j3l7"]
 shader = ExtResource("12_kh7dl")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.705882, 0.482353, 0.254902, 1)
@@ -102,11 +102,11 @@ shader_parameter/u_replacement_color2 = Color(0.427451, 0.294118, 0.152941, 1)
 shader_parameter/u_tolerance = 0.1
 shader_parameter/u_interpolation_factor = 1.0
 
-[sub_resource type="MeshTexture" id="MeshTexture_tsysm"]
+[sub_resource type="MeshTexture" id="MeshTexture_dtla5"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_ir1y8"]
+[sub_resource type="MeshTexture" id="MeshTexture_kjimc"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
@@ -396,31 +396,31 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BtnSubmitScore" parent="." instance=ExtResource("11_rebsr")]
-material = SubResource("ShaderMaterial_jrq60")
+material = SubResource("ShaderMaterial_vtpwa")
 position = Vector2(57, 2044)
 scale = Vector2(7, 7)
-texture_normal = SubResource("MeshTexture_qdo15")
-texture_pressed = SubResource("MeshTexture_fn707")
+texture_normal = SubResource("MeshTexture_5arj4")
+texture_pressed = SubResource("MeshTexture_bv1js")
 button_text = "Submit Score"
 button_size = Vector2(136.595, 17.99)
 font_color = Color(1, 1, 1, 1)
 
 [node name="BtnPlayAgain" parent="." instance=ExtResource("11_rebsr")]
-material = SubResource("ShaderMaterial_18fus")
+material = SubResource("ShaderMaterial_bl2rb")
 position = Vector2(57, 2194)
 scale = Vector2(7, 7)
-texture_normal = SubResource("MeshTexture_27ued")
-texture_pressed = SubResource("MeshTexture_y5og2")
+texture_normal = SubResource("MeshTexture_jinh2")
+texture_pressed = SubResource("MeshTexture_bw0y6")
 button_text = "Play Again"
 button_size = Vector2(68.308, 17.99)
 font_color = Color(1, 1, 1, 1)
 
 [node name="BtnMainMenu" parent="." instance=ExtResource("11_rebsr")]
-material = SubResource("ShaderMaterial_e48c6")
+material = SubResource("ShaderMaterial_7j3l7")
 position = Vector2(565, 2194)
 scale = Vector2(7, 7)
-texture_normal = SubResource("MeshTexture_tsysm")
-texture_pressed = SubResource("MeshTexture_ir1y8")
+texture_normal = SubResource("MeshTexture_dtla5")
+texture_pressed = SubResource("MeshTexture_kjimc")
 button_text = "Main Menu"
 button_size = Vector2(63.925, 17.99)
 font_color = Color(1, 1, 1, 1)

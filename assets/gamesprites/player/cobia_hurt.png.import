@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0aojyi1e1tqg"
-path="res://.godot/imported/squirrel_sheet_2.png-910cd7c6d922f153559a36570b8917ab.ctex"
+uid="uid://c0uh2nngrrogq"
+path="res://.godot/imported/cobia_hurt.png-0d26c9e1fe2073f7195a807e4bd528a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gamesprites/enemies/squirrel_sheet_2.png"
-dest_files=["res://.godot/imported/squirrel_sheet_2.png-910cd7c6d922f153559a36570b8917ab.ctex"]
+source_file="res://assets/gamesprites/player/cobia_hurt.png"
+dest_files=["res://.godot/imported/cobia_hurt.png-0d26c9e1fe2073f7195a807e4bd528a2.ctex"]
 
 [params]
 

@@ -1,10 +1,13 @@
 @tool
 extends TouchScreenButton
 
-var is_emulating_click := false
+#signal precise_released
 
 @onready var btn_click = $ButtonClicked
 @onready var btn_unclick = $ButtonUnclicked
+
+var is_emulating_click := false
+var last_touch_pos := Vector2.ZERO
 
 @export var button_text := "Text":
 	set(new_text):
@@ -49,7 +52,7 @@ func click_anim():
 func emulate_click():
 	click_anim()
 	queue_redraw()
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.1, true, true).timeout
 	unclick_anim()
 	queue_redraw()
 	
@@ -73,10 +76,22 @@ func _ready() -> void:
 		unclick_anim()
 		pressed.connect(click_anim)
 		released.connect(unclick_anim)
+		#released.connect(precise_release_check)
 	update_text()
 	update_size()
 	update_color()
-		
+
+#func _unhandled_input(event):
+	#if event is InputEventScreenTouch and event.pressed == true:
+		#last_touch_pos = event.position
+#
+#func precise_release_check():
+	##if Rect2(global_position, Vector2(button_size.x, button_size.y)).has_point(last_touch_pos):
+		##precise_release.emit()
+	##else:
+		##print("%v" % last_touch_pos)
+		##print("not precise")
+	#pass
 #func _on_pressed() -> void:
 	#click_anim()
 #

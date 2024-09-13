@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://k0em1dn6s2ry"]
+[gd_scene load_steps=35 format=3 uid="uid://k0em1dn6s2ry"]
 
 [ext_resource type="Script" path="res://scripts/maintest.gd" id="1_sqiqn"]
 [ext_resource type="PackedScene" uid="uid://ci8h3yqpc5swd" path="res://scenes/enemies/squirrel.tscn" id="2_kor3a"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="6_p4kw7"]
 [ext_resource type="Texture2D" uid="uid://c85umkm50513w" path="res://assets/gamesprites/level/cropsfloor.png" id="7_u8sly"]
 [ext_resource type="PackedScene" uid="uid://b3lt1gg6w63ux" path="res://scenes/grouped_nodes/grounds.tscn" id="8_40p8q"]
+[ext_resource type="PackedScene" uid="uid://ckrqes2ef71te" path="res://scenes/blocker.tscn" id="8_sruy8"]
 [ext_resource type="PackedScene" uid="uid://cag2xo07f5vge" path="res://scenes/grouped_nodes/walls.tscn" id="9_y41ub"]
 [ext_resource type="PackedScene" uid="uid://bg1yowgs0xhkn" path="res://scenes/grouped_nodes/enemy_spawners.tscn" id="10_4qgsn"]
 [ext_resource type="PackedScene" uid="uid://bb788xygbe5qp" path="res://scenes/grouped_nodes/corncob_spawner.tscn" id="11_vfcf1"]
@@ -186,6 +187,16 @@ offset_bottom = 170.0
 text = "Key Press: "
 label_settings = SubResource("LabelSettings_ll3m6")
 
+[node name="DebugLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 735.0
+offset_top = 9.0
+offset_right = 1061.0
+offset_bottom = 326.0
+theme_override_font_sizes/normal_font_size = 44
+text = "debugg"
+
 [node name="CropsRows" type="CanvasGroup" parent="."]
 position = Vector2(1090, 0)
 
@@ -211,6 +222,13 @@ position = Vector2(-551, 522.5)
 scale = Vector2(5, 5)
 texture = ExtResource("7_u8sly")
 flip_h = true
+
+[node name="BirdBlockers" type="CanvasGroup" parent="."]
+
+[node name="Blocker" parent="BirdBlockers" groups=["blockertop"] instance=ExtResource("8_sruy8")]
+
+[node name="Blocker2" parent="BirdBlockers" groups=["blockerbottom", "blockertop"] instance=ExtResource("8_sruy8")]
+position = Vector2(131, 1742)
 
 [node name="Grounds" parent="." instance=ExtResource("8_40p8q")]
 

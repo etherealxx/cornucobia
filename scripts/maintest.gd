@@ -25,6 +25,8 @@ func _ready() -> void:
 	if character.has_signal("add_corncob"): character.add_corncob.connect(_on_add_corncob)
 	if character.has_signal("damaged"): character.damaged.connect(_on_damaged)
 	$AudioStreamPlayer.get_stream().set_loop(true)
+	GlobalVar.debuglog += "silentwolf configured: %s\n" % GlobalVar.silentwolf_configured
+	%DebugLabel.text = GlobalVar.debuglog
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debugpress"):
@@ -108,8 +110,11 @@ func _on_damaged():
 		GlobalVar.score = score
 		GlobalVar.corncob_score = corncob
 		if score > GlobalVar.high_score: GlobalVar.high_score = score
-		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_file(gameoverscene_path)
+		await get_tree().create_timer(2.0, true, true).timeout
+		$AudioStreamPlayer.stop()
+		#GlobalVar.next_scene_path = gameoverscene_path
+		#get_tree().change_scene_to_file(GlobalVar.loadingscene_path)
+		GlobalVar.go_to_scene(gameoverscene_path)
 	
 func _on_corncob_spawn_timer_timeout() -> void:
 	if character.hp > 0:

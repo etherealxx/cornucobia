@@ -90,9 +90,11 @@ func switch_and_flip():
 	if current_direction == "left":
 		current_direction = "right"
 		sprite.flip_h = false
+		$CobiaHurt.flip_h = false
 	else: # right
 		current_direction = "left"
 		sprite.flip_h = true
+		$CobiaHurt.flip_h = true
 
 func switch_direction():
 	if sprite.get_animation() == "idle":
@@ -105,18 +107,19 @@ func switch_direction():
 
 func _on_animation_finished():
 	#print("prevanim: " + str(previous_anim))
-	match (previous_anim):
-		"run":
-			sprite.play("idle")
-			$TimeBeforeIdle.start()
-		"flip_run_1":
-			previous_anim = "flip_run_2"
-			switch_and_flip()
-			sprite.play_backwards("flip_run")
-		"flip_run_2":
-			sprite.play("run")
-		"idle":
-			sprite.play("run")
+	if not is_game_over:
+		match (previous_anim):
+			"run":
+				sprite.play("idle")
+				$TimeBeforeIdle.start()
+			"flip_run_1":
+				previous_anim = "flip_run_2"
+				switch_and_flip()
+				sprite.play_backwards("flip_run")
+			"flip_run_2":
+				sprite.play("run")
+			"idle":
+				sprite.play("run")
 
 func _on_wall_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("wall") and sprite.get_animation() != "idle":
@@ -132,7 +135,15 @@ func hurt_flash():
 	is_flashing = true
 	var shadermat : ShaderMaterial = sprite.get_material()
 	shadermat.set_shader_parameter("active", true)
-	await get_tree().create_timer(1.5).timeout 
+	$CobiaSprite.hide()
+	$CobiaHurt.show()
+	$FlashEndTimer.start()
+	await get_tree().create_timer(0.5, true, true).timeout
+	$CobiaSprite.show()
+	$CobiaHurt.hide()
+	
+func _on_flash_end_timer_timeout() -> void:
+	var shadermat : ShaderMaterial = sprite.get_material()
 	shadermat.set_shader_parameter("active", false)
 	is_flashing = false
 
@@ -148,11 +159,13 @@ func handle_colliding(body : Node2D, direction_that_can_take_damage : String):
 					body.trigger_death(direction_that_can_take_damage)
 		else:
 			if !body.is_in_group("corncob") and not is_flashing and not is_game_over and not switching_lane: # collide from behind
-				hurt_flash()
 				hp -= 1
 				if hp <= 0:
 					hp = 0
 					is_game_over = true
+					sprite.play("death")
+				else:
+					hurt_flash()
 				damaged.emit()
 			
 func _on_right_detector_body_entered(body: Node2D) -> void: # only enemy are on this detector's mask

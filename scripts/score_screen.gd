@@ -28,10 +28,12 @@ func _on_btn_submit_score_released() -> void: #@TODO implement check if player r
 			%InsertName.hide()
 			return
 		if GlobalVar.silentwolf_configured:
+			print("PLAYER NAME: %s" % GlobalVar.playername)
 			await SilentWolf.Scores.save_score(GlobalVar.playername, %ScoreBoard.finalscore)
 			%ScoreNames.text = "(please wait)"
 			%NameScores.text = "~\nw\na\ni\nt\n~"
-			%ScoreBoard.load_leaderboard()
+			await get_tree().create_timer(0.1, true, true).timeout # sometimes the leaderboard aren't updated that fast
+			%ScoreBoard.load_leaderboard() # next time use the offline sorter method
 			await %ScoreBoard.leaderboard_loaded
 			$BtnSubmitScore.hide()
 		is_loading_leaderboard = false
@@ -57,7 +59,8 @@ func _on_insert_name_canceled() -> void:
 	is_loading_leaderboard = false
 
 func _on_insert_name_confirmed() -> void:	
-	GlobalVar.playername = %InsideDialog.get_name()
+	GlobalVar.playername = %InsideDialog.get_player_name()
+	print("PLAYER NAME: %s" % GlobalVar.playername)
 	toggle_modulator()
 	if not debug_accept_windows:
 		%ScoreNames.text = "(please wait)"
@@ -67,7 +70,7 @@ func _on_insert_name_confirmed() -> void:
 		await %ScoreBoard.leaderboard_loaded
 		$BtnSubmitScore.hide()
 	is_loading_leaderboard = false
-
+	
 func _on_btn_play_again_released() -> void:
 	GlobalVar.reset_scores()
-	get_tree().change_scene_to_file(maingameplay_scn_path)
+	GlobalVar.go_to_scene(maingameplay_scn_path)

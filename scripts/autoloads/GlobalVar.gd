@@ -3,10 +3,20 @@ extends Node
 var score := 0
 var high_score := 0
 var corncob_score := 0
-var silentwolf_api_key_path = "res://scripts/api_keys/silentwolf_api_key.gd"
+#var silentwolf_api_key_path = "res://scripts/api_keys/silentwolf_api_key.gd"
+var silentwolf_api_key_path = "res://secrets/api_keys/silentwolf_api_key.gd" # "res://secrets/silentwolf_api_key.gd"
 var silentwolf_configured := false
 var is_tos_accepted := false
 var playername := ""
+var silentwolf_open_scene_on_close = "res://scenes/main_gameplay_scene.tscn"
+var firstload := true
+var next_scene_path :=""
+var loadingscene_path = "res://scenes/loading_screen.tscn"
+var debuglog := ""
+func go_to_scene(path : String):
+	firstload = false
+	next_scene_path = path
+	get_tree().change_scene_to_file(loadingscene_path)
 
 # Scale down the window accordingly if the project being ran in Desktop (not Android)
 func adaptive_non_android_viewport_scaling():
@@ -22,8 +32,16 @@ func adaptive_non_android_viewport_scaling():
 											DisplayServer.screen_get_size().y - usable_screen_height))
 
 func initialize_leaderboard():
-	if FileAccess.file_exists(silentwolf_api_key_path):
-		var sw_api_script = load("res://scripts/api_keys/silentwolf_api_key.gd")
+	var dir = DirAccess.open("res://")
+	#var checkbool = dir.file_exists(silentwolf_api_key_path)
+	#debuglog += "pathexist: %s\n" % checkbool
+	if dir.file_exists(silentwolf_api_key_path):
+	#var sw_api_script_x = ResourceLoader.load(silentwolf_api_key_path) #TODO clean this mess
+	#if sw_api_script_x:
+		#debuglog += "got_something\n"
+	#if sw_api_script_x:#FileAccess.file_exists(silentwolf_api_key_path):
+		#var sw_api_script = load(silentwolf_api_key_path)
+		var sw_api_script = ResourceLoader.load(silentwolf_api_key_path)
 		var sw_api_node = Node.new()
 		sw_api_node.set_script(sw_api_script)
 		if sw_api_node.has_method("get_api_key"):
@@ -34,10 +52,12 @@ func initialize_leaderboard():
 			}
 			SilentWolf.configure(sw_config)
 			SilentWolf.configure_scores({
-				"open_scene_on_close": "res://scenes/maintest_real.tscn"
+				"open_scene_on_close": silentwolf_open_scene_on_close
 			})
 			silentwolf_configured = true
 			print("SilentWolf configured.")
+	else:
+		debuglog += "file not exist\n"
 		
 func reset_scores():
 	score = 0

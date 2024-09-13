@@ -74,7 +74,16 @@ func _on_wall_cooldown_timeout() -> void:
 	on_wall_cooldown = false
 	if not is_dead:
 		set_collision_mask(CollisionCalc.mask([3, 4]))
+	gravity_speed_multiplier = 5
 
 func _on_glide_up_cooldown_timeout() -> void:
 	$GlideUpCooldown.start(randf_range(2.5,5))
 	is_glide_up = !is_glide_up
+
+
+func _on_blocker_detector_body_entered(body: Node2D) -> void:
+	if not is_dead:
+		if body.is_in_group("blockertop"):
+			is_glide_up = false
+		elif body.is_in_group("blockerbottom"):
+			is_glide_up = true

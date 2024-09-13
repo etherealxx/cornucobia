@@ -5,5 +5,7 @@
 [resource]
 default_font = ExtResource("1_jpkdk")
 LineEdit/font_sizes/font_size = 120
+ProgressBar/font_sizes/font_size = 81
+ProgressBar/fonts/font = ExtResource("1_jpkdk")
 RichTextLabel/font_sizes/normal_font_size = 98
 RichTextLabel/fonts/normal_font = ExtResource("1_jpkdk")

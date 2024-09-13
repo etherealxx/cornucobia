@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0ms031j0n5dd"]
+[gd_scene load_steps=14 format=3 uid="uid://d0ms031j0n5dd"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bird.gd" id="1_fjhhk"]
 [ext_resource type="Resource" uid="uid://cyt61rr172ekk" path="res://resources/squirrel_parabolic.tres" id="2_xjt5h"]
@@ -60,6 +60,9 @@ size = Vector2(188, 60)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxq3i"]
 size = Vector2(200, 43.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sc565"]
+size = Vector2(174, 69.25)
+
 [node name="Bird" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 texture_filter = 1
 collision_layer = 2
@@ -82,12 +85,22 @@ position = Vector2(98, 114)
 shape = SubResource("RectangleShape2D_map5a")
 
 [node name="WallDetector" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallDetector"]
 position = Vector2(96, 113.625)
 shape = SubResource("RectangleShape2D_pxq3i")
 debug_color = Color(0.732743, 0.447599, 0.40903, 0.42)
+
+[node name="BlockerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockerDetector"]
+position = Vector2(96, 113.625)
+shape = SubResource("RectangleShape2D_sc565")
+debug_color = Color(0.683549, 0.496582, 0.202748, 0.42)
 
 [node name="WallCooldown" type="Timer" parent="."]
 process_callback = 0
@@ -98,5 +111,6 @@ one_shot = true
 process_callback = 0
 
 [connection signal="body_entered" from="WallDetector" to="." method="_on_wall_detector_body_entered"]
+[connection signal="body_entered" from="BlockerDetector" to="." method="_on_blocker_detector_body_entered"]
 [connection signal="timeout" from="WallCooldown" to="." method="_on_wall_cooldown_timeout"]
 [connection signal="timeout" from="GlideUpCooldown" to="." method="_on_glide_up_cooldown_timeout"]

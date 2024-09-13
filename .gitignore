@@ -10,3 +10,4 @@ scripts/api_keys/*
 2d_mobile_compatibility.build
 addons_examples/*
 fonts/Poppins/*
+secrets/*

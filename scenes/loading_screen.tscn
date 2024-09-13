@@ -1,0 +1,163 @@
+[gd_scene load_steps=21 format=3 uid="uid://bnne66bi2482n"]
+
+[ext_resource type="Script" path="res://scripts/loading_screen.gd" id="1_la05l"]
+[ext_resource type="Shader" path="res://shaders/hitflash.gdshader" id="2_3f6op"]
+[ext_resource type="Texture2D" uid="uid://7rh5xasj6x8t" path="res://assets/gamesprites/background/Summer8.png" id="2_gfyq0"]
+[ext_resource type="Texture2D" uid="uid://hwkpgl1vlnjj" path="res://assets/gamesprites/player/cobia_running_sheet.png" id="3_1ktl5"]
+[ext_resource type="Theme" uid="uid://cc4xqkjslk0ic" path="res://resources/monogram_ui_theme.tres" id="4_p7851"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqy1o"]
+atlas = ExtResource("2_gfyq0")
+region = Rect2(734.039, 0, 605.701, 1296)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5lg2"]
+shader = ExtResource("2_3f6op")
+shader_parameter/active = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/flash_interval = 0.15
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1hjb"]
+atlas = ExtResource("3_1ktl5")
+region = Rect2(0, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjthd"]
+atlas = ExtResource("3_1ktl5")
+region = Rect2(45, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkvyv"]
+atlas = ExtResource("3_1ktl5")
+region = Rect2(90, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqdu8"]
+atlas = ExtResource("3_1ktl5")
+region = Rect2(135, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdcmc"]
+atlas = ExtResource("3_1ktl5")
+region = Rect2(180, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr7vt"]
+atlas = ExtResource("3_1ktl5")
+region = Rect2(225, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvvjs"]
+atlas = ExtResource("3_1ktl5")
+region = Rect2(270, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckgep"]
+atlas = ExtResource("3_1ktl5")
+region = Rect2(315, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvg3o"]
+atlas = ExtResource("3_1ktl5")
+region = Rect2(360, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lem8"]
+atlas = ExtResource("3_1ktl5")
+region = Rect2(405, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io8w3"]
+atlas = ExtResource("3_1ktl5")
+region = Rect2(450, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8yx1"]
+atlas = ExtResource("3_1ktl5")
+region = Rect2(495, 0, 45, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mqx13"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1hjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjthd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkvyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqdu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdcmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr7vt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvvjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckgep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvg3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lem8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_io8w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8yx1")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[node name="Loading" type="Control" node_paths=PackedStringArray("loadingbar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_la05l")
+scene_path_to_load = "res://scenes/main_gameplay_scene.tscn"
+loadingbar = NodePath("Cobia/ProgressBar")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(540, 1204)
+scale = Vector2(1.87, 1.87)
+texture = SubResource("AtlasTexture_iqy1o")
+
+[node name="Cobia" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CobiaSprite" type="AnimatedSprite2D" parent="Cobia"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_b5lg2")
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_mqx13")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.652345
+
+[node name="ProgressBar" type="ProgressBar" parent="Cobia"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -442.0
+offset_top = 118.0
+offset_right = 442.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_p7851")
+step = 0.0
