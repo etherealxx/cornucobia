@@ -1,27 +1,27 @@
 [gd_scene load_steps=34 format=3 uid="uid://k0em1dn6s2ry"]
 
-[ext_resource type="Script" path="res://scripts/maintest.gd" id="1_cxf2o"]
-[ext_resource type="AudioStream" uid="uid://bqes06odj2353" path="res://assets/musics/265549__vikuserro__cheap-flash-game-tune.mp3" id="2_opx3g"]
-[ext_resource type="Texture2D" uid="uid://c85umkm50513w" path="res://assets/gamesprites/level/cropsfloor.png" id="3_0n1ap"]
-[ext_resource type="PackedScene" uid="uid://bibeyf3dlpbc4" path="res://scenes/solid_ground.tscn" id="4_gebf1"]
-[ext_resource type="PackedScene" uid="uid://d0ms031j0n5dd" path="res://scenes/enemies/bird.tscn" id="4_r7syv"]
-[ext_resource type="PackedScene" uid="uid://c0s8jfpqlxyv3" path="res://scenes/solid_wall.tscn" id="5_yx8fw"]
-[ext_resource type="PackedScene" uid="uid://xrogsuysb7bi" path="res://scenes/enemy_spawner.tscn" id="6_k0k1j"]
-[ext_resource type="PackedScene" uid="uid://ci8h3yqpc5swd" path="res://scenes/enemies/squirrel.tscn" id="6_m275c"]
-[ext_resource type="Texture2D" uid="uid://bag2pvpm80skp" path="res://assets/ui/buttons/buttons-global.png" id="8_ol31h"]
-[ext_resource type="Shader" path="res://shaders/cooldown_v3.gdshader" id="9_1ngw6"]
-[ext_resource type="PackedScene" uid="uid://ds343cg4f2rgm" path="res://scenes/enemies/mouse.tscn" id="9_41m2m"]
-[ext_resource type="Texture2D" uid="uid://3pf34rq5hkuc" path="res://assets/ui/buttons/swap_button.png" id="9_r47pa"]
-[ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="9_sywag"]
-[ext_resource type="Texture2D" uid="uid://b6ilhf0pgf38" path="res://assets/ui/buttons/swap_button_pressed.png" id="10_h1gbi"]
-[ext_resource type="Script" path="res://scripts/debug/debug_button.gd" id="10_lcaud"]
-[ext_resource type="PackedScene" uid="uid://bg1yowgs0xhkn" path="res://scenes/grouped_nodes/enemy_spawners.tscn" id="10_vg4ed"]
-[ext_resource type="PackedScene" uid="uid://brb0icctws8db" path="res://scenes/cobia.tscn" id="12_bhyiv"]
-[ext_resource type="Script" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="15_i05xd"]
-[ext_resource type="Resource" uid="uid://bs2biqsbifqpu" path="res://resources/shaker_smooth_shake_smaller.tres" id="17_4oy35"]
+[ext_resource type="Script" path="res://scripts/maintest.gd" id="1_sqiqn"]
+[ext_resource type="PackedScene" uid="uid://ci8h3yqpc5swd" path="res://scenes/enemies/squirrel.tscn" id="2_kor3a"]
+[ext_resource type="PackedScene" uid="uid://ds343cg4f2rgm" path="res://scenes/enemies/mouse.tscn" id="3_5jhd6"]
+[ext_resource type="PackedScene" uid="uid://d0ms031j0n5dd" path="res://scenes/enemies/bird.tscn" id="4_8ll1f"]
+[ext_resource type="AudioStream" uid="uid://bqes06odj2353" path="res://assets/musics/265549__vikuserro__cheap-flash-game-tune.mp3" id="5_6crht"]
+[ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="6_p4kw7"]
+[ext_resource type="Texture2D" uid="uid://c85umkm50513w" path="res://assets/gamesprites/level/cropsfloor.png" id="7_u8sly"]
+[ext_resource type="PackedScene" uid="uid://bibeyf3dlpbc4" path="res://scenes/solid_ground.tscn" id="8_qp55i"]
+[ext_resource type="PackedScene" uid="uid://c0s8jfpqlxyv3" path="res://scenes/solid_wall.tscn" id="9_7i5bd"]
+[ext_resource type="PackedScene" uid="uid://bg1yowgs0xhkn" path="res://scenes/grouped_nodes/enemy_spawners.tscn" id="10_4qgsn"]
+[ext_resource type="PackedScene" uid="uid://xrogsuysb7bi" path="res://scenes/enemy_spawner.tscn" id="11_qciuq"]
+[ext_resource type="PackedScene" uid="uid://brb0icctws8db" path="res://scenes/cobia.tscn" id="12_pg2vy"]
+[ext_resource type="Shader" path="res://shaders/cooldown_v3.gdshader" id="13_tq1tt"]
+[ext_resource type="Texture2D" uid="uid://3pf34rq5hkuc" path="res://assets/ui/buttons/swap_button.png" id="14_4j7ox"]
+[ext_resource type="Texture2D" uid="uid://b6ilhf0pgf38" path="res://assets/ui/buttons/swap_button_pressed.png" id="15_2ndgp"]
+[ext_resource type="Script" path="res://scripts/debug/debug_button.gd" id="16_kt6oy"]
+[ext_resource type="Texture2D" uid="uid://bag2pvpm80skp" path="res://assets/ui/buttons/buttons-global.png" id="17_flv2h"]
+[ext_resource type="Script" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="18_06dll"]
+[ext_resource type="Resource" uid="uid://bs2biqsbifqpu" path="res://resources/shaker_smooth_shake_smaller.tres" id="19_bvgs0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nl51t"]
-font = ExtResource("9_sywag")
+font = ExtResource("6_p4kw7")
 font_size = 86
 
 [sub_resource type="LabelSettings" id="LabelSettings_ll3m6"]
@@ -66,50 +66,51 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hckqv"]
-shader = ExtResource("9_1ngw6")
+shader = ExtResource("13_tq1tt")
 shader_parameter/cooldown_progress = 0.0
 shader_parameter/start_angle = 90.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pj2hy"]
-atlas = ExtResource("8_ol31h")
+atlas = ExtResource("17_flv2h")
 region = Rect2(64, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l1y6d"]
-atlas = ExtResource("8_ol31h")
+atlas = ExtResource("17_flv2h")
 region = Rect2(80, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwd4q"]
-atlas = ExtResource("8_ol31h")
+atlas = ExtResource("17_flv2h")
 region = Rect2(128, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lns2y"]
-atlas = ExtResource("8_ol31h")
+atlas = ExtResource("17_flv2h")
 region = Rect2(144, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqptt"]
-atlas = ExtResource("8_ol31h")
+atlas = ExtResource("17_flv2h")
 region = Rect2(32, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85ws3"]
-atlas = ExtResource("8_ol31h")
+atlas = ExtResource("17_flv2h")
 region = Rect2(48, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8gsey"]
-atlas = ExtResource("8_ol31h")
+atlas = ExtResource("17_flv2h")
 region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5aab"]
-atlas = ExtResource("8_ol31h")
+atlas = ExtResource("17_flv2h")
 region = Rect2(48, 32, 16, 16)
 
 [node name="Pixelated2DMain" type="Node2D" node_paths=PackedStringArray("character")]
 texture_filter = 1
-script = ExtResource("1_cxf2o")
+script = ExtResource("1_sqiqn")
 character = NodePath("Cobia")
-every_enemies = Array[PackedScene]([ExtResource("6_m275c"), ExtResource("9_41m2m"), ExtResource("4_r7syv")])
+every_enemies = Array[PackedScene]([ExtResource("2_kor3a"), ExtResource("3_5jhd6"), ExtResource("4_8ll1f")])
+gameoverscene_path = "res://scenes/scoreboard_scene.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_opx3g")
+stream = ExtResource("5_6crht")
 volume_db = -5.0
 pitch_scale = 1.1
 autoplay = true
@@ -136,14 +137,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Control"]
+[node name="NotchRect" type="ReferenceRect" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 104.0
 grow_horizontal = 2
 border_width = 2.0
-editor_only = false
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
@@ -192,129 +192,129 @@ position = Vector2(1090, 0)
 [node name="Row2" type="Sprite2D" parent="CropsRows"]
 position = Vector2(-551, 1617)
 scale = Vector2(5, 5)
-texture = ExtResource("3_0n1ap")
+texture = ExtResource("7_u8sly")
 
 [node name="Row3" type="Sprite2D" parent="CropsRows"]
 position = Vector2(-551, 1252)
 scale = Vector2(5, 5)
-texture = ExtResource("3_0n1ap")
+texture = ExtResource("7_u8sly")
 flip_h = true
 
 [node name="Row4" type="Sprite2D" parent="CropsRows"]
 position = Vector2(-551, 887.5)
 scale = Vector2(5, 5)
-texture = ExtResource("3_0n1ap")
+texture = ExtResource("7_u8sly")
 flip_v = true
 
 [node name="Row5" type="Sprite2D" parent="CropsRows"]
 position = Vector2(-551, 522.5)
 scale = Vector2(5, 5)
-texture = ExtResource("3_0n1ap")
+texture = ExtResource("7_u8sly")
 flip_h = true
 
 [node name="Grounds" type="CanvasGroup" parent="."]
 position = Vector2(0, -90)
 
-[node name="SolidGround2" parent="Grounds" instance=ExtResource("4_gebf1")]
+[node name="SolidGround2" parent="Grounds" instance=ExtResource("8_qp55i")]
 position = Vector2(112, 1445)
 
-[node name="SolidGround5" parent="Grounds" instance=ExtResource("4_gebf1")]
+[node name="SolidGround5" parent="Grounds" instance=ExtResource("8_qp55i")]
 
-[node name="SolidGround3" parent="Grounds" instance=ExtResource("4_gebf1")]
+[node name="SolidGround3" parent="Grounds" instance=ExtResource("8_qp55i")]
 position = Vector2(112, 1080)
 
-[node name="SolidGround4" parent="Grounds" instance=ExtResource("4_gebf1")]
+[node name="SolidGround4" parent="Grounds" instance=ExtResource("8_qp55i")]
 position = Vector2(112, 712)
 
 [node name="Walls" type="CanvasGroup" parent="."]
 
-[node name="SolidWall" parent="Walls" instance=ExtResource("5_yx8fw")]
+[node name="SolidWall" parent="Walls" instance=ExtResource("9_7i5bd")]
 position = Vector2(-100, 293)
 
-[node name="SolidWall2" parent="Walls" instance=ExtResource("5_yx8fw")]
+[node name="SolidWall2" parent="Walls" instance=ExtResource("9_7i5bd")]
 position = Vector2(-100, 671)
 
-[node name="SolidWall3" parent="Walls" instance=ExtResource("5_yx8fw")]
+[node name="SolidWall3" parent="Walls" instance=ExtResource("9_7i5bd")]
 position = Vector2(-100, 1026)
 
-[node name="SolidWall4" parent="Walls" instance=ExtResource("5_yx8fw")]
+[node name="SolidWall4" parent="Walls" instance=ExtResource("9_7i5bd")]
 position = Vector2(-100, 1395)
 
-[node name="SolidWall5" parent="Walls" instance=ExtResource("5_yx8fw")]
+[node name="SolidWall5" parent="Walls" instance=ExtResource("9_7i5bd")]
 position = Vector2(1060, 1395)
 
-[node name="SolidWall6" parent="Walls" instance=ExtResource("5_yx8fw")]
+[node name="SolidWall6" parent="Walls" instance=ExtResource("9_7i5bd")]
 position = Vector2(1060, 1028)
 
-[node name="SolidWall7" parent="Walls" instance=ExtResource("5_yx8fw")]
+[node name="SolidWall7" parent="Walls" instance=ExtResource("9_7i5bd")]
 position = Vector2(1060, 673)
 
-[node name="SolidWall8" parent="Walls" instance=ExtResource("5_yx8fw")]
+[node name="SolidWall8" parent="Walls" instance=ExtResource("9_7i5bd")]
 position = Vector2(1060, 290)
 
-[node name="EnemySpawners" parent="." instance=ExtResource("10_vg4ed")]
+[node name="EnemySpawners" parent="." instance=ExtResource("10_4qgsn")]
 unique_name_in_owner = true
 visible = false
 
 [node name="CorncobSpawner" type="CanvasGroup" parent="."]
 unique_name_in_owner = true
 
-[node name="Spawner" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+[node name="Spawner" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
 position = Vector2(99.3, 563.3)
 lane = 4
 
-[node name="Spawner2" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+[node name="Spawner2" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
 position = Vector2(99.3, 940.3)
 lane = 3
 
-[node name="Spawner3" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+[node name="Spawner3" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
 position = Vector2(99.3, 1288.6)
 lane = 2
 
-[node name="Spawner4" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+[node name="Spawner4" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
 position = Vector2(99.3, 1665.6)
 
-[node name="Spawner5" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+[node name="Spawner5" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
 position = Vector2(979.3, 563.3)
 direction_from = "right"
 lane = 4
 
-[node name="Spawner6" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+[node name="Spawner6" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
 position = Vector2(979.3, 940.3)
 direction_from = "right"
 lane = 3
 
-[node name="Spawner7" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+[node name="Spawner7" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
 position = Vector2(979.3, 1288.6)
 direction_from = "right"
 lane = 2
 
-[node name="Spawner8" parent="CorncobSpawner" instance=ExtResource("6_k0k1j")]
+[node name="Spawner8" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
 position = Vector2(979.3, 1665.6)
 direction_from = "right"
 
 [node name="Enemies" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Squirrel" parent="Enemies" instance=ExtResource("6_m275c")]
+[node name="Squirrel" parent="Enemies" instance=ExtResource("2_kor3a")]
 position = Vector2(790, 1562)
 
-[node name="Squirrel2" parent="Enemies" instance=ExtResource("6_m275c")]
+[node name="Squirrel2" parent="Enemies" instance=ExtResource("2_kor3a")]
 position = Vector2(500, 1192)
 
-[node name="Squirrel3" parent="Enemies" instance=ExtResource("6_m275c")]
+[node name="Squirrel3" parent="Enemies" instance=ExtResource("2_kor3a")]
 position = Vector2(710, 786)
 
-[node name="Squirrel4" parent="Enemies" instance=ExtResource("6_m275c")]
+[node name="Squirrel4" parent="Enemies" instance=ExtResource("2_kor3a")]
 position = Vector2(300, 456)
 
-[node name="Mouse" parent="Enemies" instance=ExtResource("9_41m2m")]
+[node name="Mouse" parent="Enemies" instance=ExtResource("3_5jhd6")]
 position = Vector2(216, 824)
 
 [node name="CornCobs" type="CanvasGroup" parent="."]
 unique_name_in_owner = true
 
-[node name="Cobia" parent="." instance=ExtResource("12_bhyiv")]
+[node name="Cobia" parent="." instance=ExtResource("12_pg2vy")]
 position = Vector2(120, 1590)
 downward_travel_offset = 10
 metadata/_edit_group_ = true
@@ -346,10 +346,10 @@ modulate = Color(1, 1, 1, 0.623529)
 material = SubResource("ShaderMaterial_hckqv")
 position = Vector2(384, 1932)
 scale = Vector2(14, 14)
-texture_normal = ExtResource("9_r47pa")
-texture_pressed = ExtResource("10_h1gbi")
+texture_normal = ExtResource("14_4j7ox")
+texture_pressed = ExtResource("15_2ndgp")
 action = "swap_direction"
-script = ExtResource("10_lcaud")
+script = ExtResource("16_kt6oy")
 
 [node name="FlipCooldown" type="Timer" parent="UI_Main/Buttons/SwapButton"]
 process_callback = 0
@@ -396,11 +396,11 @@ anchor_mode = 0
 [node name="ShakerComponent2D" type="Node2D" parent="MainCamera"]
 unique_name_in_owner = true
 position = Vector2(-1.04308e-07, 0)
-script = ExtResource("15_i05xd")
+script = ExtResource("18_06dll")
 duration = 0.5
 fade_in = 0.001
 fade_out = 0.933
-shakerPreset = ExtResource("17_4oy35")
+shakerPreset = ExtResource("19_bvgs0")
 
 [node name="ZoomedOutCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -411,7 +411,7 @@ anchor_mode = 0
 enabled = false
 zoom = Vector2(0.59, 0.59)
 
-[node name="Bird" parent="." instance=ExtResource("4_r7syv")]
+[node name="Bird" parent="." instance=ExtResource("4_8ll1f")]
 position = Vector2(736, 464)
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

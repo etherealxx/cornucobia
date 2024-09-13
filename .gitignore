@@ -8,3 +8,4 @@ scripts/api_keys/*
 .history/*
 .vscode/*
 2d_mobile_compatibility.build
+addons_examples/*

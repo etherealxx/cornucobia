@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://dqmx8d6kghpgq"]
+
+[ext_resource type="Shader" path="res://shaders/change2color.gdshader" id="1_ek2n8"]
+[ext_resource type="Texture2D" uid="uid://cb2gjglfsura7" path="res://assets/ui/buttons/blank_button.png" id="1_eujau"]
+[ext_resource type="Script" path="res://scripts/modular_touch_button.gd" id="1_j6acl"]
+[ext_resource type="Texture2D" uid="uid://c75x0o1nnp1iv" path="res://assets/ui/buttons/blank_button_pressed.png" id="3_rvdhr"]
+[ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="4_7fv4u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kf21r"]
+shader = ExtResource("1_ek2n8")
+shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
+shader_parameter/u_replacement_color1 = Color(0.931909, 0.674982, 0.60406, 1)
+shader_parameter/u_color_key2 = Color(0.764706, 0.764706, 0.764706, 1)
+shader_parameter/u_replacement_color2 = Color(0.863901, 0.581066, 0.511737, 1)
+shader_parameter/u_tolerance = 0.1
+shader_parameter/u_interpolation_factor = 1.0
+
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_08wxu"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_if336"]
+mesh = SubResource("PlaceholderMesh_08wxu")
+image_size = Vector2(60, 17)
+
+[sub_resource type="MeshTexture" id="MeshTexture_aoiyk"]
+mesh = SubResource("PlaceholderMesh_08wxu")
+image_size = Vector2(60, 17)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hk68"]
+font = ExtResource("4_7fv4u")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xnj2a"]
+font = ExtResource("4_7fv4u")
+font_color = Color(0, 0, 0, 1)
+
+[node name="ModularTouchButton" type="TouchScreenButton"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_kf21r")
+texture_normal = SubResource("MeshTexture_if336")
+texture_pressed = SubResource("MeshTexture_aoiyk")
+script = ExtResource("1_j6acl")
+button_size = Vector2(60, 15)
+
+[node name="ButtonUnclicked" type="NinePatchRect" parent="."]
+use_parent_material = true
+offset_right = 60.0
+offset_bottom = 15.0
+texture = ExtResource("1_eujau")
+region_rect = Rect2(0, 0, 14, 14)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 4
+
+[node name="UnclickedLabel" type="Label" parent="ButtonUnclicked"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -8.5
+offset_right = 12.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Text"
+label_settings = SubResource("LabelSettings_5hk68")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonClicked" type="NinePatchRect" parent="."]
+visible = false
+use_parent_material = true
+offset_right = 60.0
+offset_bottom = 15.0
+texture = ExtResource("3_rvdhr")
+region_rect = Rect2(0, 0, 14, 14)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 4
+
+[node name="ClickedLabel" type="Label" parent="ButtonClicked"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -7.5
+offset_right = 12.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Text"
+label_settings = SubResource("LabelSettings_xnj2a")
+horizontal_alignment = 1
+vertical_alignment = 1

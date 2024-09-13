@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://tsudxjgqtcr1"]
+
+[ext_resource type="Shader" path="res://shaders/change2color.gdshader" id="1_sqril"]
+
+[resource]
+shader = ExtResource("1_sqril")
+shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
+shader_parameter/u_replacement_color1 = Color(0.931909, 0.674982, 0.60406, 1)
+shader_parameter/u_color_key2 = Color(0.764706, 0.764706, 0.764706, 1)
+shader_parameter/u_replacement_color2 = Color(0.863901, 0.581066, 0.511737, 1)
+shader_parameter/u_tolerance = 0.1
+shader_parameter/u_interpolation_factor = 1.0

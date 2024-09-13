@@ -1,50 +1,50 @@
 [gd_scene load_steps=12 format=3 uid="uid://ci8h3yqpc5swd"]
 
-[ext_resource type="Texture2D" uid="uid://dhc3h3ue4ayap" path="res://assets/gamesprites/enemies/squirrel_sheet.png" id="1_jcrg3"]
 [ext_resource type="Script" path="res://scripts/enemies/squirrel.gd" id="1_ocy11"]
 [ext_resource type="Resource" uid="uid://cyt61rr172ekk" path="res://resources/squirrel_parabolic.tres" id="2_53bcw"]
+[ext_resource type="Texture2D" uid="uid://ichrnpathrdv" path="res://assets/gamesprites/enemies/squirrel_sheet_x.png" id="3_nqc8n"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3vfpo"]
-atlas = ExtResource("1_jcrg3")
-region = Rect2(0, 0, 52, 52)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf8d0"]
+atlas = ExtResource("3_nqc8n")
+region = Rect2(0, 0, 104, 104)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cmy4r"]
-atlas = ExtResource("1_jcrg3")
-region = Rect2(0, 52, 52, 52)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lomat"]
+atlas = ExtResource("3_nqc8n")
+region = Rect2(0, 104, 104, 104)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mh166"]
-atlas = ExtResource("1_jcrg3")
-region = Rect2(0, 104, 52, 52)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsfdr"]
+atlas = ExtResource("3_nqc8n")
+region = Rect2(0, 208, 104, 104)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ui3mi"]
-atlas = ExtResource("1_jcrg3")
-region = Rect2(0, 156, 52, 52)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekji1"]
+atlas = ExtResource("3_nqc8n")
+region = Rect2(0, 312, 104, 104)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ixvjh"]
-atlas = ExtResource("1_jcrg3")
-region = Rect2(0, 208, 52, 52)
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq738"]
+atlas = ExtResource("3_nqc8n")
+region = Rect2(0, 416, 104, 104)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vwjxp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3vfpo")
+"texture": SubResource("AtlasTexture_jf8d0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cmy4r")
+"texture": SubResource("AtlasTexture_lomat")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mh166")
+"texture": SubResource("AtlasTexture_jsfdr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ui3mi")
+"texture": SubResource("AtlasTexture_ekji1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ixvjh")
+"texture": SubResource("AtlasTexture_oq738")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y230y"]
@@ -62,10 +62,9 @@ parabolic_stat = ExtResource("2_53bcw")
 
 [node name="SquirrelSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-99, -141)
-scale = Vector2(7, 7)
+scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_vwjxp")
 autoplay = "default"
-frame_progress = 0.0333864
 centered = false
 metadata/_edit_lock_ = true
 

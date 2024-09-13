@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=3 uid="uid://esd47xrpmopf"]
+
+[ext_resource type="FontFile" uid="uid://dl52ar0kyhvsj" path="res://fonts/Roboto Flex/RobotoFlex.ttf" id="1_d0ymd"]
+[ext_resource type="Theme" uid="uid://dxv3iupkms0px" path="res://resources/monogram_window_theme.tres" id="2_r582r"]
+
+[sub_resource type="FontVariation" id="FontVariation_2yflg"]
+base_font = ExtResource("1_d0ymd")
+variation_embolden = 0.13
+
+[sub_resource type="LabelSettings" id="LabelSettings_s7nn1"]
+font = SubResource("FontVariation_2yflg")
+font_size = 45
+
+[node name="InsideTOSPrivacy" type="ReferenceRect"]
+texture_filter = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = -600.0
+offset_right = 470.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(940, 0)
+layout_mode = 2
+text = "Please accept this Terms of Service and Privacy Policy to upload your score to our Global Leaderboard"
+label_settings = SubResource("LabelSettings_s7nn1")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 23.04)
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_r582r")
+current_tab = 0
+
+[node name="Terms of Service" type="TabBar" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+theme = ExtResource("2_r582r")
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Terms of Service"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/TabContainer/Terms of Service/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_r582r")
+bbcode_enabled = true
+text = "[b]Cornucobia Terms of Service[/b]
+
+[b]1. Agreement[/b]
+By playing Cornucobia, you agree to these Terms of Service.
+
+[b]2. Leaderboard Feature[/b]
+Cornucobia uses a leaderboard powered by SilentWolf. By entering your name and score, you consent to having this data uploaded to our server for leaderboard purposes.
+
+[b]3. Data Usage[/b]
+The only data we collect for the leaderboard is your in-game name and score. This data is stored and processed to display on the leaderboard.
+
+[b]4. Player Obligations[/b]
+You agree to provide appropriate and lawful content (i.e., no offensive or inappropriate names) for the leaderboard. Any attempt to manipulate scores or breach the game’s security is prohibited.
+
+[b]5. Changes[/b]
+These Terms may change over time. Continued use of Cornucobia implies acceptance of updated terms.
+
+For questions, feel free to contact us on the itch,io page: https://etherealcross.itch.io/cornucobia"
+
+[node name="Privacy Policy" type="TabBar" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_r582r")
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Privacy Policy"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/TabContainer/Privacy Policy/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_r582r")
+bbcode_enabled = true
+text = "[b]Cornucobia Privacy Policy[/b]
+
+[b]1. What Data We Collect[/b]
+When you play Cornucobia, the only data we collect is your in-game name and high score for leaderboard purposes. We do not collect any personal data like email addresses or other identifying information.
+
+[b]2. How We Use Your Data[/b]
+Your name and high score are used solely to display on the leaderboard. We do not share, sell, or use this data for any other purpose.
+
+[b]3. Data Security[/b]
+All data sent to our servers, including your name and score, is encrypted to ensure security. We take reasonable steps to protect your information but cannot guarantee absolute security.
+
+[b]4. Data Retention[/b]
+Your name and score will remain on the leaderboard as long as Cornucobia is operational. Data removal requests are not accepted.
+
+[b]5. Changes to This Policy[/b]
+We may update this Privacy Policy from time to time. Continued use of Cornucobia after changes means you accept the updated policy."

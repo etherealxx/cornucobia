@@ -1,0 +1,54 @@
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://dxv3iupkms0px"]
+
+[ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="1_awdjo"]
+[ext_resource type="Texture2D" uid="uid://d4evdcroauty6" path="res://assets/ui/textbox/confirmation_panel_x4.png" id="2_e4f3o"]
+[ext_resource type="FontFile" uid="uid://dl52ar0kyhvsj" path="res://fonts/Roboto Flex/RobotoFlex.ttf" id="3_ud3l6"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_afsyb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_utgfl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wu7c2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8qs3e"]
+texture = ExtResource("2_e4f3o")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="FontVariation" id="FontVariation_ksxpa"]
+base_font = ExtResource("3_ud3l6")
+variation_embolden = 0.47
+
+[sub_resource type="FontVariation" id="FontVariation_p16mq"]
+base_font = ExtResource("3_ud3l6")
+variation_embolden = -0.06
+
+[sub_resource type="FontVariation" id="FontVariation_7dpqt"]
+base_font = ExtResource("3_ud3l6")
+variation_embolden = 0.13
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yuwod"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bky7r"]
+
+[resource]
+AcceptDialog/constants/buttons_min_height = 115
+AcceptDialog/constants/buttons_min_width = 285
+AcceptDialog/font_sizes/title_font_size = 46
+AcceptDialog/fonts/title_font = ExtResource("1_awdjo")
+AcceptDialog/icons/close = SubResource("ImageTexture_afsyb")
+AcceptDialog/styles/embedded_border = SubResource("StyleBoxEmpty_utgfl")
+AcceptDialog/styles/embedded_unfocused_border = SubResource("StyleBoxEmpty_wu7c2")
+AcceptDialog/styles/panel = SubResource("StyleBoxTexture_8qs3e")
+Button/font_sizes/font_size = 96
+Button/fonts/font = ExtResource("1_awdjo")
+RichTextLabel/font_sizes/bold_font_size = 41
+RichTextLabel/font_sizes/normal_font_size = 41
+RichTextLabel/fonts/bold_font = SubResource("FontVariation_ksxpa")
+RichTextLabel/fonts/normal_font = SubResource("FontVariation_p16mq")
+TabContainer/font_sizes/font_size = 60
+TabContainer/fonts/font = SubResource("FontVariation_7dpqt")
+Window/styles/embedded_border = SubResource("StyleBoxEmpty_yuwod")
+Window/styles/embedded_unfocused_border = SubResource("StyleBoxEmpty_bky7r")

@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvjj3rrg8df6l"]
+
+[ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="1_pkrij"]
+[ext_resource type="Theme" uid="uid://cc4xqkjslk0ic" path="res://resources/monogram_ui_theme.tres" id="2_jvgbn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bf8e2"]
+font = ExtResource("1_pkrij")
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_bs2of"]
+font = ExtResource("1_pkrij")
+font_size = 50
+
+[node name="InsideDialog" type="ReferenceRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Insert your name"
+label_settings = SubResource("LabelSettings_bf8e2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Notice" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "(9 characters Max)"
+label_settings = SubResource("LabelSettings_bs2of")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_jvgbn")
+placeholder_text = "Your name here..."
