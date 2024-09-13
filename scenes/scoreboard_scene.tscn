@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bwbx1bsp2654p"]
+[gd_scene load_steps=32 format=3 uid="uid://bwbx1bsp2654p"]
 
 [ext_resource type="Script" path="res://scripts/score_screen.gd" id="1_32ew4"]
 [ext_resource type="Texture2D" uid="uid://7rh5xasj6x8t" path="res://assets/gamesprites/background/Summer8.png" id="2_2ufbj"]
@@ -38,13 +38,19 @@ font_size = 95
 outline_size = 20
 outline_color = Color(0.57, 0.39368, 0.2052, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_gspd6"]
+font = ExtResource("7_phboc")
+font_size = 85
+outline_size = 20
+outline_color = Color(0.57, 0.39368, 0.2052, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_16roo"]
 font = ExtResource("7_phboc")
 font_size = 160
 outline_size = 20
 outline_color = Color(0.89, 0.335233, 0.2848, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pffti"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jrq60"]
 shader = ExtResource("12_kh7dl")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.705882, 0.482353, 0.254902, 1)
@@ -55,15 +61,15 @@ shader_parameter/u_interpolation_factor = 1.0
 
 [sub_resource type="PlaceholderMesh" id="PlaceholderMesh_08wxu"]
 
-[sub_resource type="MeshTexture" id="MeshTexture_bg8vo"]
+[sub_resource type="MeshTexture" id="MeshTexture_qdo15"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_6rjgf"]
+[sub_resource type="MeshTexture" id="MeshTexture_fn707"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_05ilk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_18fus"]
 shader = ExtResource("12_kh7dl")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.705882, 0.482353, 0.254902, 1)
@@ -72,15 +78,15 @@ shader_parameter/u_replacement_color2 = Color(0.427451, 0.294118, 0.152941, 1)
 shader_parameter/u_tolerance = 0.1
 shader_parameter/u_interpolation_factor = 1.0
 
-[sub_resource type="MeshTexture" id="MeshTexture_bw6io"]
+[sub_resource type="MeshTexture" id="MeshTexture_27ued"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_rql52"]
+[sub_resource type="MeshTexture" id="MeshTexture_y5og2"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7bvs3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e48c6"]
 shader = ExtResource("12_kh7dl")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.705882, 0.482353, 0.254902, 1)
@@ -89,17 +95,18 @@ shader_parameter/u_replacement_color2 = Color(0.427451, 0.294118, 0.152941, 1)
 shader_parameter/u_tolerance = 0.1
 shader_parameter/u_interpolation_factor = 1.0
 
-[sub_resource type="MeshTexture" id="MeshTexture_lqjak"]
+[sub_resource type="MeshTexture" id="MeshTexture_tsysm"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_k2ats"]
+[sub_resource type="MeshTexture" id="MeshTexture_ir1y8"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
 [node name="ScoreScreen" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_32ew4")
+maingameplay_scn_path = "res://scenes/main_gameplay_scene.tscn"
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(540, 1204)
@@ -280,8 +287,26 @@ text = "Global Leaderboard"
 label_settings = SubResource("LabelSettings_0g01r")
 horizontal_alignment = 1
 
+[node name="Notice" type="Label" parent="ScoreCanvas/ScoreBoard/BoardRect/YourScoreRect2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -366.5
+offset_top = 305.499
+offset_right = 366.5
+offset_bottom = 697.499
+grow_horizontal = 2
+text = "(Sorry, either you are offline or the leaderboard backend hasn't been configured yet.)"
+label_settings = SubResource("LabelSettings_gspd6")
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="ScoreNames" type="RichTextLabel" parent="ScoreCanvas/ScoreBoard/BoardRect/YourScoreRect2"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -308,6 +333,7 @@ autowrap_mode = 0
 
 [node name="NameScores" type="RichTextLabel" parent="ScoreCanvas/ScoreBoard/BoardRect/YourScoreRect2"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -349,46 +375,46 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BtnSubmitScore" parent="." instance=ExtResource("11_rebsr")]
-material = SubResource("ShaderMaterial_pffti")
+material = SubResource("ShaderMaterial_jrq60")
 position = Vector2(57, 2044)
 scale = Vector2(7, 7)
-texture_normal = SubResource("MeshTexture_bg8vo")
-texture_pressed = SubResource("MeshTexture_6rjgf")
+texture_normal = SubResource("MeshTexture_qdo15")
+texture_pressed = SubResource("MeshTexture_fn707")
 button_text = "Submit Score"
 button_size = Vector2(136.595, 17.99)
 font_color = Color(1, 1, 1, 1)
 
 [node name="BtnPlayAgain" parent="." instance=ExtResource("11_rebsr")]
-material = SubResource("ShaderMaterial_05ilk")
+material = SubResource("ShaderMaterial_18fus")
 position = Vector2(57, 2194)
 scale = Vector2(7, 7)
-texture_normal = SubResource("MeshTexture_bw6io")
-texture_pressed = SubResource("MeshTexture_rql52")
+texture_normal = SubResource("MeshTexture_27ued")
+texture_pressed = SubResource("MeshTexture_y5og2")
 button_text = "Play Again"
 button_size = Vector2(68.308, 17.99)
 font_color = Color(1, 1, 1, 1)
 
 [node name="BtnMainMenu" parent="." instance=ExtResource("11_rebsr")]
-material = SubResource("ShaderMaterial_7bvs3")
+material = SubResource("ShaderMaterial_e48c6")
 position = Vector2(565, 2194)
 scale = Vector2(7, 7)
-texture_normal = SubResource("MeshTexture_lqjak")
-texture_pressed = SubResource("MeshTexture_k2ats")
+texture_normal = SubResource("MeshTexture_tsysm")
+texture_pressed = SubResource("MeshTexture_ir1y8")
 button_text = "Main Menu"
 button_size = Vector2(63.925, 17.99)
 font_color = Color(1, 1, 1, 1)
 
 [node name="AcceptTOSPrivacy" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
 auto_translate_mode = 1
 disable_3d = true
 title = ""
 initial_position = 1
 size = Vector2i(995, 1200)
-visible = true
 max_size = Vector2i(995, 1200)
 theme = ExtResource("13_yi8ft")
 ok_button_text = "I agree"
-cancel_button_text = "I Disagree"
+cancel_button_text = "I disagree"
 
 [node name="InsideTOSPrivacy" parent="AcceptTOSPrivacy" instance=ExtResource("14_tg3mq")]
 offset_left = -473.5
@@ -397,6 +423,7 @@ offset_right = 473.5
 offset_bottom = 455.0
 
 [node name="InsertName" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
 disable_3d = true
 title = ""
 initial_position = 1
@@ -405,6 +432,7 @@ max_size = Vector2i(995, 800)
 theme = ExtResource("13_yi8ft")
 
 [node name="InsideDialog" parent="InsertName" instance=ExtResource("14_sei35")]
+unique_name_in_owner = true
 offset_left = -473.5
 offset_top = -176.0
 offset_right = 473.5
@@ -416,3 +444,8 @@ visible = false
 color = Color(0.62, 0.62, 0.62, 1)
 
 [connection signal="released" from="BtnSubmitScore" to="." method="_on_btn_submit_score_released"]
+[connection signal="released" from="BtnPlayAgain" to="." method="_on_btn_play_again_released"]
+[connection signal="canceled" from="AcceptTOSPrivacy" to="." method="_on_accept_tos_privacy_canceled"]
+[connection signal="confirmed" from="AcceptTOSPrivacy" to="." method="_on_accept_tos_privacy_confirmed"]
+[connection signal="canceled" from="InsertName" to="." method="_on_insert_name_canceled"]
+[connection signal="confirmed" from="InsertName" to="." method="_on_insert_name_confirmed"]

@@ -5,6 +5,8 @@ var high_score := 0
 var corncob_score := 0
 var silentwolf_api_key_path = "res://scripts/api_keys/silentwolf_api_key.gd"
 var silentwolf_configured := false
+var is_tos_accepted := false
+var playername := ""
 
 # Scale down the window accordingly if the project being ran in Desktop (not Android)
 func adaptive_non_android_viewport_scaling():
@@ -36,4 +38,7 @@ func initialize_leaderboard():
 			})
 			silentwolf_configured = true
 			print("SilentWolf configured.")
-				
+		
+func reset_scores():
+	score = 0
+	corncob_score = 0

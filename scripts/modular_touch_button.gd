@@ -68,8 +68,8 @@ func _ready() -> void:
 	if btn_click:
 		btn_click.get_node("ClickedLabel").label_settings = btn_click.get_node("ClickedLabel").get_label_settings().duplicate()
 	if not Engine.is_editor_hint():
-		texture_normal.set_image_size(Vector2(btn_unclick.size.x, btn_unclick.size.y))
-		texture_pressed.set_image_size(Vector2(btn_click.size.x, btn_click.size.y))
+		texture_normal.set_image_size(Vector2(button_size.x, button_size.y))
+		texture_pressed.set_image_size(Vector2(button_size.x, button_size.y))
 		unclick_anim()
 		pressed.connect(click_anim)
 		released.connect(unclick_anim)

@@ -9,3 +9,4 @@ scripts/api_keys/*
 .vscode/*
 2d_mobile_compatibility.build
 addons_examples/*
+fonts/Poppins/*
