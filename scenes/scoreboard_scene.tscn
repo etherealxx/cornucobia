@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bwbx1bsp2654p"]
+[gd_scene load_steps=33 format=3 uid="uid://bwbx1bsp2654p"]
 
 [ext_resource type="Script" path="res://scripts/score_screen.gd" id="1_32ew4"]
 [ext_resource type="Texture2D" uid="uid://7rh5xasj6x8t" path="res://assets/gamesprites/background/Summer8.png" id="2_2ufbj"]
@@ -29,6 +29,13 @@ outline_color = Color(0.3432, 0.44044, 0.52, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_abc66"]
 font = ExtResource("7_phboc")
 font_size = 95
+outline_size = 20
+outline_color = Color(0.3432, 0.44044, 0.52, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k4lms"]
+font = ExtResource("7_phboc")
+font_size = 65
+font_color = Color(0.5275, 1, 0.37, 1)
 outline_size = 20
 outline_color = Color(0.3432, 0.44044, 0.52, 1)
 
@@ -224,9 +231,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -231.0
-offset_top = -244.0
+offset_top = -254.001
 offset_right = 232.0
-offset_bottom = -168.0
+offset_bottom = -178.001
 grow_horizontal = 2
 grow_vertical = 0
 text = "Your Score: 0"
@@ -242,13 +249,29 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -231.0
-offset_top = -159.0
+offset_top = -169.001
 offset_right = 232.0
-offset_bottom = -83.0
+offset_bottom = -93.0009
 grow_horizontal = 2
 grow_vertical = 0
 text = "High Score	: 0"
 label_settings = SubResource("LabelSettings_abc66")
+horizontal_alignment = 1
+
+[node name="NewHighscore" type="Label" parent="ScoreCanvas/ScoreBoard/BoardRect/YourScoreRect/HighScore"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = -26.5
+offset_right = -8.5
+offset_bottom = 26.5
+grow_vertical = 2
+text = "New!"
+label_settings = SubResource("LabelSettings_k4lms")
 horizontal_alignment = 1
 
 [node name="YourScoreRect2" type="NinePatchRect" parent="ScoreCanvas/ScoreBoard/BoardRect"]
@@ -306,7 +329,6 @@ autowrap_mode = 3
 
 [node name="ScoreNames" type="RichTextLabel" parent="ScoreCanvas/ScoreBoard/BoardRect/YourScoreRect2"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -333,7 +355,6 @@ autowrap_mode = 0
 
 [node name="NameScores" type="RichTextLabel" parent="ScoreCanvas/ScoreBoard/BoardRect/YourScoreRect2"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -345,7 +366,7 @@ offset_bottom = -57.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_wlbxn")
-text = "99999"
+text = "9999"
 scroll_active = false
 
 [node name="ScoreCanvasModulate" type="CanvasModulate" parent="ScoreCanvas"]

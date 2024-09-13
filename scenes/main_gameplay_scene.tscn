@@ -7,10 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://bqes06odj2353" path="res://assets/musics/265549__vikuserro__cheap-flash-game-tune.mp3" id="5_6crht"]
 [ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="6_p4kw7"]
 [ext_resource type="Texture2D" uid="uid://c85umkm50513w" path="res://assets/gamesprites/level/cropsfloor.png" id="7_u8sly"]
-[ext_resource type="PackedScene" uid="uid://bibeyf3dlpbc4" path="res://scenes/solid_ground.tscn" id="8_qp55i"]
-[ext_resource type="PackedScene" uid="uid://c0s8jfpqlxyv3" path="res://scenes/solid_wall.tscn" id="9_7i5bd"]
+[ext_resource type="PackedScene" uid="uid://b3lt1gg6w63ux" path="res://scenes/grouped_nodes/grounds.tscn" id="8_40p8q"]
+[ext_resource type="PackedScene" uid="uid://cag2xo07f5vge" path="res://scenes/grouped_nodes/walls.tscn" id="9_y41ub"]
 [ext_resource type="PackedScene" uid="uid://bg1yowgs0xhkn" path="res://scenes/grouped_nodes/enemy_spawners.tscn" id="10_4qgsn"]
-[ext_resource type="PackedScene" uid="uid://xrogsuysb7bi" path="res://scenes/enemy_spawner.tscn" id="11_qciuq"]
+[ext_resource type="PackedScene" uid="uid://bb788xygbe5qp" path="res://scenes/grouped_nodes/corncob_spawner.tscn" id="11_vfcf1"]
 [ext_resource type="PackedScene" uid="uid://brb0icctws8db" path="res://scenes/cobia.tscn" id="12_pg2vy"]
 [ext_resource type="Shader" path="res://shaders/cooldown_v3.gdshader" id="13_tq1tt"]
 [ext_resource type="Texture2D" uid="uid://3pf34rq5hkuc" path="res://assets/ui/buttons/swap_button.png" id="14_4j7ox"]
@@ -212,86 +212,17 @@ scale = Vector2(5, 5)
 texture = ExtResource("7_u8sly")
 flip_h = true
 
-[node name="Grounds" type="CanvasGroup" parent="."]
-position = Vector2(0, -90)
+[node name="Grounds" parent="." instance=ExtResource("8_40p8q")]
 
-[node name="SolidGround2" parent="Grounds" instance=ExtResource("8_qp55i")]
-position = Vector2(112, 1445)
-
-[node name="SolidGround5" parent="Grounds" instance=ExtResource("8_qp55i")]
-
-[node name="SolidGround3" parent="Grounds" instance=ExtResource("8_qp55i")]
-position = Vector2(112, 1080)
-
-[node name="SolidGround4" parent="Grounds" instance=ExtResource("8_qp55i")]
-position = Vector2(112, 712)
-
-[node name="Walls" type="CanvasGroup" parent="."]
-
-[node name="SolidWall" parent="Walls" instance=ExtResource("9_7i5bd")]
-position = Vector2(-100, 293)
-
-[node name="SolidWall2" parent="Walls" instance=ExtResource("9_7i5bd")]
-position = Vector2(-100, 671)
-
-[node name="SolidWall3" parent="Walls" instance=ExtResource("9_7i5bd")]
-position = Vector2(-100, 1026)
-
-[node name="SolidWall4" parent="Walls" instance=ExtResource("9_7i5bd")]
-position = Vector2(-100, 1395)
-
-[node name="SolidWall5" parent="Walls" instance=ExtResource("9_7i5bd")]
-position = Vector2(1060, 1395)
-
-[node name="SolidWall6" parent="Walls" instance=ExtResource("9_7i5bd")]
-position = Vector2(1060, 1028)
-
-[node name="SolidWall7" parent="Walls" instance=ExtResource("9_7i5bd")]
-position = Vector2(1060, 673)
-
-[node name="SolidWall8" parent="Walls" instance=ExtResource("9_7i5bd")]
-position = Vector2(1060, 290)
+[node name="Walls" parent="." instance=ExtResource("9_y41ub")]
 
 [node name="EnemySpawners" parent="." instance=ExtResource("10_4qgsn")]
 unique_name_in_owner = true
 visible = false
 
-[node name="CorncobSpawner" type="CanvasGroup" parent="."]
+[node name="CorncobSpawner" parent="." instance=ExtResource("11_vfcf1")]
 unique_name_in_owner = true
-
-[node name="Spawner" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
-position = Vector2(99.3, 563.3)
-lane = 4
-
-[node name="Spawner2" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
-position = Vector2(99.3, 940.3)
-lane = 3
-
-[node name="Spawner3" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
-position = Vector2(99.3, 1288.6)
-lane = 2
-
-[node name="Spawner4" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
-position = Vector2(99.3, 1665.6)
-
-[node name="Spawner5" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
-position = Vector2(979.3, 563.3)
-direction_from = "right"
-lane = 4
-
-[node name="Spawner6" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
-position = Vector2(979.3, 940.3)
-direction_from = "right"
-lane = 3
-
-[node name="Spawner7" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
-position = Vector2(979.3, 1288.6)
-direction_from = "right"
-lane = 2
-
-[node name="Spawner8" parent="CorncobSpawner" instance=ExtResource("11_qciuq")]
-position = Vector2(979.3, 1665.6)
-direction_from = "right"
+visible = false
 
 [node name="Enemies" type="Node2D" parent="."]
 unique_name_in_owner = true
