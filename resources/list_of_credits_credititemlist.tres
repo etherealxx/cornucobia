@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CreditItemList" load_steps=5 format=3 uid="uid://c8pf3istsgunl"]
+[gd_resource type="Resource" script_class="CreditItemList" load_steps=17 format=3 uid="uid://c8pf3istsgunl"]
 
 [ext_resource type="Script" path="res://scripts/resources/credititem.gd" id="1_x3ruh"]
 [ext_resource type="Script" path="res://scripts/resources/credititemlist.gd" id="2_ey8jm"]
@@ -39,16 +39,935 @@ SOFTWARE."
 [sub_resource type="Resource" id="Resource_l315p"]
 script = ExtResource("1_x3ruh")
 asset_name = "SilentWolf"
-asset_author = ""
-asset_author_alt_name = ""
-asset_type = ""
-asset_usage = ""
-asset_license = ""
-asset_quote = ""
-asset_website = ""
-asset_modification = ""
+asset_author = "@SilentWolfCloud"
+asset_author_alt_name = "@brassharpooner"
+asset_type = "Godot Addon (Runtime)"
+asset_usage = "Save score to online leaderboard"
+asset_license = "(unknown)"
+asset_quote = "SilentWolf is 100% free! Use all of our services at no cost to you."
+asset_website = "https://silentwolf.com/"
+asset_modification = "Modified some lines to fix bug"
 asset_full_license = ""
+
+[sub_resource type="Resource" id="Resource_erqio"]
+script = ExtResource("1_x3ruh")
+asset_name = "Free Summer Pixel Backgrounds"
+asset_author = "Free and Premium Game Assets (GUI, Sprite, Tilesets)"
+asset_author_alt_name = "Craftpix.net"
+asset_type = "Art (Still Images)"
+asset_usage = "Background & parallax for main menu and score board"
+asset_license = "(custom)"
+asset_quote = "We offer you to use our assets unlimited number of times in your projects. Our license allows this."
+asset_website = "https://free-game-assets.itch.io/free-summer-pixel-art-backgrounds"
+asset_modification = "Cropped and resized"
+asset_full_license = "1. PREMIUM AND PAID PRODUCTS
+Subject to your compliance with the terms and conditions of these Terms, CraftPix grants you a limited, non-exclusive, non-transferable license to all resources purchased from CraftPix store, without the right to sublicense contents.
+
+1.1 CAPABILITIES
+1.1.1 You can use, copy, adapt, modify, prepare derivative works based upon all purchased assets;
+1.1.2 You may use game assets as many times as you like;
+1.1.3 Distribution of source files is NOT permitted;
+1.1.4 You can sell and distribute games with our assets;
+1.1.5 You can use each product in unlimited number of free and commercial projects;
+1.1.6 Without Royalty Fee. By the end of your subscription, you can continue to use all the downloaded game assets.
+1.2 FORBIDDEN
+1.2.1 You can NOT resell the source files (PNG, JPG, EPS, Adobe Illustrator, etc.) or slightly modified version of the art. You can not redistribute the art or modified version of the art in a manner that would make some or all of the art files useable to another end user via the app. For example, an app that uses the art as part of the game is fine. An app that allows the user to save or export a modified version of the artwork itself is not fine.
+1.2.2 For authorization on the site, it is prohibited to authorize through third-party services. This means that you must log in through your browser to use your account.
+1.3 Supplement for Enterprise license holders (Join Enterprise):
+1.3.1 CAPABILITIES
+1.3.1.1 Selling online courses containing graphics from https://craftpix.net {For example, at udemy.com, coursera.org}
+1.3.1.2 Creating your own online school, and selling your teaching materials there with the participation of graphics from https://craftpix.net
+1.3.1.3 Offline use of graphics in educational institutions (schools, colleges, universities, etc.)
+1.3.1.4 Build ready-made game templates using https://craftpix.net graphics (with retrievable data) and sell them on the following third-party sites:
+https://assetstore.unity.com/templates
+https://www.scirra.com/store/royalty-free-game-templates
+https://codecanyon.net/category/html5/games
+https://codecanyon.net/category/mobile/android/games
+https://www.sellmyapp.com
+Important! If you are creating your own online store with game templates, then the cost of the license is discussed individually (you need to contact our support).
+
+1.3.1.5 Edit the graphics for the purpose of your work and include in your projects (courses, templates, etc.) [example]create the desired file size, change the color, remove unnecessary elements, save the format in Unity, etc.[/example]
+1.3.2 FORBIDDEN
+1.3.2.1 Add graphics from https://craftpix.net to your projects (courses, templates, etc.) that are not used in the project (course, template, etc.) in any way. The same goes for game templates and offline educational institutions. [example]You used 3 characters and 1 set of tiles in the tutorial video for creating a platformer game. In this case, you can transfer only those graphics to the student that were used in the course. You cannot transfer other characters to him, etc.[/example]
+1.3.2.2 Add source files (vector is AI, EPS and raster is PSD) to your course or to other training materials, if working with these formats is not implied in your course or other training material. [example]If your course is about how to create a platformer game in Unity, and there are no tutorials on how to work with graphics in Photoshop, then the PSD format is not allowed to be included in the course. There are PNGs for that, etc.[/example]
+1.3.2.3 Add source files to your game template (vector is AI, EPS and raster is PSD) if the game template does not interact with these formats. [example]PNG files are used in the game template (character, background, etc.). This means that you cannot add source files.[/example]
+1.3.2.4 You cannot distribute graphics separately from courses (training materials) and templates in any form.
+1.3.2.5 It is not allowed to distribute courses (training materials) and game templates for free if you used paid or premium graphic sets from the site https://craftpix.net
+1.3.2.6 It is forbidden to sell graphics under the guise of courses (training materials, templates, etc.) if the main value of the work is graphics. The main value should not be the graphics, but your product.
+The above points (section Prohibited) are unfair use of Craftpix.net graphics. In case of fraudulent use, we have the right to revoke the license.
+
+2. FREEBIE PRODUCTS
+2.1 CAPABILITIES
+2.1.1 You are permitted to use the resources in any number of personal and commercial projects for yourself or a client.
+2.1.2 You can modify the resources according to your requirements and include them into works such as game projects, elements for websites, applications, printed materials and others;
+2.1.3 You can sell and distribute games with our assets.
+No attribution or link back to this site is required, however any credit will be highly appreciated.
+
+2.2 FORBIDDEN
+2.2.1 You can NOT resell the art source files (PNG, JPG, EPS, Adobe Illustrator, etc) or slightly modified version of the art. You can not redistribute the art or modified version of the art in a manner that would make some or all of the art files useable to another end user via the app. For example, an app that uses the art as part of the play of the game is fine. An app that allows the user to save or export a modified version of the artwork itself is not fine.
+1.2.2 For authorization on the site, it is prohibited to authorize through third-party services. This means that you must log in through your browser to use your account.
+2.3. Supplement for Enterprise license holders (Join Enterprise):
+2.3.1 CAPABILITIES
+2.3.1.1 Selling online courses containing graphics from https://craftpix.net {For example, at udemy.com, coursera.org}
+2.3.1.2 Creating your own online school and selling your educational materials with the participation of graphics from https://craftpix.net
+2.3.1.3 Offline use of graphics in educational institutions (schools, colleges, universities, etc.).
+2.3.1.4 Build ready-made game templates using https://craftpix.net graphics (with retrievable data) and sell them on the following third-party sites:
+https://assetstore.unity.com/templates
+https://www.scirra.com/store/royalty-free-game-templates
+https://codecanyon.net/category/html5/games
+https://codecanyon.net/category/mobile/android/games
+https://www.sellmyapp.com
+Important! If you are creating your own online store with game templates, then the cost of the license is discussed individually (you need to contact our support).
+
+2.3.1.5 Edit the graphics for the purpose of your work and include in your projects (courses, templates, etc.) [example] create the desired file size, change the color, remove unnecessary elements, save the format in Unity, etc.[/example]
+2.3.1.6 You can use the graphics from https://craftpix.net/freebies/ to create free projects (courses, templates, etc.) [example] as a free part of a large course or as a promo for a school[/example]
+2.3.2 FORBIDDEN
+2.3.2.1 Add graphics from https://craftpix.net to your projects (courses, templates, etc.) that are not used in the project (course, template, etc.) in any way. The same goes for game templates and offline educational institutions. [example] You used 3 characters and 1 set of tiles in the tutorial video for creating a platformer game. In this case, you can transfer only those graphics to the student that were used in the course. You cannot transfer other characters to him, etc.[/example]
+2.3.2.2 Add source files (vector is AI, EPS and raster is PSD) to your course or to other training materials, if working with these formats is not implied in your course or other training material. [example] If your course is about how to create a platformer game in Unity, and there are no tutorials on how to work with graphics in Photoshop, then the PSD format is not allowed to be included in the course. There are PNGs for that, etc.[/example]
+2.3.2.3 Add source files to your game template (vector is AI, EPS and raster is PSD) if the game template does not interact with these formats. [example] PNG files are used in the game template (character, background, etc.). This means that you cannot add source files.[/example]
+2.3.2.4 You cannot distribute graphics separately from courses (training materials) and templates in any form.
+2.3.2.5 It is forbidden to sell graphics under the guise of courses (training materials, templates, etc.) if the main value of the work is graphics. The main value should not be the graphics, but your product.
+The above points (section Prohibited) are unfair use of Craftpix.net graphics. In case of fraudulent use, we have the right to revoke the license."
+
+[sub_resource type="Resource" id="Resource_qqiaj"]
+script = ExtResource("1_x3ruh")
+asset_name = "Pixel Squirrel"
+asset_author = "alizard"
+asset_author_alt_name = ""
+asset_type = "Art (Spritesheet)"
+asset_usage = "As one of the enemies"
+asset_license = "CC0 1.0"
+asset_quote = ""
+asset_website = "https://opengameart.org/content/pixel-squirrel"
+asset_modification = "Added outline and resized"
+asset_full_license = "Creative Commons Legal Code
+
+CC0 1.0 Universal
+
+    CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE
+    LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN
+    ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS
+    INFORMATION ON AN \"AS-IS\" BASIS. CREATIVE COMMONS MAKES NO WARRANTIES
+    REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS
+    PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM
+    THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED
+    HEREUNDER.
+
+Statement of Purpose
+
+The laws of most jurisdictions throughout the world automatically confer
+exclusive Copyright and Related Rights (defined below) upon the creator
+and subsequent owner(s) (each and all, an \"owner\") of an original work of
+authorship and/or a database (each, a \"Work\").
+
+Certain owners wish to permanently relinquish those rights to a Work for
+the purpose of contributing to a commons of creative, cultural and
+scientific works (\"Commons\") that the public can reliably and without fear
+of later claims of infringement build upon, modify, incorporate in other
+works, reuse and redistribute as freely as possible in any form whatsoever
+and for any purposes, including without limitation commercial purposes.
+These owners may contribute to the Commons to promote the ideal of a free
+culture and the further production of creative, cultural and scientific
+works, or to gain reputation or greater distribution for their Work in
+part through the use and efforts of others.
+
+For these and/or other purposes and motivations, and without any
+expectation of additional consideration or compensation, the person
+associating CC0 with a Work (the \"Affirmer\"), to the extent that he or she
+is an owner of Copyright and Related Rights in the Work, voluntarily
+elects to apply CC0 to the Work and publicly distribute the Work under its
+terms, with knowledge of his or her Copyright and Related Rights in the
+Work and the meaning and intended legal effect of CC0 on those rights.
+
+1. Copyright and Related Rights. A Work made available under CC0 may be
+protected by copyright and related or neighboring rights (\"Copyright and
+Related Rights\"). Copyright and Related Rights include, but are not
+limited to, the following:
+
+  i. the right to reproduce, adapt, distribute, perform, display,
+     communicate, and translate a Work;
+ ii. moral rights retained by the original author(s) and/or performer(s);
+iii. publicity and privacy rights pertaining to a person's image or
+     likeness depicted in a Work;
+ iv. rights protecting against unfair competition in regards to a Work,
+     subject to the limitations in paragraph 4(a), below;
+  v. rights protecting the extraction, dissemination, use and reuse of data
+     in a Work;
+ vi. database rights (such as those arising under Directive 96/9/EC of the
+     European Parliament and of the Council of 11 March 1996 on the legal
+     protection of databases, and under any national implementation
+     thereof, including any amended or successor version of such
+     directive); and
+vii. other similar, equivalent or corresponding rights throughout the
+     world based on applicable law or treaty, and any national
+     implementations thereof.
+
+2. Waiver. To the greatest extent permitted by, but not in contravention
+of, applicable law, Affirmer hereby overtly, fully, permanently,
+irrevocably and unconditionally waives, abandons, and surrenders all of
+Affirmer's Copyright and Related Rights and associated claims and causes
+of action, whether now known or unknown (including existing as well as
+future claims and causes of action), in the Work (i) in all territories
+worldwide, (ii) for the maximum duration provided by applicable law or
+treaty (including future time extensions), (iii) in any current or future
+medium and for any number of copies, and (iv) for any purpose whatsoever,
+including without limitation commercial, advertising or promotional
+purposes (the \"Waiver\"). Affirmer makes the Waiver for the benefit of each
+member of the public at large and to the detriment of Affirmer's heirs and
+successors, fully intending that such Waiver shall not be subject to
+revocation, rescission, cancellation, termination, or any other legal or
+equitable action to disrupt the quiet enjoyment of the Work by the public
+as contemplated by Affirmer's express Statement of Purpose.
+
+3. Public License Fallback. Should any part of the Waiver for any reason
+be judged legally invalid or ineffective under applicable law, then the
+Waiver shall be preserved to the maximum extent permitted taking into
+account Affirmer's express Statement of Purpose. In addition, to the
+extent the Waiver is so judged Affirmer hereby grants to each affected
+person a royalty-free, non transferable, non sublicensable, non exclusive,
+irrevocable and unconditional license to exercise Affirmer's Copyright and
+Related Rights in the Work (i) in all territories worldwide, (ii) for the
+maximum duration provided by applicable law or treaty (including future
+time extensions), (iii) in any current or future medium and for any number
+of copies, and (iv) for any purpose whatsoever, including without
+limitation commercial, advertising or promotional purposes (the
+\"License\"). The License shall be deemed effective as of the date CC0 was
+applied by Affirmer to the Work. Should any part of the License for any
+reason be judged legally invalid or ineffective under applicable law, such
+partial invalidity or ineffectiveness shall not invalidate the remainder
+of the License, and in such case Affirmer hereby affirms that he or she
+will not (i) exercise any of his or her remaining Copyright and Related
+Rights in the Work or (ii) assert any associated claims and causes of
+action with respect to the Work, in either case contrary to Affirmer's
+express Statement of Purpose.
+
+4. Limitations and Disclaimers.
+
+ a. No trademark or patent rights held by Affirmer are waived, abandoned,
+    surrendered, licensed or otherwise affected by this document.
+ b. Affirmer offers the Work as-is and makes no representations or
+    warranties of any kind concerning the Work, express, implied,
+    statutory or otherwise, including without limitation warranties of
+    title, merchantability, fitness for a particular purpose, non
+    infringement, or the absence of latent or other defects, accuracy, or
+    the present or absence of errors, whether or not discoverable, all to
+    the greatest extent permissible under applicable law.
+ c. Affirmer disclaims responsibility for clearing rights of other persons
+    that may apply to the Work or any use thereof, including without
+    limitation any person's Copyright and Related Rights in the Work.
+    Further, Affirmer disclaims responsibility for obtaining any necessary
+    consents, permissions or other rights required for any use of the
+    Work.
+ d. Affirmer understands and acknowledges that Creative Commons is not a
+    party to this document and has no duty or obligation with respect to
+    this CC0 or use of the Work."
+
+[sub_resource type="Resource" id="Resource_11fs0"]
+script = ExtResource("1_x3ruh")
+asset_name = "Magic Scout - Farm"
+asset_author = "Kevin MacLeod"
+asset_author_alt_name = ""
+asset_type = "Music"
+asset_usage = "Backsound for main menu and score board"
+asset_license = "CC BY 3.0"
+asset_quote = ""
+asset_website = "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1800016"
+asset_modification = "Reencoded to be smaller"
+asset_full_license = "Farm Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 3.0 License
+http://creativecommons.org/licenses/by/3.0/"
+
+[sub_resource type="Resource" id="Resource_0xuhl"]
+script = ExtResource("1_x3ruh")
+asset_name = "Upbeat Forever"
+asset_author = "Kevin MacLeod"
+asset_author_alt_name = ""
+asset_type = "Music"
+asset_usage = "Soundtrack for main gameplay"
+asset_license = "CC BY 3.0"
+asset_quote = ""
+asset_website = "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1500063"
+asset_modification = "Reencoded to be smaller"
+asset_full_license = "Upbeat Forever Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 3.0 License
+http://creativecommons.org/licenses/by/3.0/"
+
+[sub_resource type="Resource" id="Resource_1rd3u"]
+script = ExtResource("1_x3ruh")
+asset_name = "100+ Pixel Buttons - Pack (16x16)"
+asset_author = "KabGames"
+asset_author_alt_name = ""
+asset_type = "Art (UI Atlas)"
+asset_usage = "Gameplay UI buttons, also blueprint for other touch buttons"
+asset_license = "(unknown)"
+asset_quote = "Attribution is not required but appreciated, Thank you so much ! 😊 "
+asset_website = "https://kaboff.itch.io/pixel-buttons-pack"
+asset_modification = "Cropped, and modified into several buttons with code"
+asset_full_license = ""
+
+[sub_resource type="Resource" id="Resource_td84g"]
+script = ExtResource("1_x3ruh")
+asset_name = "UI Pack - Adventure"
+asset_author = "Kenney"
+asset_author_alt_name = ""
+asset_type = "Art (UI Vectors)"
+asset_usage = "Used as borders and banner on score board"
+asset_license = "CC0 1.0"
+asset_quote = ""
+asset_website = "https://kenney.nl/assets/ui-pack-adventure"
+asset_modification = ""
+asset_full_license = "Creative Commons Legal Code
+
+CC0 1.0 Universal
+
+    CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE
+    LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN
+    ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS
+    INFORMATION ON AN \"AS-IS\" BASIS. CREATIVE COMMONS MAKES NO WARRANTIES
+    REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS
+    PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM
+    THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED
+    HEREUNDER.
+
+Statement of Purpose
+
+The laws of most jurisdictions throughout the world automatically confer
+exclusive Copyright and Related Rights (defined below) upon the creator
+and subsequent owner(s) (each and all, an \"owner\") of an original work of
+authorship and/or a database (each, a \"Work\").
+
+Certain owners wish to permanently relinquish those rights to a Work for
+the purpose of contributing to a commons of creative, cultural and
+scientific works (\"Commons\") that the public can reliably and without fear
+of later claims of infringement build upon, modify, incorporate in other
+works, reuse and redistribute as freely as possible in any form whatsoever
+and for any purposes, including without limitation commercial purposes.
+These owners may contribute to the Commons to promote the ideal of a free
+culture and the further production of creative, cultural and scientific
+works, or to gain reputation or greater distribution for their Work in
+part through the use and efforts of others.
+
+For these and/or other purposes and motivations, and without any
+expectation of additional consideration or compensation, the person
+associating CC0 with a Work (the \"Affirmer\"), to the extent that he or she
+is an owner of Copyright and Related Rights in the Work, voluntarily
+elects to apply CC0 to the Work and publicly distribute the Work under its
+terms, with knowledge of his or her Copyright and Related Rights in the
+Work and the meaning and intended legal effect of CC0 on those rights.
+
+1. Copyright and Related Rights. A Work made available under CC0 may be
+protected by copyright and related or neighboring rights (\"Copyright and
+Related Rights\"). Copyright and Related Rights include, but are not
+limited to, the following:
+
+  i. the right to reproduce, adapt, distribute, perform, display,
+     communicate, and translate a Work;
+ ii. moral rights retained by the original author(s) and/or performer(s);
+iii. publicity and privacy rights pertaining to a person's image or
+     likeness depicted in a Work;
+ iv. rights protecting against unfair competition in regards to a Work,
+     subject to the limitations in paragraph 4(a), below;
+  v. rights protecting the extraction, dissemination, use and reuse of data
+     in a Work;
+ vi. database rights (such as those arising under Directive 96/9/EC of the
+     European Parliament and of the Council of 11 March 1996 on the legal
+     protection of databases, and under any national implementation
+     thereof, including any amended or successor version of such
+     directive); and
+vii. other similar, equivalent or corresponding rights throughout the
+     world based on applicable law or treaty, and any national
+     implementations thereof.
+
+2. Waiver. To the greatest extent permitted by, but not in contravention
+of, applicable law, Affirmer hereby overtly, fully, permanently,
+irrevocably and unconditionally waives, abandons, and surrenders all of
+Affirmer's Copyright and Related Rights and associated claims and causes
+of action, whether now known or unknown (including existing as well as
+future claims and causes of action), in the Work (i) in all territories
+worldwide, (ii) for the maximum duration provided by applicable law or
+treaty (including future time extensions), (iii) in any current or future
+medium and for any number of copies, and (iv) for any purpose whatsoever,
+including without limitation commercial, advertising or promotional
+purposes (the \"Waiver\"). Affirmer makes the Waiver for the benefit of each
+member of the public at large and to the detriment of Affirmer's heirs and
+successors, fully intending that such Waiver shall not be subject to
+revocation, rescission, cancellation, termination, or any other legal or
+equitable action to disrupt the quiet enjoyment of the Work by the public
+as contemplated by Affirmer's express Statement of Purpose.
+
+3. Public License Fallback. Should any part of the Waiver for any reason
+be judged legally invalid or ineffective under applicable law, then the
+Waiver shall be preserved to the maximum extent permitted taking into
+account Affirmer's express Statement of Purpose. In addition, to the
+extent the Waiver is so judged Affirmer hereby grants to each affected
+person a royalty-free, non transferable, non sublicensable, non exclusive,
+irrevocable and unconditional license to exercise Affirmer's Copyright and
+Related Rights in the Work (i) in all territories worldwide, (ii) for the
+maximum duration provided by applicable law or treaty (including future
+time extensions), (iii) in any current or future medium and for any number
+of copies, and (iv) for any purpose whatsoever, including without
+limitation commercial, advertising or promotional purposes (the
+\"License\"). The License shall be deemed effective as of the date CC0 was
+applied by Affirmer to the Work. Should any part of the License for any
+reason be judged legally invalid or ineffective under applicable law, such
+partial invalidity or ineffectiveness shall not invalidate the remainder
+of the License, and in such case Affirmer hereby affirms that he or she
+will not (i) exercise any of his or her remaining Copyright and Related
+Rights in the Work or (ii) assert any associated claims and causes of
+action with respect to the Work, in either case contrary to Affirmer's
+express Statement of Purpose.
+
+4. Limitations and Disclaimers.
+
+ a. No trademark or patent rights held by Affirmer are waived, abandoned,
+    surrendered, licensed or otherwise affected by this document.
+ b. Affirmer offers the Work as-is and makes no representations or
+    warranties of any kind concerning the Work, express, implied,
+    statutory or otherwise, including without limitation warranties of
+    title, merchantability, fitness for a particular purpose, non
+    infringement, or the absence of latent or other defects, accuracy, or
+    the present or absence of errors, whether or not discoverable, all to
+    the greatest extent permissible under applicable law.
+ c. Affirmer disclaims responsibility for clearing rights of other persons
+    that may apply to the Work or any use thereof, including without
+    limitation any person's Copyright and Related Rights in the Work.
+    Further, Affirmer disclaims responsibility for obtaining any necessary
+    consents, permissions or other rights required for any use of the
+    Work.
+ d. Affirmer understands and acknowledges that Creative Commons is not a
+    party to this document and has no duty or obligation with respect to
+    this CC0 or use of the Work."
+
+[sub_resource type="Resource" id="Resource_t0iin"]
+script = ExtResource("1_x3ruh")
+asset_name = "Pixel Art GUI Elements"
+asset_author = "Mounir Tohami"
+asset_author_alt_name = ""
+asset_type = "Art (UI)"
+asset_usage = "Border on confirmation UI"
+asset_license = "(unknown)"
+asset_quote = "free to use for any purpose . Credit me if you like [ it's optional ] , Thanks ."
+asset_website = "https://mounirtohami.itch.io/pixel-art-gui-elements"
+asset_modification = "Cropped only the border part, readjusted"
+asset_full_license = ""
+
+[sub_resource type="Resource" id="Resource_dacya"]
+script = ExtResource("1_x3ruh")
+asset_name = "Monogram"
+asset_author = "datagoblin"
+asset_author_alt_name = ""
+asset_type = "Font"
+asset_usage = "Font for almost everything"
+asset_license = "CC0 1.0"
+asset_quote = ""
+asset_website = "https://datagoblin.itch.io/monogram"
+asset_modification = ""
+asset_full_license = "Creative Commons Legal Code
+
+CC0 1.0 Universal
+
+    CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE
+    LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN
+    ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS
+    INFORMATION ON AN \"AS-IS\" BASIS. CREATIVE COMMONS MAKES NO WARRANTIES
+    REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS
+    PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM
+    THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED
+    HEREUNDER.
+
+Statement of Purpose
+
+The laws of most jurisdictions throughout the world automatically confer
+exclusive Copyright and Related Rights (defined below) upon the creator
+and subsequent owner(s) (each and all, an \"owner\") of an original work of
+authorship and/or a database (each, a \"Work\").
+
+Certain owners wish to permanently relinquish those rights to a Work for
+the purpose of contributing to a commons of creative, cultural and
+scientific works (\"Commons\") that the public can reliably and without fear
+of later claims of infringement build upon, modify, incorporate in other
+works, reuse and redistribute as freely as possible in any form whatsoever
+and for any purposes, including without limitation commercial purposes.
+These owners may contribute to the Commons to promote the ideal of a free
+culture and the further production of creative, cultural and scientific
+works, or to gain reputation or greater distribution for their Work in
+part through the use and efforts of others.
+
+For these and/or other purposes and motivations, and without any
+expectation of additional consideration or compensation, the person
+associating CC0 with a Work (the \"Affirmer\"), to the extent that he or she
+is an owner of Copyright and Related Rights in the Work, voluntarily
+elects to apply CC0 to the Work and publicly distribute the Work under its
+terms, with knowledge of his or her Copyright and Related Rights in the
+Work and the meaning and intended legal effect of CC0 on those rights.
+
+1. Copyright and Related Rights. A Work made available under CC0 may be
+protected by copyright and related or neighboring rights (\"Copyright and
+Related Rights\"). Copyright and Related Rights include, but are not
+limited to, the following:
+
+  i. the right to reproduce, adapt, distribute, perform, display,
+     communicate, and translate a Work;
+ ii. moral rights retained by the original author(s) and/or performer(s);
+iii. publicity and privacy rights pertaining to a person's image or
+     likeness depicted in a Work;
+ iv. rights protecting against unfair competition in regards to a Work,
+     subject to the limitations in paragraph 4(a), below;
+  v. rights protecting the extraction, dissemination, use and reuse of data
+     in a Work;
+ vi. database rights (such as those arising under Directive 96/9/EC of the
+     European Parliament and of the Council of 11 March 1996 on the legal
+     protection of databases, and under any national implementation
+     thereof, including any amended or successor version of such
+     directive); and
+vii. other similar, equivalent or corresponding rights throughout the
+     world based on applicable law or treaty, and any national
+     implementations thereof.
+
+2. Waiver. To the greatest extent permitted by, but not in contravention
+of, applicable law, Affirmer hereby overtly, fully, permanently,
+irrevocably and unconditionally waives, abandons, and surrenders all of
+Affirmer's Copyright and Related Rights and associated claims and causes
+of action, whether now known or unknown (including existing as well as
+future claims and causes of action), in the Work (i) in all territories
+worldwide, (ii) for the maximum duration provided by applicable law or
+treaty (including future time extensions), (iii) in any current or future
+medium and for any number of copies, and (iv) for any purpose whatsoever,
+including without limitation commercial, advertising or promotional
+purposes (the \"Waiver\"). Affirmer makes the Waiver for the benefit of each
+member of the public at large and to the detriment of Affirmer's heirs and
+successors, fully intending that such Waiver shall not be subject to
+revocation, rescission, cancellation, termination, or any other legal or
+equitable action to disrupt the quiet enjoyment of the Work by the public
+as contemplated by Affirmer's express Statement of Purpose.
+
+3. Public License Fallback. Should any part of the Waiver for any reason
+be judged legally invalid or ineffective under applicable law, then the
+Waiver shall be preserved to the maximum extent permitted taking into
+account Affirmer's express Statement of Purpose. In addition, to the
+extent the Waiver is so judged Affirmer hereby grants to each affected
+person a royalty-free, non transferable, non sublicensable, non exclusive,
+irrevocable and unconditional license to exercise Affirmer's Copyright and
+Related Rights in the Work (i) in all territories worldwide, (ii) for the
+maximum duration provided by applicable law or treaty (including future
+time extensions), (iii) in any current or future medium and for any number
+of copies, and (iv) for any purpose whatsoever, including without
+limitation commercial, advertising or promotional purposes (the
+\"License\"). The License shall be deemed effective as of the date CC0 was
+applied by Affirmer to the Work. Should any part of the License for any
+reason be judged legally invalid or ineffective under applicable law, such
+partial invalidity or ineffectiveness shall not invalidate the remainder
+of the License, and in such case Affirmer hereby affirms that he or she
+will not (i) exercise any of his or her remaining Copyright and Related
+Rights in the Work or (ii) assert any associated claims and causes of
+action with respect to the Work, in either case contrary to Affirmer's
+express Statement of Purpose.
+
+4. Limitations and Disclaimers.
+
+ a. No trademark or patent rights held by Affirmer are waived, abandoned,
+    surrendered, licensed or otherwise affected by this document.
+ b. Affirmer offers the Work as-is and makes no representations or
+    warranties of any kind concerning the Work, express, implied,
+    statutory or otherwise, including without limitation warranties of
+    title, merchantability, fitness for a particular purpose, non
+    infringement, or the absence of latent or other defects, accuracy, or
+    the present or absence of errors, whether or not discoverable, all to
+    the greatest extent permissible under applicable law.
+ c. Affirmer disclaims responsibility for clearing rights of other persons
+    that may apply to the Work or any use thereof, including without
+    limitation any person's Copyright and Related Rights in the Work.
+    Further, Affirmer disclaims responsibility for obtaining any necessary
+    consents, permissions or other rights required for any use of the
+    Work.
+ d. Affirmer understands and acknowledges that Creative Commons is not a
+    party to this document and has no duty or obligation with respect to
+    this CC0 or use of the Work."
+
+[sub_resource type="Resource" id="Resource_qhvc0"]
+script = ExtResource("1_x3ruh")
+asset_name = "Roboto Flex"
+asset_author = "googlefonts"
+asset_author_alt_name = ""
+asset_type = "Font"
+asset_usage = "Font for serious text"
+asset_license = "OFL 1.1 License"
+asset_quote = ""
+asset_website = "https://github.com/googlefonts/roboto-flex"
+asset_modification = ""
+asset_full_license = "Copyright 2011 The Roboto Flex Project Authors (https://github.com/googlefonts/roboto-flex)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded, 
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+\"Font Software\" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+\"Reserved Font Name\" refers to any names specified as such after the
+copyright statement(s).
+
+\"Original Version\" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+\"Modified Version\" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+\"Author\" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE."
+
+[sub_resource type="Resource" id="Resource_x7ac0"]
+script = ExtResource("1_x3ruh")
+asset_name = "Color swap shader"
+asset_author = "Zylann"
+asset_author_alt_name = ""
+asset_type = "Image Shader"
+asset_usage = "Change the color of buttons that i made"
+asset_license = "(unknown)"
+asset_quote = ""
+asset_website = "https://forum.godotengine.org/t/changing-a-specific-color-in-a-sprite-using-shaders-in-godot-3/29610/4"
+asset_modification = "modified a lot with more improvements, now change two colors more accurately"
+asset_full_license = ""
+
+[sub_resource type="Resource" id="Resource_0l4k7"]
+script = ExtResource("1_x3ruh")
+asset_name = "Hit flash effect shader"
+asset_author = "sakurap3"
+asset_author_alt_name = ""
+asset_type = "Image Shader"
+asset_usage = "For blinking animation when character got damaged"
+asset_license = "CC0 1.0"
+asset_quote = ""
+asset_website = "https://godotshaders.com/shader/hit-flash-effect/"
+asset_modification = "modified so that the duration is adjustable"
+asset_full_license = "Creative Commons Legal Code
+
+CC0 1.0 Universal
+
+    CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE
+    LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN
+    ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS
+    INFORMATION ON AN \"AS-IS\" BASIS. CREATIVE COMMONS MAKES NO WARRANTIES
+    REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS
+    PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM
+    THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED
+    HEREUNDER.
+
+Statement of Purpose
+
+The laws of most jurisdictions throughout the world automatically confer
+exclusive Copyright and Related Rights (defined below) upon the creator
+and subsequent owner(s) (each and all, an \"owner\") of an original work of
+authorship and/or a database (each, a \"Work\").
+
+Certain owners wish to permanently relinquish those rights to a Work for
+the purpose of contributing to a commons of creative, cultural and
+scientific works (\"Commons\") that the public can reliably and without fear
+of later claims of infringement build upon, modify, incorporate in other
+works, reuse and redistribute as freely as possible in any form whatsoever
+and for any purposes, including without limitation commercial purposes.
+These owners may contribute to the Commons to promote the ideal of a free
+culture and the further production of creative, cultural and scientific
+works, or to gain reputation or greater distribution for their Work in
+part through the use and efforts of others.
+
+For these and/or other purposes and motivations, and without any
+expectation of additional consideration or compensation, the person
+associating CC0 with a Work (the \"Affirmer\"), to the extent that he or she
+is an owner of Copyright and Related Rights in the Work, voluntarily
+elects to apply CC0 to the Work and publicly distribute the Work under its
+terms, with knowledge of his or her Copyright and Related Rights in the
+Work and the meaning and intended legal effect of CC0 on those rights.
+
+1. Copyright and Related Rights. A Work made available under CC0 may be
+protected by copyright and related or neighboring rights (\"Copyright and
+Related Rights\"). Copyright and Related Rights include, but are not
+limited to, the following:
+
+  i. the right to reproduce, adapt, distribute, perform, display,
+     communicate, and translate a Work;
+ ii. moral rights retained by the original author(s) and/or performer(s);
+iii. publicity and privacy rights pertaining to a person's image or
+     likeness depicted in a Work;
+ iv. rights protecting against unfair competition in regards to a Work,
+     subject to the limitations in paragraph 4(a), below;
+  v. rights protecting the extraction, dissemination, use and reuse of data
+     in a Work;
+ vi. database rights (such as those arising under Directive 96/9/EC of the
+     European Parliament and of the Council of 11 March 1996 on the legal
+     protection of databases, and under any national implementation
+     thereof, including any amended or successor version of such
+     directive); and
+vii. other similar, equivalent or corresponding rights throughout the
+     world based on applicable law or treaty, and any national
+     implementations thereof.
+
+2. Waiver. To the greatest extent permitted by, but not in contravention
+of, applicable law, Affirmer hereby overtly, fully, permanently,
+irrevocably and unconditionally waives, abandons, and surrenders all of
+Affirmer's Copyright and Related Rights and associated claims and causes
+of action, whether now known or unknown (including existing as well as
+future claims and causes of action), in the Work (i) in all territories
+worldwide, (ii) for the maximum duration provided by applicable law or
+treaty (including future time extensions), (iii) in any current or future
+medium and for any number of copies, and (iv) for any purpose whatsoever,
+including without limitation commercial, advertising or promotional
+purposes (the \"Waiver\"). Affirmer makes the Waiver for the benefit of each
+member of the public at large and to the detriment of Affirmer's heirs and
+successors, fully intending that such Waiver shall not be subject to
+revocation, rescission, cancellation, termination, or any other legal or
+equitable action to disrupt the quiet enjoyment of the Work by the public
+as contemplated by Affirmer's express Statement of Purpose.
+
+3. Public License Fallback. Should any part of the Waiver for any reason
+be judged legally invalid or ineffective under applicable law, then the
+Waiver shall be preserved to the maximum extent permitted taking into
+account Affirmer's express Statement of Purpose. In addition, to the
+extent the Waiver is so judged Affirmer hereby grants to each affected
+person a royalty-free, non transferable, non sublicensable, non exclusive,
+irrevocable and unconditional license to exercise Affirmer's Copyright and
+Related Rights in the Work (i) in all territories worldwide, (ii) for the
+maximum duration provided by applicable law or treaty (including future
+time extensions), (iii) in any current or future medium and for any number
+of copies, and (iv) for any purpose whatsoever, including without
+limitation commercial, advertising or promotional purposes (the
+\"License\"). The License shall be deemed effective as of the date CC0 was
+applied by Affirmer to the Work. Should any part of the License for any
+reason be judged legally invalid or ineffective under applicable law, such
+partial invalidity or ineffectiveness shall not invalidate the remainder
+of the License, and in such case Affirmer hereby affirms that he or she
+will not (i) exercise any of his or her remaining Copyright and Related
+Rights in the Work or (ii) assert any associated claims and causes of
+action with respect to the Work, in either case contrary to Affirmer's
+express Statement of Purpose.
+
+4. Limitations and Disclaimers.
+
+ a. No trademark or patent rights held by Affirmer are waived, abandoned,
+    surrendered, licensed or otherwise affected by this document.
+ b. Affirmer offers the Work as-is and makes no representations or
+    warranties of any kind concerning the Work, express, implied,
+    statutory or otherwise, including without limitation warranties of
+    title, merchantability, fitness for a particular purpose, non
+    infringement, or the absence of latent or other defects, accuracy, or
+    the present or absence of errors, whether or not discoverable, all to
+    the greatest extent permissible under applicable law.
+ c. Affirmer disclaims responsibility for clearing rights of other persons
+    that may apply to the Work or any use thereof, including without
+    limitation any person's Copyright and Related Rights in the Work.
+    Further, Affirmer disclaims responsibility for obtaining any necessary
+    consents, permissions or other rights required for any use of the
+    Work.
+ d. Affirmer understands and acknowledges that Creative Commons is not a
+    party to this document and has no duty or obligation with respect to
+    this CC0 or use of the Work."
+
+[sub_resource type="Resource" id="Resource_gb8eg"]
+script = ExtResource("1_x3ruh")
+asset_name = "2D wind sway"
+asset_author = "godotshaders"
+asset_author_alt_name = "jordanlis"
+asset_type = "Image Shader"
+asset_usage = "Sway effect on grass on main menu"
+asset_license = "CC0 1.0"
+asset_quote = ""
+asset_website = "https://godotshaders.com/shader/2d-wind-sway/"
+asset_modification = ""
+asset_full_license = "Creative Commons Legal Code
+
+CC0 1.0 Universal
+
+    CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE
+    LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN
+    ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS
+    INFORMATION ON AN \"AS-IS\" BASIS. CREATIVE COMMONS MAKES NO WARRANTIES
+    REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS
+    PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM
+    THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED
+    HEREUNDER.
+
+Statement of Purpose
+
+The laws of most jurisdictions throughout the world automatically confer
+exclusive Copyright and Related Rights (defined below) upon the creator
+and subsequent owner(s) (each and all, an \"owner\") of an original work of
+authorship and/or a database (each, a \"Work\").
+
+Certain owners wish to permanently relinquish those rights to a Work for
+the purpose of contributing to a commons of creative, cultural and
+scientific works (\"Commons\") that the public can reliably and without fear
+of later claims of infringement build upon, modify, incorporate in other
+works, reuse and redistribute as freely as possible in any form whatsoever
+and for any purposes, including without limitation commercial purposes.
+These owners may contribute to the Commons to promote the ideal of a free
+culture and the further production of creative, cultural and scientific
+works, or to gain reputation or greater distribution for their Work in
+part through the use and efforts of others.
+
+For these and/or other purposes and motivations, and without any
+expectation of additional consideration or compensation, the person
+associating CC0 with a Work (the \"Affirmer\"), to the extent that he or she
+is an owner of Copyright and Related Rights in the Work, voluntarily
+elects to apply CC0 to the Work and publicly distribute the Work under its
+terms, with knowledge of his or her Copyright and Related Rights in the
+Work and the meaning and intended legal effect of CC0 on those rights.
+
+1. Copyright and Related Rights. A Work made available under CC0 may be
+protected by copyright and related or neighboring rights (\"Copyright and
+Related Rights\"). Copyright and Related Rights include, but are not
+limited to, the following:
+
+  i. the right to reproduce, adapt, distribute, perform, display,
+     communicate, and translate a Work;
+ ii. moral rights retained by the original author(s) and/or performer(s);
+iii. publicity and privacy rights pertaining to a person's image or
+     likeness depicted in a Work;
+ iv. rights protecting against unfair competition in regards to a Work,
+     subject to the limitations in paragraph 4(a), below;
+  v. rights protecting the extraction, dissemination, use and reuse of data
+     in a Work;
+ vi. database rights (such as those arising under Directive 96/9/EC of the
+     European Parliament and of the Council of 11 March 1996 on the legal
+     protection of databases, and under any national implementation
+     thereof, including any amended or successor version of such
+     directive); and
+vii. other similar, equivalent or corresponding rights throughout the
+     world based on applicable law or treaty, and any national
+     implementations thereof.
+
+2. Waiver. To the greatest extent permitted by, but not in contravention
+of, applicable law, Affirmer hereby overtly, fully, permanently,
+irrevocably and unconditionally waives, abandons, and surrenders all of
+Affirmer's Copyright and Related Rights and associated claims and causes
+of action, whether now known or unknown (including existing as well as
+future claims and causes of action), in the Work (i) in all territories
+worldwide, (ii) for the maximum duration provided by applicable law or
+treaty (including future time extensions), (iii) in any current or future
+medium and for any number of copies, and (iv) for any purpose whatsoever,
+including without limitation commercial, advertising or promotional
+purposes (the \"Waiver\"). Affirmer makes the Waiver for the benefit of each
+member of the public at large and to the detriment of Affirmer's heirs and
+successors, fully intending that such Waiver shall not be subject to
+revocation, rescission, cancellation, termination, or any other legal or
+equitable action to disrupt the quiet enjoyment of the Work by the public
+as contemplated by Affirmer's express Statement of Purpose.
+
+3. Public License Fallback. Should any part of the Waiver for any reason
+be judged legally invalid or ineffective under applicable law, then the
+Waiver shall be preserved to the maximum extent permitted taking into
+account Affirmer's express Statement of Purpose. In addition, to the
+extent the Waiver is so judged Affirmer hereby grants to each affected
+person a royalty-free, non transferable, non sublicensable, non exclusive,
+irrevocable and unconditional license to exercise Affirmer's Copyright and
+Related Rights in the Work (i) in all territories worldwide, (ii) for the
+maximum duration provided by applicable law or treaty (including future
+time extensions), (iii) in any current or future medium and for any number
+of copies, and (iv) for any purpose whatsoever, including without
+limitation commercial, advertising or promotional purposes (the
+\"License\"). The License shall be deemed effective as of the date CC0 was
+applied by Affirmer to the Work. Should any part of the License for any
+reason be judged legally invalid or ineffective under applicable law, such
+partial invalidity or ineffectiveness shall not invalidate the remainder
+of the License, and in such case Affirmer hereby affirms that he or she
+will not (i) exercise any of his or her remaining Copyright and Related
+Rights in the Work or (ii) assert any associated claims and causes of
+action with respect to the Work, in either case contrary to Affirmer's
+express Statement of Purpose.
+
+4. Limitations and Disclaimers.
+
+ a. No trademark or patent rights held by Affirmer are waived, abandoned,
+    surrendered, licensed or otherwise affected by this document.
+ b. Affirmer offers the Work as-is and makes no representations or
+    warranties of any kind concerning the Work, express, implied,
+    statutory or otherwise, including without limitation warranties of
+    title, merchantability, fitness for a particular purpose, non
+    infringement, or the absence of latent or other defects, accuracy, or
+    the present or absence of errors, whether or not discoverable, all to
+    the greatest extent permissible under applicable law.
+ c. Affirmer disclaims responsibility for clearing rights of other persons
+    that may apply to the Work or any use thereof, including without
+    limitation any person's Copyright and Related Rights in the Work.
+    Further, Affirmer disclaims responsibility for obtaining any necessary
+    consents, permissions or other rights required for any use of the
+    Work.
+ d. Affirmer understands and acknowledges that Creative Commons is not a
+    party to this document and has no duty or obligation with respect to
+    this CC0 or use of the Work."
 
 [resource]
 script = ExtResource("2_ey8jm")
-list = Array[ExtResource("1_x3ruh")]([SubResource("Resource_fgewp"), SubResource("Resource_l315p")])
+list = Array[ExtResource("1_x3ruh")]([SubResource("Resource_fgewp"), SubResource("Resource_l315p"), SubResource("Resource_erqio"), SubResource("Resource_qqiaj"), SubResource("Resource_11fs0"), SubResource("Resource_0xuhl"), SubResource("Resource_1rd3u"), SubResource("Resource_td84g"), SubResource("Resource_t0iin"), SubResource("Resource_dacya"), SubResource("Resource_qhvc0"), SubResource("Resource_x7ac0"), SubResource("Resource_0l4k7"), SubResource("Resource_gb8eg")])
