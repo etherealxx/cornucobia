@@ -158,7 +158,8 @@ func handle_colliding(body : Node2D, direction_that_can_take_damage : String):
 					add_score.emit(1)
 					body.trigger_death(direction_that_can_take_damage)
 		else:
-			if !body.is_in_group("corncob") and not is_flashing and not is_game_over and not switching_lane: # collide from behind
+			if !body.is_in_group("corncob") and not is_flashing and not is_game_over: # collide from behind
+			# if not (body.is_in_group("corncob") or is_flashing or is_game_over): # someone says it should be this
 				hp -= 1
 				if hp <= 0:
 					hp = 0

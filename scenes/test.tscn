@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqdpthup5i0vu"]
+
+[ext_resource type="PackedScene" uid="uid://dqmx8d6kghpgq" path="res://scenes/modular_touch_button.tscn" id="1_lnoc2"]
+[ext_resource type="Shader" path="res://shaders/change2color.gdshader" id="2_km02s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bumvc"]
+shader = ExtResource("2_km02s")
+shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
+shader_parameter/u_replacement_color1 = Color(0.931909, 0.674982, 0.60406, 1)
+shader_parameter/u_color_key2 = Color(0.764706, 0.764706, 0.764706, 1)
+shader_parameter/u_replacement_color2 = Color(0.863901, 0.581066, 0.511737, 1)
+shader_parameter/u_tolerance = 0.1
+shader_parameter/u_interpolation_factor = 1.0
+
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_08wxu"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_c86ov"]
+mesh = SubResource("PlaceholderMesh_08wxu")
+image_size = Vector2(60, 17)
+
+[sub_resource type="MeshTexture" id="MeshTexture_f53jn"]
+mesh = SubResource("PlaceholderMesh_08wxu")
+image_size = Vector2(60, 17)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ModularTouchButton" parent="." instance=ExtResource("1_lnoc2")]
+material = SubResource("ShaderMaterial_bumvc")
+position = Vector2(346, 993)
+scale = Vector2(7, 7)
+texture_normal = SubResource("MeshTexture_c86ov")
+texture_pressed = SubResource("MeshTexture_f53jn")

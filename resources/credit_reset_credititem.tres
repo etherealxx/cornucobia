@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CreditItem" load_steps=2 format=3 uid="uid://dal4brq15v4db"]
+
+[ext_resource type="Script" path="res://scripts/resources/credititem.gd" id="1_tkcy3"]
+
+[resource]
+script = ExtResource("1_tkcy3")
+asset_name = "The Name"
+asset_author = "by Someone"
+asset_author_alt_name = ""
+asset_type = "Type : x"
+asset_usage = "Usage: x"
+asset_license = "License:"
+asset_quote = "\"Use it Whatever"
+asset_website = "Website:"
+asset_modification = "I modified this:"
+asset_full_license = "bluh bluh bluh"

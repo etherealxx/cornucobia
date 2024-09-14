@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://xrogsuysb7bi" path="res://scenes/enemy_spawner.tscn" id="1_y8onn"]
 
-[node name="EnemySpawners" type="CanvasGroup"]
+[node name="EnemySpawners" type="Node2D"]
 
 [node name="Spawner" parent="." instance=ExtResource("1_y8onn")]
 position = Vector2(-303, 427.3)

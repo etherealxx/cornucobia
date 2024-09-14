@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ck2tvjai4kru7"]
+
+[ext_resource type="FontFile" uid="uid://dl52ar0kyhvsj" path="res://fonts/Roboto Flex/RobotoFlex.ttf" id="1_klgkg"]
+[ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="1_xf4ig"]
+
+[resource]
+default_font = ExtResource("1_xf4ig")
+CheckButton/font_sizes/font_size = 40
+ItemList/font_sizes/font_size = 50
+Label/font_sizes/font_size = 50
+RichTextLabel/font_sizes/normal_font_size = 25
+RichTextLabel/fonts/normal_font = ExtResource("1_klgkg")

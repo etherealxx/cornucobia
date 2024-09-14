@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=4 uid="uid://dd1v007nbj47i"]
 
-[ext_resource type="Script" path="res://scripts/maintest.gd" id="1_nx5aw"]
+[ext_resource type="Script" path="res://scripts/main_gameplay.gd" id="1_nx5aw"]
 [ext_resource type="AudioStream" uid="uid://bqes06odj2353" path="res://assets/musics/265549__vikuserro__cheap-flash-game-tune.mp3" id="2_g4mbr"]
 [ext_resource type="PackedScene" uid="uid://d05ojgxmduaa8" path="res://scenes/tests/chicken.tscn" id="2_vwlvf"]
 [ext_resource type="PackedScene" uid="uid://1muwvmjjuogq" path="res://scenes/tests/solid_ground_test.tscn" id="4_83h8e"]

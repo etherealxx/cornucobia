@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cufa47nn0ikne"]
+
+[ext_resource type="Theme" uid="uid://ck2tvjai4kru7" path="res://resources/monogram_credits_theme.tres" id="1_bycgk"]
+
+[node name="Label" type="Label"]
+theme = ExtResource("1_bycgk")
+text = "Shaker"

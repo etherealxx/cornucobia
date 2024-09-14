@@ -1,7 +1,7 @@
 @tool
 extends TouchScreenButton
 
-#signal precise_released
+signal precise_released
 
 @onready var btn_click = $ButtonClicked
 @onready var btn_unclick = $ButtonUnclicked
@@ -32,6 +32,13 @@ var last_touch_pos := Vector2.ZERO
 	
 @export var btn_emulate_click: bool:
 	set(v): emulate_click()
+
+func _input(event):
+	if not Engine.is_editor_hint():
+		if event is InputEventScreenTouch or event is InputEventScreenDrag:
+			last_touch_pos = event.position
+			#var touchingbutton = Rect2(position, Vector2(button_size.x, button_size.y)).has_point(last_touch_pos)
+			#print("%.2v, %s" % [last_touch_pos, touchingbutton])
 
 func update_color():
 	if btn_unclick: btn_unclick.get_node("UnclickedLabel").get_label_settings().set_font_color(font_color)
@@ -76,21 +83,21 @@ func _ready() -> void:
 		unclick_anim()
 		pressed.connect(click_anim)
 		released.connect(unclick_anim)
-		#released.connect(precise_release_check)
+		released.connect(precise_release_check)
 	update_text()
 	update_size()
 	update_color()
-
+	#$"../ReferenceRect".position = self.position
+	#$"../ReferenceRect".size = Vector2(button_size.x * self.scale.x, button_size.y * self.scale.x)
+	#print("%.2v, %.2v" % [$"../ReferenceRect".position, $"../ReferenceRect".size])
 #func _unhandled_input(event):
 	#if event is InputEventScreenTouch and event.pressed == true:
 		#last_touch_pos = event.position
 #
-#func precise_release_check():
-	##if Rect2(global_position, Vector2(button_size.x, button_size.y)).has_point(last_touch_pos):
-		##precise_release.emit()
-	##else:
-		##print("%v" % last_touch_pos)
-		##print("not precise")
+func precise_release_check():
+	if Rect2(position, Vector2(button_size.x * self.scale.x, button_size.y * self.scale.x)).has_point(last_touch_pos):
+		precise_released.emit()
+
 	#pass
 #func _on_pressed() -> void:
 	#click_anim()

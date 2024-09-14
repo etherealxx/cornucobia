@@ -345,10 +345,8 @@ shape = SubResource("CapsuleShape2D_g8o0m")
 material = SubResource("ShaderMaterial_dioe1")
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_5hsji")
-animation = &"death"
+animation = &"run"
 autoplay = "run"
-frame = 11
-frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CobiaHurt" type="Sprite2D" parent="."]

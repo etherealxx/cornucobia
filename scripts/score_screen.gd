@@ -2,10 +2,13 @@ extends Node2D
 
 var is_loading_leaderboard = false
 
-@export_file("*.tscn") var maingameplay_scn_path : String
+@export_file("*.tscn") var maingameplay_scene_path : String
+@export_file("*.mp3") var maingameplay_song_path := ""
+@export_file("*.tscn") var mainmenu_scene_path : String
 @export var debug_accept_windows := false
 
 func _ready() -> void:
+	GlobalAudioPlayer.music_volume(0.0)
 	is_loading_leaderboard = true
 	if OS.get_name() != "Android":
 		GlobalVar.adaptive_non_android_viewport_scaling()
@@ -15,7 +18,7 @@ func _ready() -> void:
 		await %ScoreBoard.leaderboard_loaded
 	is_loading_leaderboard = false
 	
-func _on_btn_submit_score_released() -> void: #@TODO implement check if player release the button when their finger were there
+func _on_btn_submit_score_precise_released() -> void:
 	%Notice.hide()
 	if (GlobalVar.silentwolf_configured and not is_loading_leaderboard) or debug_accept_windows:
 		is_loading_leaderboard = true
@@ -70,7 +73,11 @@ func _on_insert_name_confirmed() -> void:
 		await %ScoreBoard.leaderboard_loaded
 		$BtnSubmitScore.hide()
 	is_loading_leaderboard = false
-	
-func _on_btn_play_again_released() -> void:
+
+func _on_btn_play_again_precise_released() -> void:
 	GlobalVar.reset_scores()
-	GlobalVar.go_to_scene(maingameplay_scn_path)
+	GlobalVar.go_to_scene(maingameplay_scene_path, maingameplay_song_path)
+
+func _on_btn_main_menu_precise_released() -> void:
+	GlobalVar.mainmenu_logo_transition = false
+	GlobalVar.go_to_scene(mainmenu_scene_path)

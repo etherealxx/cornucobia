@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c75x0o1nnp1iv" path="res://assets/ui/buttons/blank_button_pressed.png" id="3_rvdhr"]
 [ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="4_7fv4u"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_om2bh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kje1k"]
 shader = ExtResource("1_ek2n8")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.931909, 0.674982, 0.60406, 1)
@@ -17,27 +17,27 @@ shader_parameter/u_interpolation_factor = 1.0
 
 [sub_resource type="PlaceholderMesh" id="PlaceholderMesh_08wxu"]
 
-[sub_resource type="MeshTexture" id="MeshTexture_51bmd"]
+[sub_resource type="MeshTexture" id="MeshTexture_1ypna"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_s7p65"]
+[sub_resource type="MeshTexture" id="MeshTexture_l7os1"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="LabelSettings" id="LabelSettings_7ngv8"]
+[sub_resource type="LabelSettings" id="LabelSettings_domtt"]
 font = ExtResource("4_7fv4u")
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_a5cn1"]
+[sub_resource type="LabelSettings" id="LabelSettings_tsyi7"]
 font = ExtResource("4_7fv4u")
 font_color = Color(0, 0, 0, 1)
 
 [node name="ModularTouchButton" type="TouchScreenButton"]
 texture_filter = 1
-material = SubResource("ShaderMaterial_om2bh")
-texture_normal = SubResource("MeshTexture_51bmd")
-texture_pressed = SubResource("MeshTexture_s7p65")
+material = SubResource("ShaderMaterial_kje1k")
+texture_normal = SubResource("MeshTexture_1ypna")
+texture_pressed = SubResource("MeshTexture_l7os1")
 script = ExtResource("1_j6acl")
 button_size = Vector2(60, 15)
 
@@ -66,7 +66,7 @@ offset_bottom = 4.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Text"
-label_settings = SubResource("LabelSettings_7ngv8")
+label_settings = SubResource("LabelSettings_domtt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -96,6 +96,6 @@ offset_bottom = 5.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Text"
-label_settings = SubResource("LabelSettings_a5cn1")
+label_settings = SubResource("LabelSettings_tsyi7")
 horizontal_alignment = 1
 vertical_alignment = 1

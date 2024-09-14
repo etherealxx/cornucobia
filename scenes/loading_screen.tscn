@@ -1,8 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://bnne66bi2482n"]
+[gd_scene load_steps=23 format=3 uid="uid://bnne66bi2482n"]
 
 [ext_resource type="Script" path="res://scripts/loading_screen.gd" id="1_la05l"]
 [ext_resource type="Shader" path="res://shaders/hitflash.gdshader" id="2_3f6op"]
-[ext_resource type="Texture2D" uid="uid://7rh5xasj6x8t" path="res://assets/gamesprites/background/Summer8.png" id="2_gfyq0"]
+[ext_resource type="Texture2D" uid="uid://7rh5xasj6x8t" path="res://assets/gamesprites/background/summer_background_full.png" id="2_gfyq0"]
 [ext_resource type="Texture2D" uid="uid://hwkpgl1vlnjj" path="res://assets/gamesprites/player/cobia_running_sheet.png" id="3_1ktl5"]
 [ext_resource type="Theme" uid="uid://cc4xqkjslk0ic" path="res://resources/monogram_ui_theme.tres" id="4_p7851"]
 
@@ -108,6 +108,13 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_q20hv"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.215686, 0.431373, 0.584314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_al0ad"]
+gradient = SubResource("Gradient_q20hv")
+
 [node name="Loading" type="Control" node_paths=PackedStringArray("loadingbar")]
 layout_mode = 3
 anchors_preset = 15
@@ -116,7 +123,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_la05l")
-scene_path_to_load = "res://scenes/main_gameplay_scene.tscn"
+scene_path_to_load = "res://scenes/main_menu.tscn"
+first_music_to_load = "res://assets/musics/Magic Scout - Farm_small.mp3"
 loadingbar = NodePath("Cobia/ProgressBar")
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -161,3 +169,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_p7851")
 step = 0.0
+
+[node name="SkyBlueOnly" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(17.047, 37.636)
+texture = SubResource("GradientTexture2D_al0ad")
+centered = false

@@ -19,10 +19,10 @@ config/quit_on_go_back=false
 config/features=PackedStringArray("4.3", "GL Compatibility")
 run/max_fps=60
 boot_splash/show_image=false
-boot_splash/image="res://cornucobia_foreground.png"
+boot_splash/image="res://icons/cornucobia_foreground.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-config/icon="res://cornucobia_icon.png"
+config/icon="res://icons/cornucobia_icon.png"
 
 [autoload]
 
@@ -30,6 +30,7 @@ SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 GlobalVar="*res://scripts/autoloads/GlobalVar.gd"
 Shaker="*res://addons/shaker/src/Shaker.gd"
 CollisionCalc="*res://scripts/autoloads/collision_calc.gd"
+GlobalAudioPlayer="*res://scenes/global_audio_player.tscn"
 
 [display]
 
@@ -41,7 +42,7 @@ window/handheld/orientation=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/SimpleTODO/plugin.cfg", "res://addons/alignment-tool/plugin.cfg", "res://addons/nine_patch_sprite_2d/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/silent_wolf/plugin.cfg", "res://addons/simple_tool_button/plugin.cfg")
+enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/SimpleTODO/plugin.cfg", "res://addons/alignment-tool/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/nine_patch_sprite_2d/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/silent_wolf/plugin.cfg", "res://addons/simple_tool_button/plugin.cfg")
 
 [input]
 

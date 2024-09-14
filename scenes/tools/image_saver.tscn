@@ -1,29 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0aw1l6co7muu"]
+[gd_scene load_steps=4 format=3 uid="uid://b0aw1l6co7muu"]
 
 [ext_resource type="Script" path="res://scripts/image_saver.gd" id="1_l3h7m"]
-[ext_resource type="Texture2D" uid="uid://bag2pvpm80skp" path="res://assets/ui/buttons/buttons-global.png" id="2_r1gth"]
-[ext_resource type="Script" path="res://scripts/debug/debug_button.gd" id="3_wteis"]
+[ext_resource type="Texture2D" uid="uid://7rh5xasj6x8t" path="res://assets/gamesprites/background/summer_background_full.png" id="2_frsv0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2g3b"]
-atlas = ExtResource("2_r1gth")
-region = Rect2(32, 64, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l8qwe"]
-atlas = ExtResource("2_r1gth")
-region = Rect2(48, 64, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2248w"]
+atlas = ExtResource("2_frsv0")
+region = Rect2(734.039, 0, 605.701, 1296)
 
 [node name="ImageSaver" type="Node" node_paths=PackedStringArray("node_with_image_texture")]
 script = ExtResource("1_l3h7m")
-node_with_image_texture = NodePath("SwapButton")
-texture_property_path = "texture_pressed"
+node_with_image_texture = NodePath("Background")
+texture_property_path = "texture"
 save_directory = "res://assets/saved_images"
 
-[node name="SwapButton" type="TouchScreenButton" parent="."]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.623529)
-position = Vector2(636, 1696)
-scale = Vector2(12, 12)
-texture_normal = SubResource("AtlasTexture_r2g3b")
-texture_pressed = SubResource("AtlasTexture_l8qwe")
-action = "swap_direction"
-script = ExtResource("3_wteis")
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(540, 1204)
+scale = Vector2(1.87, 1.87)
+texture = SubResource("AtlasTexture_2248w")

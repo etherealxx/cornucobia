@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="CreditItemList" load_steps=5 format=3 uid="uid://c8pf3istsgunl"]
+
+[ext_resource type="Script" path="res://scripts/resources/credititem.gd" id="1_x3ruh"]
+[ext_resource type="Script" path="res://scripts/resources/credititemlist.gd" id="2_ey8jm"]
+
+[sub_resource type="Resource" id="Resource_fgewp"]
+script = ExtResource("1_x3ruh")
+asset_name = "Shaker"
+asset_author = "Eneskp3441"
+asset_author_alt_name = ""
+asset_type = "Godot Addon (Runtime)"
+asset_usage = "Shake effect when character collides with the enemy"
+asset_license = "MIT License"
+asset_quote = ""
+asset_website = "https://github.com/Eneskp3441/Shaker"
+asset_modification = ""
+asset_full_license = "MIT License
+
+Copyright (c) 2024 Enes Kaplan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE."
+
+[sub_resource type="Resource" id="Resource_l315p"]
+script = ExtResource("1_x3ruh")
+asset_name = "SilentWolf"
+asset_author = ""
+asset_author_alt_name = ""
+asset_type = ""
+asset_usage = ""
+asset_license = ""
+asset_quote = ""
+asset_website = ""
+asset_modification = ""
+asset_full_license = ""
+
+[resource]
+script = ExtResource("2_ey8jm")
+list = Array[ExtResource("1_x3ruh")]([SubResource("Resource_fgewp"), SubResource("Resource_l315p")])

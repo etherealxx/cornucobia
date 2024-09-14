@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://cidr0kvm2nivg"]
+
+[ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="2_kevd1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bf8e2"]
+font = ExtResource("2_kevd1")
+font_size = 90
+
+[sub_resource type="LabelSettings" id="LabelSettings_bs2of"]
+font = ExtResource("2_kevd1")
+font_size = 60
+
+[node name="InsideQuit" type="ReferenceRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -473.0
+offset_top = -176.0
+offset_right = 474.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Are you sure"
+label_settings = SubResource("LabelSettings_bf8e2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Notice" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "you want to quit the game?"
+label_settings = SubResource("LabelSettings_bs2of")
+horizontal_alignment = 1
+vertical_alignment = 1

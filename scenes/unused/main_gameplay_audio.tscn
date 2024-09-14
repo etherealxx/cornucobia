@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs2bpttvexg51"]
+
+[ext_resource type="AudioStream" uid="uid://bqes06odj2353" path="res://assets/musics/265549__vikuserro__cheap-flash-game-tune.mp3" id="1_ytjxo"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_ytjxo")
+volume_db = -5.0
+pitch_scale = 1.1
+autoplay = true

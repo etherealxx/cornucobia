@@ -1,10 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://k0em1dn6s2ry"]
+[gd_scene load_steps=34 format=3 uid="uid://k0em1dn6s2ry"]
 
-[ext_resource type="Script" path="res://scripts/maintest.gd" id="1_sqiqn"]
+[ext_resource type="Script" path="res://scripts/main_gameplay.gd" id="1_sqiqn"]
 [ext_resource type="PackedScene" uid="uid://ci8h3yqpc5swd" path="res://scenes/enemies/squirrel.tscn" id="2_kor3a"]
 [ext_resource type="PackedScene" uid="uid://ds343cg4f2rgm" path="res://scenes/enemies/mouse.tscn" id="3_5jhd6"]
 [ext_resource type="PackedScene" uid="uid://d0ms031j0n5dd" path="res://scenes/enemies/bird.tscn" id="4_8ll1f"]
-[ext_resource type="AudioStream" uid="uid://bqes06odj2353" path="res://assets/musics/265549__vikuserro__cheap-flash-game-tune.mp3" id="5_6crht"]
 [ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="6_p4kw7"]
 [ext_resource type="Texture2D" uid="uid://c85umkm50513w" path="res://assets/gamesprites/level/cropsfloor.png" id="7_u8sly"]
 [ext_resource type="PackedScene" uid="uid://b3lt1gg6w63ux" path="res://scenes/grouped_nodes/grounds.tscn" id="8_40p8q"]
@@ -108,13 +107,8 @@ texture_filter = 1
 script = ExtResource("1_sqiqn")
 character = NodePath("Cobia")
 every_enemies = Array[PackedScene]([ExtResource("2_kor3a"), ExtResource("3_5jhd6"), ExtResource("4_8ll1f")])
-gameoverscene_path = "res://scenes/scoreboard_scene.tscn"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_6crht")
-volume_db = -5.0
-pitch_scale = 1.1
-autoplay = true
+gameover_scene_path = "res://scenes/scoreboard_scene.tscn"
+gameover_song_path = "res://assets/musics/Magic Scout - Farm_small.mp3"
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 process_callback = 0
@@ -197,7 +191,12 @@ offset_bottom = 326.0
 theme_override_font_sizes/normal_font_size = 44
 text = "debugg"
 
-[node name="CropsRows" type="CanvasGroup" parent="."]
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 340.0
+
+[node name="CropsRows" type="Node2D" parent="."]
 position = Vector2(1090, 0)
 
 [node name="Row2" type="Sprite2D" parent="CropsRows"]
@@ -223,7 +222,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("7_u8sly")
 flip_h = true
 
-[node name="BirdBlockers" type="CanvasGroup" parent="."]
+[node name="BirdBlockers" type="Node2D" parent="."]
 
 [node name="Blocker" parent="BirdBlockers" groups=["blockertop"] instance=ExtResource("8_sruy8")]
 
@@ -260,7 +259,7 @@ position = Vector2(300, 456)
 [node name="Mouse" parent="Enemies" instance=ExtResource("3_5jhd6")]
 position = Vector2(216, 824)
 
-[node name="CornCobs" type="CanvasGroup" parent="."]
+[node name="CornCobs" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Cobia" parent="." instance=ExtResource("12_pg2vy")]

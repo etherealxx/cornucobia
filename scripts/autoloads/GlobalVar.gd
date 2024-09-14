@@ -13,9 +13,13 @@ var firstload := true
 var next_scene_path :=""
 var loadingscene_path = "res://scenes/loading_screen.tscn"
 var debuglog := ""
-func go_to_scene(path : String):
+var mainmenu_logo_transition := true
+var music_path_to_load := ""
+
+func go_to_scene(path := "", _music_path_to_load := ""):
 	firstload = false
 	next_scene_path = path
+	music_path_to_load = _music_path_to_load
 	get_tree().change_scene_to_file(loadingscene_path)
 
 # Scale down the window accordingly if the project being ran in Desktop (not Android)

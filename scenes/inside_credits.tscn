@@ -1,0 +1,204 @@
+[gd_scene load_steps=12 format=3 uid="uid://ivn41o6xbjun"]
+
+[ext_resource type="Script" path="res://scripts/inside_credits.gd" id="1_d32a4"]
+[ext_resource type="Script" path="res://scripts/resources/credititem.gd" id="2_5eimu"]
+[ext_resource type="Resource" uid="uid://c8pf3istsgunl" path="res://resources/list_of_credits_credititemlist.tres" id="2_nujlt"]
+[ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="2_y5qor"]
+[ext_resource type="Theme" uid="uid://ck2tvjai4kru7" path="res://resources/monogram_credits_theme.tres" id="4_yh07u"]
+[ext_resource type="Script" path="res://scripts/credit_item_description.gd" id="5_8ualj"]
+[ext_resource type="Script" path="res://scripts/tools/credit_tester.gd" id="6_uqk3s"]
+[ext_resource type="Resource" uid="uid://dal4brq15v4db" path="res://resources/credit_reset_credititem.tres" id="7_s1uja"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bf8e2"]
+font = ExtResource("2_y5qor")
+font_size = 90
+
+[sub_resource type="LabelSettings" id="LabelSettings_bs2of"]
+font = ExtResource("2_y5qor")
+font_size = 60
+
+[sub_resource type="Resource" id="Resource_cl4yf"]
+script = ExtResource("2_5eimu")
+asset_name = "Shaker"
+asset_author = "Eneskp3441"
+asset_author_alt_name = ""
+asset_type = "Godot Addon (Runtime)"
+asset_usage = "Shake effect when character collides with the enemy"
+asset_license = "MIT License"
+asset_quote = ""
+asset_website = "https://github.com/Eneskp3441/Shaker"
+asset_modification = ""
+asset_full_license = "MIT License
+
+Copyright (c) 2024 Enes Kaplan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE."
+
+[node name="InsideCredit" type="ReferenceRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -473.0
+offset_top = -148.0
+offset_right = 474.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d32a4")
+credit_list = ExtResource("2_nujlt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+label_settings = SubResource("LabelSettings_bf8e2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Notice" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Egothystical : a team of two ego
+Jibril Wathon - Programmer
+Lantang Indrarto - Artist
+
+Assets used"
+label_settings = SubResource("LabelSettings_bs2of")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_yh07u")
+item_count = 1
+item_0/text = "Test"
+
+[node name="CreditItemDescription" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("5_8ualj")
+
+[node name="AssetName" type="Label" parent="VBoxContainer/HBoxContainer/CreditItemDescription"]
+custom_minimum_size = Vector2(740, 0)
+layout_mode = 2
+theme = ExtResource("4_yh07u")
+text = "Shaker"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AssetOwner" type="Label" parent="VBoxContainer/HBoxContainer/CreditItemDescription"]
+custom_minimum_size = Vector2(740, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_yh07u")
+text = "by Someone"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/CreditItemDescription"]
+layout_mode = 2
+
+[node name="AssetType" type="Label" parent="VBoxContainer/HBoxContainer/CreditItemDescription"]
+custom_minimum_size = Vector2(740, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_yh07u")
+text = "Type : x"
+autowrap_mode = 3
+
+[node name="AssetUsage" type="Label" parent="VBoxContainer/HBoxContainer/CreditItemDescription"]
+custom_minimum_size = Vector2(740, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_yh07u")
+theme_override_font_sizes/font_size = 45
+text = "Usage : x"
+autowrap_mode = 3
+
+[node name="AssetLicense" type="Label" parent="VBoxContainer/HBoxContainer/CreditItemDescription"]
+custom_minimum_size = Vector2(740, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_yh07u")
+text = "License : "
+autowrap_mode = 3
+
+[node name="AssetQuote" type="Label" parent="VBoxContainer/HBoxContainer/CreditItemDescription"]
+custom_minimum_size = Vector2(740, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_yh07u")
+theme_override_font_sizes/font_size = 45
+text = "\"Use it whatever\""
+autowrap_mode = 3
+
+[node name="AssetWebsite" type="Label" parent="VBoxContainer/HBoxContainer/CreditItemDescription"]
+custom_minimum_size = Vector2(740, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_yh07u")
+theme_override_font_sizes/font_size = 40
+text = "Website : "
+autowrap_mode = 3
+
+[node name="FullLicenseAsk" type="CheckButton" parent="VBoxContainer/HBoxContainer/CreditItemDescription"]
+layout_mode = 2
+theme = ExtResource("4_yh07u")
+text = "View Full License"
+
+[node name="FullLicenseCont" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/CreditItemDescription"]
+visible = false
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AssetFullLicense" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/CreditItemDescription/FullLicenseCont"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("4_yh07u")
+text = "dfgfjfgj"
+
+[node name="CreditTester" type="Node" parent="."]
+script = ExtResource("6_uqk3s")
+credit_to_test = SubResource("Resource_cl4yf")
+credit_reset_ref = ExtResource("7_s1uja")
+
+[connection signal="item_clicked" from="VBoxContainer/HBoxContainer/ItemList" to="." method="_on_item_list_item_clicked"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/CreditItemDescription/FullLicenseAsk" to="." method="_on_full_license_ask_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/CreditItemDescription/FullLicenseAsk" to="VBoxContainer/HBoxContainer/CreditItemDescription" method="_on_full_license_ask_toggled"]

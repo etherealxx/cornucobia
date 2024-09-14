@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c0s8jfpqlxyv3" path="res://scenes/solid_wall.tscn" id="1_ssokl"]
 
-[node name="Walls" type="CanvasGroup"]
+[node name="Walls" type="Node2D"]
 
 [node name="SolidWall" parent="." instance=ExtResource("1_ssokl")]
 position = Vector2(-100, 293)

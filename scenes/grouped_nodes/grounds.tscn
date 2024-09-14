@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bibeyf3dlpbc4" path="res://scenes/solid_ground.tscn" id="1_p78en"]
 
-[node name="Grounds" type="CanvasGroup"]
+[node name="Grounds" type="Node2D"]
 position = Vector2(0, -90)
 
 [node name="SolidGround2" parent="." instance=ExtResource("1_p78en")]
