@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://ds343cg4f2rgm"]
+[gd_scene load_steps=27 format=3 uid="uid://ds343cg4f2rgm"]
 
 [ext_resource type="Script" path="res://scripts/enemies/mouse.gd" id="1_evkfb"]
 [ext_resource type="Texture2D" uid="uid://bgusk6c7i2kou" path="res://assets/gamesprites/enemies/mouse_loop_sheet.png" id="2_0x60v"]
 [ext_resource type="Resource" uid="uid://cyt61rr172ekk" path="res://resources/squirrel_parabolic.tres" id="2_t6i87"]
+[ext_resource type="Texture2D" uid="uid://bsvm6bbxyldfy" path="res://assets/gamesprites/fake_shadow.png" id="3_jtwuu"]
 [ext_resource type="Texture2D" uid="uid://dq2x20s8xwb6o" path="res://assets/gamesprites/enemies/mouse_idle_sheet.png" id="4_xiln4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53pmv"]
@@ -159,6 +160,12 @@ SPEED = 240.0
 parabolic_stat = ExtResource("2_t6i87")
 flip_offset = Vector2(-16.1, 0)
 sprite = NodePath("MouseSprite")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.678431)
+position = Vector2(74, 114)
+scale = Vector2(5, 5)
+texture = ExtResource("3_jtwuu")
 
 [node name="MouseSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)

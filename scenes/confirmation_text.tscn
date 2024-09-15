@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dclfn7rri3an8"]
+
+[ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="1_y55bb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_43fj6"]
+font = ExtResource("1_y55bb")
+font_size = 50
+
+[node name="ConfirmationText" type="Label"]
+custom_minimum_size = Vector2(720, 0)
+text = "Are you sure you want to ... ?"
+label_settings = SubResource("LabelSettings_43fj6")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

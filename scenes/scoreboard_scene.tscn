@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bwbx1bsp2654p"]
+[gd_scene load_steps=34 format=3 uid="uid://bwbx1bsp2654p"]
 
 [ext_resource type="Script" path="res://scripts/score_screen.gd" id="1_32ew4"]
 [ext_resource type="Texture2D" uid="uid://7rh5xasj6x8t" path="res://assets/gamesprites/background/summer_background_full.png" id="2_2ufbj"]
@@ -13,8 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://dqmx8d6kghpgq" path="res://scenes/modular_touch_button.tscn" id="11_rebsr"]
 [ext_resource type="Shader" path="res://shaders/change2color.gdshader" id="12_kh7dl"]
 [ext_resource type="Theme" uid="uid://dxv3iupkms0px" path="res://resources/monogram_window_theme.tres" id="13_yi8ft"]
-[ext_resource type="PackedScene" uid="uid://bvjj3rrg8df6l" path="res://scenes/inside_dialog.tscn" id="14_sei35"]
+[ext_resource type="PackedScene" uid="uid://bvjj3rrg8df6l" path="res://scenes/inside_window/inside_dialog.tscn" id="14_sei35"]
 [ext_resource type="PackedScene" uid="uid://esd47xrpmopf" path="res://scenes/inside_tos_privacy.tscn" id="14_tg3mq"]
+[ext_resource type="AudioStream" uid="uid://kxtgh136dt38" path="res://assets/sound_effects/button_click_2.wav" id="16_e66yy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_og7rk"]
 atlas = ExtResource("2_2ufbj")
@@ -57,7 +58,7 @@ font_size = 160
 outline_size = 20
 outline_color = Color(0.89, 0.335233, 0.2848, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oxmnt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3k7il"]
 shader = ExtResource("12_kh7dl")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.705882, 0.482353, 0.254902, 1)
@@ -68,15 +69,15 @@ shader_parameter/u_interpolation_factor = 1.0
 
 [sub_resource type="PlaceholderMesh" id="PlaceholderMesh_08wxu"]
 
-[sub_resource type="MeshTexture" id="MeshTexture_1r63h"]
+[sub_resource type="MeshTexture" id="MeshTexture_g5vr4"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_yr1iw"]
+[sub_resource type="MeshTexture" id="MeshTexture_b5hkl"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pg3l3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ar2iw"]
 shader = ExtResource("12_kh7dl")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.705882, 0.482353, 0.254902, 1)
@@ -85,15 +86,15 @@ shader_parameter/u_replacement_color2 = Color(0.427451, 0.294118, 0.152941, 1)
 shader_parameter/u_tolerance = 0.1
 shader_parameter/u_interpolation_factor = 1.0
 
-[sub_resource type="MeshTexture" id="MeshTexture_84wei"]
+[sub_resource type="MeshTexture" id="MeshTexture_up2uw"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_b7epj"]
+[sub_resource type="MeshTexture" id="MeshTexture_vowhu"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r5iud"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4qpm"]
 shader = ExtResource("12_kh7dl")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.705882, 0.482353, 0.254902, 1)
@@ -102,11 +103,11 @@ shader_parameter/u_replacement_color2 = Color(0.427451, 0.294118, 0.152941, 1)
 shader_parameter/u_tolerance = 0.1
 shader_parameter/u_interpolation_factor = 1.0
 
-[sub_resource type="MeshTexture" id="MeshTexture_pjafx"]
+[sub_resource type="MeshTexture" id="MeshTexture_dy3ge"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_55x3g"]
+[sub_resource type="MeshTexture" id="MeshTexture_5jmod"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
@@ -398,31 +399,31 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BtnSubmitScore" parent="." instance=ExtResource("11_rebsr")]
-material = SubResource("ShaderMaterial_oxmnt")
+material = SubResource("ShaderMaterial_3k7il")
 position = Vector2(57, 2044)
 scale = Vector2(7, 7)
-texture_normal = SubResource("MeshTexture_1r63h")
-texture_pressed = SubResource("MeshTexture_yr1iw")
+texture_normal = SubResource("MeshTexture_g5vr4")
+texture_pressed = SubResource("MeshTexture_b5hkl")
 button_text = "Submit Score"
 button_size = Vector2(136.595, 17.99)
 font_color = Color(1, 1, 1, 1)
 
 [node name="BtnPlayAgain" parent="." instance=ExtResource("11_rebsr")]
-material = SubResource("ShaderMaterial_pg3l3")
+material = SubResource("ShaderMaterial_ar2iw")
 position = Vector2(57, 2194)
 scale = Vector2(7, 7)
-texture_normal = SubResource("MeshTexture_84wei")
-texture_pressed = SubResource("MeshTexture_b7epj")
+texture_normal = SubResource("MeshTexture_up2uw")
+texture_pressed = SubResource("MeshTexture_vowhu")
 button_text = "Play Again"
 button_size = Vector2(68.308, 17.99)
 font_color = Color(1, 1, 1, 1)
 
 [node name="BtnMainMenu" parent="." instance=ExtResource("11_rebsr")]
-material = SubResource("ShaderMaterial_r5iud")
+material = SubResource("ShaderMaterial_w4qpm")
 position = Vector2(565, 2194)
 scale = Vector2(7, 7)
-texture_normal = SubResource("MeshTexture_pjafx")
-texture_pressed = SubResource("MeshTexture_55x3g")
+texture_normal = SubResource("MeshTexture_dy3ge")
+texture_pressed = SubResource("MeshTexture_5jmod")
 button_text = "Main Menu"
 button_size = Vector2(63.925, 17.99)
 font_color = Color(1, 1, 1, 1)
@@ -465,6 +466,10 @@ offset_bottom = 55.0
 unique_name_in_owner = true
 visible = false
 color = Color(0.62, 0.62, 0.62, 1)
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_e66yy")
+volume_db = 5.0
 
 [connection signal="precise_released" from="BtnSubmitScore" to="." method="_on_btn_submit_score_precise_released"]
 [connection signal="precise_released" from="BtnPlayAgain" to="." method="_on_btn_play_again_precise_released"]

@@ -3,16 +3,16 @@ extends Node2D
 @export_file("*.tscn") var maingameplay_scene_path : String
 @export_file("*.mp3") var maingameplay_song_path := ""
 
-
 var taptrack := 0
 var logo_original_y : float
 var safe_to_click := false
 var skippable := true
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	%QuitDialog.hide()
 	$CreditDialog.hide()
 	$SkipLabel.hide()
+	$OptionDialog.hide()
 	GlobalAudioPlayer.music_volume(0.0)
 	$SkyBlueOnlyCover.show()
 	if OS.get_name() != "Android":
@@ -34,6 +34,9 @@ func _ready() -> void:
 		skippable = false
 		$Camera2D.offset.y = 0.0
 		_after_transition()
+
+func playclick():
+	$ButtonClick.play()
 
 func _input(event):
 	if event is InputEventScreenTouch:
@@ -75,6 +78,7 @@ func _after_transition():
 func _on_btn_play_precise_released() -> void:
 	if safe_to_click:
 		GlobalVar.go_to_scene(maingameplay_scene_path, maingameplay_song_path)
+		playclick()
 
 func toggle_modulator():
 	%CanvasModulate.visible = !%CanvasModulate.visible
@@ -82,6 +86,7 @@ func toggle_modulator():
 func _on_quit_dialog_canceled() -> void:
 	toggle_modulator()
 	%QuitDialog.hide()
+	playclick()
 
 func _on_quit_dialog_confirmed() -> void:
 	GlobalAudioPlayer.stop()
@@ -90,11 +95,24 @@ func _on_quit_dialog_confirmed() -> void:
 func _on_btn_quit_precise_released() -> void:
 	toggle_modulator()
 	%QuitDialog.show()
+	playclick()
 
 func _on_credit_dialog_confirmed() -> void:
 	toggle_modulator()
 	$CreditDialog.hide()
+	playclick()
 
 func _on_btn_credits_precise_released() -> void:
 	toggle_modulator()
 	$CreditDialog.show()
+	playclick()
+
+func _on_option_dialog_confirmed() -> void:
+	toggle_modulator()
+	$OptionDialog.hide()
+	playclick()
+
+func _on_btn_options_precise_released() -> void:
+	toggle_modulator()
+	$OptionDialog.show()
+	playclick()

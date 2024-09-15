@@ -13,3 +13,5 @@ fonts/Poppins/*
 secrets/*
 assets/edited/*
 assets/musics/unedited/*
+*.keystore
+*.build

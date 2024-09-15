@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqdw48tsc8xck"]
+
+[ext_resource type="Script" path="res://scripts/action_confirm_container.gd" id="1_02sad"]
+[ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="1_sveq0"]
+[ext_resource type="Theme" uid="uid://dxv3iupkms0px" path="res://resources/monogram_window_theme.tres" id="2_kh2dg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_14xr2"]
+font = ExtResource("1_sveq0")
+font_size = 50
+
+[node name="ActionConfirmContainer" type="VBoxContainer"]
+script = ExtResource("1_02sad")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "Are you sure you want to ... ?"
+label_settings = SubResource("LabelSettings_14xr2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonCont" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 139.72)
+layout_mode = 2
+
+[node name="SpacerRef" type="ReferenceRect" parent="ButtonCont"]
+custom_minimum_size = Vector2(42.26, 0)
+layout_mode = 2
+
+[node name="ConfirmAction" type="Button" parent="ButtonCont"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("2_kh2dg")
+theme_override_font_sizes/font_size = 60
+text = "Yes"
+
+[node name="SpacerRef3" type="ReferenceRect" parent="ButtonCont"]
+custom_minimum_size = Vector2(42.26, 0)
+layout_mode = 2
+
+[node name="CancelAction" type="Button" parent="ButtonCont"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("2_kh2dg")
+theme_override_font_sizes/font_size = 60
+text = "No"
+
+[node name="SpacerRef2" type="ReferenceRect" parent="ButtonCont"]
+custom_minimum_size = Vector2(42.26, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="ButtonCont/ConfirmAction" to="." method="_on_confirm_action_pressed"]
+[connection signal="pressed" from="ButtonCont/CancelAction" to="." method="_on_cancel_action_pressed"]

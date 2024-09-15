@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var flip_offset : Vector2
 @export var sprite : AnimatedSprite2D
 @export var default_sprite_facing_left := true
-
+@export var spawn_sprite : AnimatedSprite2D
 const JUMP_VELOCITY := -400.0
 var current_direction := "left"
 var on_wall_cooldown := false # can phase wall when true, for spawning
@@ -15,6 +15,7 @@ var is_idle := false
 #@onready var sprite = $SquirrelSprite
 
 func _ready() -> void:
+	sprite.hide()
 	$IdleCooldown.start(randf_range(2.5,5))
 
 func _physics_process(delta: float) -> void:
@@ -43,6 +44,9 @@ func adjust_spawn_direction(direction : String):
 	else:
 		if !default_sprite_facing_left:
 			switch_direction()
+	if current_direction != "left":
+		spawn_sprite.flip_h = true
+		spawn_sprite.offset.x = 17
 
 func switch_direction():
 	current_direction = "right" if current_direction == "left" else "left"
@@ -98,3 +102,7 @@ func _on_idle_cooldown_timeout() -> void:
 	else:
 		$IdleCooldown.start(randf_range(1.0,2.0))
 	is_idle = !is_idle
+
+func _on_corn_rise_animation_finished() -> void:
+	sprite.show()
+	spawn_sprite.queue_free()

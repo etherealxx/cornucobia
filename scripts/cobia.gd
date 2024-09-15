@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 					can_swap_direction = false
 					$FlipCooldown.start()
 					switch_direction()
+					$ChangeDirection.play()
 			elif Input.is_action_just_pressed("switch_lane_up"):
 				key_press.emit("c (up)")
 				if current_lane > top_and_bottom_lane.min():
@@ -57,6 +58,7 @@ func _physics_process(delta: float) -> void:
 					collision.disabled = true
 					switch_lane_target_y = self.position.y - floor_travel_distance
 					current_lane -= 1
+					$MoveLane.play()
 			elif Input.is_action_just_pressed("switch_lane_down"):
 				key_press.emit("x (down)")
 				if current_lane < top_and_bottom_lane.max():
@@ -65,6 +67,7 @@ func _physics_process(delta: float) -> void:
 					collision.disabled = true
 					switch_lane_target_y = self.position.y + floor_travel_distance + downward_travel_offset
 					current_lane += 1
+					$MoveLane.play()
 				
 			if not is_on_floor():
 				velocity += get_gravity() * delta * gravity_speed_multiplier
@@ -153,10 +156,12 @@ func handle_colliding(body : Node2D, direction_that_can_take_damage : String):
 			if body.is_in_group("corncob"):
 				add_corncob.emit()
 				body.queue_free()
+				$CollectSeed.play()
 			else:
 				if not is_idling:
 					add_score.emit(1)
 					body.trigger_death(direction_that_can_take_damage)
+					$EnemyHurt.play()
 		else:
 			if !body.is_in_group("corncob") and not is_flashing and not is_game_over: # collide from behind
 			# if not (body.is_in_group("corncob") or is_flashing or is_game_over): # someone says it should be this
@@ -165,8 +170,10 @@ func handle_colliding(body : Node2D, direction_that_can_take_damage : String):
 					hp = 0
 					is_game_over = true
 					sprite.play("death")
+					$Death.play()
 				else:
 					hurt_flash()
+					$GotDamaged.play()
 				damaged.emit()
 			
 func _on_right_detector_body_entered(body: Node2D) -> void: # only enemy are on this detector's mask

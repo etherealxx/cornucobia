@@ -54,6 +54,7 @@ func initialize_leaderboard():
 				"game_id": sw_api_node.get_game_id(),
 				"log_level": 1
 			}
+			sw_api_node.queue_free()
 			SilentWolf.configure(sw_config)
 			SilentWolf.configure_scores({
 				"open_scene_on_close": silentwolf_open_scene_on_close

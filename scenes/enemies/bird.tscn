@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0ms031j0n5dd"]
+[gd_scene load_steps=15 format=3 uid="uid://d0ms031j0n5dd"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bird.gd" id="1_fjhhk"]
 [ext_resource type="Resource" uid="uid://cyt61rr172ekk" path="res://resources/squirrel_parabolic.tres" id="2_xjt5h"]
 [ext_resource type="Texture2D" uid="uid://6jr5ewipf456" path="res://assets/gamesprites/enemies/bird_sheet.png" id="3_vrjy2"]
+[ext_resource type="Texture2D" uid="uid://bsvm6bbxyldfy" path="res://assets/gamesprites/fake_shadow.png" id="4_huf5y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc5ul"]
 atlas = ExtResource("3_vrjy2")
@@ -109,6 +110,12 @@ one_shot = true
 
 [node name="GlideUpCooldown" type="Timer" parent="."]
 process_callback = 0
+
+[node name="Shadow" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.678431)
+position = Vector2(103, 221)
+scale = Vector2(4.95652, 2.25)
+texture = ExtResource("4_huf5y")
 
 [connection signal="body_entered" from="WallDetector" to="." method="_on_wall_detector_body_entered"]
 [connection signal="body_entered" from="BlockerDetector" to="." method="_on_blocker_detector_body_entered"]

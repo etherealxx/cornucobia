@@ -86,16 +86,16 @@ func _on_enemy_spawn_timer_timeout() -> void:
 
 func _on_add_score(added_score : int):
 	score += added_score
-	%ScoreLabel.text = "Score	: %d" % score
+	%ScoreLabel.text = "%d" % score
 	%ShakerComponent2D.set_custom_target(false)
 	%ShakerComponent2D.play_shake()
 
 func _on_add_corncob():
 	corncob += 1
-	%CornCobLabel.text = "Corncob	: %d" % corncob
+	%CornCobLabel.text = "%d" % corncob
 
 func _on_damaged():
-	%HPLabel.text = "HP	: %d" % character.hp
+	%HPLabel.text = "%d" % character.hp
 	#%ShakerComponent2D.set_custom_target(true)
 	#var enemy_array : Array[Node2D]
 	#for enemy in %Enemies.get_children():

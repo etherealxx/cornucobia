@@ -10,12 +10,16 @@ func _ready() -> void:
 	%NewHighscore.hide()
 	%VarmintsScore.text = "Varmints knocked: %d" % GlobalVar.score
 	%CorncobsScore.text = "Corn cobs collected: %d" % GlobalVar.corncob_score
+	var highscore = SaveSystem.get_var("highscore", GlobalVar.score)
 	finalscore = GlobalVar.score + GlobalVar.corncob_score
-	if finalscore > GlobalVar.high_score:
+	if finalscore > highscore:
 		GlobalVar.high_score = finalscore
+		highscore = finalscore
+		SaveSystem.set_var("highscore", highscore)
+		SaveSystem.save()
 		%NewHighscore.show()
 	%FinalScore.text = "Your Score: %d" % finalscore
-	%HighScore.text = "High Score: %d" % GlobalVar.high_score
+	%HighScore.text = "High Score: %d" % highscore
 	%ScoreNames.text = ""
 	%NameScores.text = ""
 	#offline_score_loaded.emit()

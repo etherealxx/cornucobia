@@ -1,12 +1,19 @@
-[gd_scene load_steps=50 format=3 uid="uid://brb0icctws8db"]
+[gd_scene load_steps=57 format=3 uid="uid://brb0icctws8db"]
 
 [ext_resource type="Script" path="res://scripts/cobia.gd" id="1_bhlcw"]
+[ext_resource type="AudioStream" uid="uid://b6eannh8lgcqi" path="res://assets/sound_effects/move_lane_2.wav" id="2_16oy4"]
 [ext_resource type="Shader" path="res://shaders/hitflash.gdshader" id="2_d71ys"]
+[ext_resource type="Texture2D" uid="uid://bsvm6bbxyldfy" path="res://assets/gamesprites/fake_shadow.png" id="2_ht68y"]
 [ext_resource type="Texture2D" uid="uid://bwvgsx5j1xg43" path="res://assets/gamesprites/player/cobia_idle_sheet.png" id="2_nq0sg"]
+[ext_resource type="AudioStream" uid="uid://ddjp2m5b237qi" path="res://assets/sound_effects/got_damaged.wav" id="3_f60s8"]
 [ext_resource type="Texture2D" uid="uid://ddi6bu77uxvy6" path="res://assets/gamesprites/player/cobia_death.png" id="3_qktkv"]
 [ext_resource type="Texture2D" uid="uid://dee0tpr6cuwxk" path="res://assets/gamesprites/player/cobia_run_transition_sheet.png" id="3_vp4te"]
+[ext_resource type="AudioStream" uid="uid://ckqcli4ojm4qu" path="res://assets/sound_effects/collect_seed.wav" id="4_bglrd"]
 [ext_resource type="Texture2D" uid="uid://hwkpgl1vlnjj" path="res://assets/gamesprites/player/cobia_running_sheet.png" id="4_ch8lo"]
+[ext_resource type="AudioStream" uid="uid://3pkukx0eygbn" path="res://assets/sound_effects/death_4.wav" id="5_heybk"]
 [ext_resource type="Texture2D" uid="uid://c0uh2nngrrogq" path="res://assets/gamesprites/player/cobia_hurt.png" id="6_0dcl8"]
+[ext_resource type="AudioStream" uid="uid://b5es8shp5fdkr" path="res://assets/sound_effects/enemy_hurt.wav" id="6_ifsrj"]
+[ext_resource type="AudioStream" uid="uid://ba2dhx680bktv" path="res://assets/sound_effects/change_direction.wav" id="7_ttamd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g8o0m"]
 radius = 60.0
@@ -331,11 +338,42 @@ size = Vector2(126, 125)
 size = Vector2(10, 178.25)
 
 [node name="Cobia" type="CharacterBody2D"]
+texture_filter = 1
 collision_mask = 12
 script = ExtResource("1_bhlcw")
 SPEED = 400.0
 floor_travel_distance = 350
 downward_travel_offset = 20
+
+[node name="MoveLane" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_16oy4")
+volume_db = 7.0
+
+[node name="GotDamaged" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f60s8")
+volume_db = 10.0
+
+[node name="CollectSeed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bglrd")
+volume_db = 10.0
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_heybk")
+volume_db = 10.0
+
+[node name="EnemyHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ifsrj")
+volume_db = 10.0
+
+[node name="ChangeDirection" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ttamd")
+volume_db = 10.0
+
+[node name="Shadow" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.678431)
+position = Vector2(0, 109.887)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ht68y")
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13)

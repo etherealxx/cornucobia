@@ -65,6 +65,7 @@ func trigger_death(from_direction):
 	velocity.y = -parabolic_stat.initial_velocity * sin(angle_radians) # Negative because Godot's y-axis is downwards
 	sprite.flip_v = true
 	sprite.stop()
+	$Shadow.hide()
 	
 func _on_wall_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("wall") and not on_wall_cooldown and not is_dead:

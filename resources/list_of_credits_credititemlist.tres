@@ -1,7 +1,41 @@
-[gd_resource type="Resource" script_class="CreditItemList" load_steps=17 format=3 uid="uid://c8pf3istsgunl"]
+[gd_resource type="Resource" script_class="CreditItemList" load_steps=19 format=3 uid="uid://c8pf3istsgunl"]
 
 [ext_resource type="Script" path="res://scripts/resources/credititem.gd" id="1_x3ruh"]
 [ext_resource type="Script" path="res://scripts/resources/credititemlist.gd" id="2_ey8jm"]
+
+[sub_resource type="Resource" id="Resource_2qev1"]
+script = ExtResource("1_x3ruh")
+asset_name = "Godot Engine"
+asset_author = "Godot Engine contributors"
+asset_author_alt_name = ""
+asset_type = "Game Engine"
+asset_usage = "Engine used to make this game"
+asset_license = "MIT License"
+asset_quote = ""
+asset_website = "https://godotengine.org/license/"
+asset_modification = "Using custom android export template to optimize size"
+asset_full_license = "  Copyright (c) 2014-present Godot Engine contributors.
+  Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the \"Software\"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+  -- Godot Engine <https://godotengine.org>"
 
 [sub_resource type="Resource" id="Resource_fgewp"]
 script = ExtResource("1_x3ruh")
@@ -968,6 +1002,39 @@ express Statement of Purpose.
     party to this document and has no duty or obligation with respect to
     this CC0 or use of the Work."
 
+[sub_resource type="Resource" id="Resource_78mvf"]
+script = ExtResource("1_x3ruh")
+asset_name = "SaveMadeEasy"
+asset_author = "AdamKormos"
+asset_author_alt_name = ""
+asset_type = "Godot Addon (Runtime)"
+asset_usage = "Saving highscore and player name"
+asset_license = "MIT License"
+asset_quote = ""
+asset_website = "https://github.com/AdamKormos/SaveMadeEasy"
+asset_modification = ""
+asset_full_license = "MIT License
+
+Copyright (c) 2023 AdamKormos
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE."
+
 [resource]
 script = ExtResource("2_ey8jm")
-list = Array[ExtResource("1_x3ruh")]([SubResource("Resource_fgewp"), SubResource("Resource_l315p"), SubResource("Resource_erqio"), SubResource("Resource_qqiaj"), SubResource("Resource_11fs0"), SubResource("Resource_0xuhl"), SubResource("Resource_1rd3u"), SubResource("Resource_td84g"), SubResource("Resource_t0iin"), SubResource("Resource_dacya"), SubResource("Resource_qhvc0"), SubResource("Resource_x7ac0"), SubResource("Resource_0l4k7"), SubResource("Resource_gb8eg")])
+list = Array[ExtResource("1_x3ruh")]([SubResource("Resource_2qev1"), SubResource("Resource_fgewp"), SubResource("Resource_l315p"), SubResource("Resource_erqio"), SubResource("Resource_qqiaj"), SubResource("Resource_11fs0"), SubResource("Resource_0xuhl"), SubResource("Resource_1rd3u"), SubResource("Resource_td84g"), SubResource("Resource_t0iin"), SubResource("Resource_dacya"), SubResource("Resource_qhvc0"), SubResource("Resource_x7ac0"), SubResource("Resource_0l4k7"), SubResource("Resource_gb8eg"), SubResource("Resource_78mvf")])

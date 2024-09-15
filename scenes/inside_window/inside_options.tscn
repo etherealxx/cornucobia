@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://drb14tymeq5yb"]
+
+[ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="1_6p6m4"]
+[ext_resource type="Script" path="res://scripts/inside_options.gd" id="1_c43ef"]
+[ext_resource type="Theme" uid="uid://dxv3iupkms0px" path="res://resources/monogram_window_theme.tres" id="3_k5h6u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bf8e2"]
+font = ExtResource("1_6p6m4")
+font_size = 90
+
+[node name="InsideOption" type="ReferenceRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -353.0
+offset_right = 384.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c43ef")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+label_settings = SubResource("LabelSettings_bf8e2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicToggle" type="CheckButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6p6m4")
+theme_override_font_sizes/font_size = 60
+button_pressed = true
+text = "Music : On"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ResetName" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_k5h6u")
+theme_override_font_sizes/font_size = 60
+text = "Reset Name"
+
+[node name="ResetHighScore" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_k5h6u")
+theme_override_font_sizes/font_size = 60
+text = "Reset Highscore"
+
+[connection signal="toggled" from="VBoxContainer/MusicToggle" to="." method="_on_notice_toggled"]
+[connection signal="pressed" from="VBoxContainer/ResetName" to="." method="_on_reset_name_pressed"]
+[connection signal="pressed" from="VBoxContainer/ResetHighScore" to="." method="_on_reset_high_score_pressed"]
