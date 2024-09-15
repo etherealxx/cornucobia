@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Cornucobia"
-config/version="0.0.18"
+config/version="0.0.20"
 run/main_scene="res://scenes/loading_screen.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Cornucobia"
@@ -81,6 +81,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_2="enemies"
 2d_physics/layer_3="ground"
 2d_physics/layer_4="wall"
+2d_physics/layer_5="flyingenemies"
 
 [rendering]
 

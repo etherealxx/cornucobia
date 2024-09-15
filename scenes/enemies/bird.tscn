@@ -66,7 +66,7 @@ size = Vector2(174, 69.25)
 
 [node name="Bird" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 texture_filter = 1
-collision_layer = 2
+collision_layer = 16
 collision_mask = 8
 script = ExtResource("1_fjhhk")
 gravity_speed_multiplier = 1
@@ -96,7 +96,7 @@ debug_color = Color(0.732743, 0.447599, 0.40903, 0.42)
 
 [node name="BlockerDetector" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlockerDetector"]
 position = Vector2(96, 113.625)
@@ -117,7 +117,12 @@ position = Vector2(103, 221)
 scale = Vector2(4.95652, 2.25)
 texture = ExtResource("4_huf5y")
 
+[node name="GravityMixCooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 4.0
+
 [connection signal="body_entered" from="WallDetector" to="." method="_on_wall_detector_body_entered"]
 [connection signal="body_entered" from="BlockerDetector" to="." method="_on_blocker_detector_body_entered"]
 [connection signal="timeout" from="WallCooldown" to="." method="_on_wall_cooldown_timeout"]
 [connection signal="timeout" from="GlideUpCooldown" to="." method="_on_glide_up_cooldown_timeout"]
+[connection signal="timeout" from="GravityMixCooldown" to="." method="_on_gravity_mix_cooldown_timeout"]

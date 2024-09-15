@@ -17,6 +17,7 @@ var is_idle := false
 func _ready() -> void:
 	sprite.hide()
 	$IdleCooldown.start(randf_range(2.5,5))
+	print("spawn facing: %s" % current_direction)
 
 func _physics_process(delta: float) -> void:
 	if not is_dead:
@@ -39,6 +40,7 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 func adjust_spawn_direction(direction : String):
+	print("adjusted to be: %s" % direction)
 	if direction == current_direction and default_sprite_facing_left:
 		switch_direction()
 	else:
@@ -47,6 +49,7 @@ func adjust_spawn_direction(direction : String):
 	if current_direction != "left":
 		spawn_sprite.flip_h = true
 		spawn_sprite.offset.x = 17
+	print("now facing: %s" % current_direction)
 
 func switch_direction():
 	current_direction = "right" if current_direction == "left" else "left"

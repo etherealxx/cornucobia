@@ -20,7 +20,6 @@ func _physics_process(delta: float) -> void:
 	if not is_dead:
 		velocity = Vector2.ZERO
 		if not is_glide_up:
-			if not is_on_floor():
 				velocity += get_gravity() * delta * gravity_speed_multiplier
 		else: # glide up
 			velocity -= get_gravity() * delta * gravity_speed_multiplier
@@ -52,7 +51,7 @@ func switch_direction():
 
 func start_wall_cooldown():
 	on_wall_cooldown = true
-	set_collision_mask(CollisionCalc.mask([3]))
+	set_collision_mask(CollisionCalc.mask([5]))
 	$WallCooldown.start()
 
 func trigger_death(from_direction):
@@ -74,13 +73,18 @@ func _on_wall_detector_body_entered(body: Node2D) -> void:
 func _on_wall_cooldown_timeout() -> void:
 	on_wall_cooldown = false
 	if not is_dead:
-		set_collision_mask(CollisionCalc.mask([3, 4]))
+		#set_collision_mask(CollisionCalc.mask([3, 4]))
+		set_collision_mask(CollisionCalc.mask([4]))
 	gravity_speed_multiplier = 5
+	$GravityMixCooldown.start(randf_range(1.0,4.0))
+
+func _on_gravity_mix_cooldown_timeout() -> void:
+	gravity_speed_multiplier = randi_range(5, 15)
+	$GravityMixCooldown.start(randf_range(3.0,6.0))
 
 func _on_glide_up_cooldown_timeout() -> void:
 	$GlideUpCooldown.start(randf_range(2.5,5))
 	is_glide_up = !is_glide_up
-
 
 func _on_blocker_detector_body_entered(body: Node2D) -> void:
 	if not is_dead:

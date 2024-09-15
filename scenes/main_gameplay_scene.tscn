@@ -134,6 +134,11 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
+[node name="DifficultyTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+autostart = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
@@ -271,7 +276,6 @@ texture = ExtResource("7_u8sly")
 flip_h = true
 
 [node name="BirdBlockers" type="Node2D" parent="."]
-visible = false
 
 [node name="Blocker" parent="BirdBlockers" groups=["blockertop"] instance=ExtResource("8_sruy8")]
 
@@ -279,18 +283,15 @@ visible = false
 position = Vector2(131, 1742)
 
 [node name="Grounds" parent="." instance=ExtResource("8_40p8q")]
-visible = false
 
 [node name="Walls" parent="." instance=ExtResource("9_y41ub")]
 visible = false
 
 [node name="EnemySpawners" parent="." instance=ExtResource("10_4qgsn")]
 unique_name_in_owner = true
-visible = false
 
 [node name="CorncobSpawner" parent="." instance=ExtResource("11_vfcf1")]
 unique_name_in_owner = true
-visible = false
 
 [node name="Enemies" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -322,6 +323,9 @@ centered = false
 [node name="UI_Main" type="Node2D" parent="."]
 position = Vector2(0, 100)
 
+[node name="Cobsprites" type="Node2D" parent="UI_Main"]
+unique_name_in_owner = true
+
 [node name="Buttons" type="Node2D" parent="UI_Main"]
 
 [node name="SwapButton" type="TouchScreenButton" parent="UI_Main/Buttons"]
@@ -337,7 +341,7 @@ script = ExtResource("16_kt6oy")
 
 [node name="FlipCooldown" type="Timer" parent="UI_Main/Buttons/SwapButton"]
 process_callback = 0
-wait_time = 0.4
+wait_time = 0.8
 one_shot = true
 
 [node name="DebugButton" type="TouchScreenButton" parent="UI_Main/Buttons"]
@@ -399,5 +403,6 @@ zoom = Vector2(0.59, 0.59)
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
 [connection signal="timeout" from="CorncobSpawnTimer" to="." method="_on_corncob_spawn_timer_timeout"]
+[connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
 [connection signal="timeout" from="LabelResetTimer" to="." method="_on_label_reset_timer_timeout"]
 [connection signal="timeout" from="UI_Main/Buttons/SwapButton/FlipCooldown" to="UI_Main/Buttons/SwapButton" method="_on_flip_cooldown_timeout"]

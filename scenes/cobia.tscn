@@ -359,7 +359,7 @@ volume_db = 10.0
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_heybk")
-volume_db = 10.0
+volume_db = 7.0
 
 [node name="EnemyHurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ifsrj")
@@ -414,7 +414,7 @@ one_shot = true
 
 [node name="RightDetector" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightDetector"]
 position = Vector2(65, 10.25)
@@ -423,7 +423,7 @@ debug_color = Color(0.385756, 0.602147, 0.320482, 0.42)
 
 [node name="LeftDetector" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDetector"]
 position = Vector2(-64.675, 10.875)

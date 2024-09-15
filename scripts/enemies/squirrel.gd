@@ -68,3 +68,7 @@ func _on_wall_cooldown_timeout() -> void:
 	on_wall_cooldown = false
 	if not is_dead:
 		set_collision_mask(CollisionCalc.mask([3, 4]))
+
+func _on_lifetime_cooldown_timeout() -> void: # prevent enemy staying in map for too long and crowding everything
+	on_wall_cooldown = true
+	set_collision_mask(CollisionCalc.mask([3]))

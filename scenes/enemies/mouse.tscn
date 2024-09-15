@@ -195,6 +195,13 @@ one_shot = true
 [node name="IdleCooldown" type="Timer" parent="."]
 process_callback = 0
 
+[node name="LifetimeCooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 20.0
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="WallDetector" to="." method="_on_wall_detector_body_entered"]
 [connection signal="timeout" from="WallCooldown" to="." method="_on_wall_cooldown_timeout"]
 [connection signal="timeout" from="IdleCooldown" to="." method="_on_idle_cooldown_timeout"]
+[connection signal="timeout" from="LifetimeCooldown" to="." method="_on_lifetime_cooldown_timeout"]

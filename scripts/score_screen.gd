@@ -23,7 +23,8 @@ func _ready() -> void:
 		is_loading_leaderboard = false
 
 func playclick():
-	$ButtonClick.play()
+	if $ButtonClick.is_inside_tree():
+		$ButtonClick.play()
 
 func _on_btn_submit_score_precise_released() -> void:
 	%Notice.hide()

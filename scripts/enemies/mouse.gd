@@ -88,3 +88,7 @@ func _on_idle_cooldown_timeout() -> void:
 		sprite.play("idle")
 		$IdleCooldown.start(randf_range(1.0,2.0))
 	is_idle = !is_idle
+
+func _on_lifetime_cooldown_timeout() -> void: # prevent enemy staying in map for too long and crowding everything
+	on_wall_cooldown = true
+	set_collision_mask(CollisionCalc.mask([3]))

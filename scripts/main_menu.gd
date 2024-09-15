@@ -36,7 +36,8 @@ func _ready() -> void:
 		_after_transition()
 
 func playclick():
-	$ButtonClick.play()
+	if $ButtonClick.is_inside_tree():
+		$ButtonClick.play()
 
 func _input(event):
 	if event is InputEventScreenTouch:

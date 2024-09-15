@@ -191,8 +191,8 @@ vertical_alignment = 1
 [node name="Notice" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Egothystical : a team of two ego
-Jibril Wathon - Programmer
-Lantang Indrarto - Artist"
+Jibril Wathon - Programmer & Sfx
+Lantang Indrarto - 2D Artist"
 label_settings = SubResource("LabelSettings_bs2of")
 horizontal_alignment = 1
 vertical_alignment = 1

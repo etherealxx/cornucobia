@@ -6,9 +6,11 @@ extends Node
 @export_file("*.mp3") var gameover_song_path : String
 
 @onready var corncob_scn = load("res://scenes/corncob.tscn")
+@onready var cobsprite = load("res://scenes/corncob_earn_sprite.tscn")
 
 var score := 0
 var corncob := 0
+var difficulty_score := 1.0
 #var hp := 3
 
 # Called when the node enters the scene tree for the first time.
@@ -19,15 +21,15 @@ func _ready() -> void:
 	else:
 		%Label.hide()
 	
-	GlobalVar.initialize_leaderboard()
 	character.key_press.connect(_on_key_press)
 	if character.has_signal("swap_direction"): character.swap_direction.connect(_on_swap_direction)
 	if character.has_signal("add_score"): character.add_score.connect(_on_add_score)
 	if character.has_signal("add_corncob"): character.add_corncob.connect(_on_add_corncob)
 	if character.has_signal("damaged"): character.damaged.connect(_on_damaged)
-	GlobalVar.debuglog += "silentwolf configured: %s\n" % GlobalVar.silentwolf_configured
 	%DebugLabel.text = GlobalVar.debuglog
 	GlobalAudioPlayer.music_volume(-10.0)
+	GlobalVar.initialize_leaderboard()
+	GlobalVar.debuglog += "silentwolf configured: %s\n" % GlobalVar.silentwolf_configured
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debugpress"):
@@ -58,18 +60,23 @@ func _on_label_reset_timer_timeout() -> void:
 
 func decide_spawn_timer_enemy() -> float:
 	var enemy_amount = %Enemies.get_child_count()
-	return randf_range(0.75 + enemy_amount * 0.25, 1.5 + enemy_amount * 0.3)
+	var min_spawn_time = 0.75 + enemy_amount * 0.1
+	var max_spawn_time = max(1.0 + enemy_amount * 0.3, min_spawn_time)
+	return randf_range(min_spawn_time, max_spawn_time)
 
 func instantiate_from_random_spawner(	spawnergroup_node : Node2D,
 										target_groupnode : Node2D,
 										array_to_pick : Array[PackedScene]	):
 	var spawners : Array = spawnergroup_node.get_children()
-	var spawner_to_remove : Marker2D
-	for spawner in spawners:
-		if spawner.direction_from == character.current_direction and spawner.lane == character.current_lane:
-			spawner_to_remove = spawner
-			break
-	spawners.erase(spawner_to_remove)
+	
+	# mechanic to prevent enemy spawning at the same floor and facing character are removed
+	#var spawner_to_remove : Marker2D
+	#for spawner in spawners:
+		#if spawner.direction_from == character.current_direction and spawner.lane == character.current_lane:
+			#spawner_to_remove = spawner
+			#break
+	#spawners.erase(spawner_to_remove)
+	
 	#print(str(spawners.size()))
 	var spawner_node : Marker2D = spawners.pick_random()
 	var new_enemy : CharacterBody2D = array_to_pick.pick_random().instantiate()
@@ -91,9 +98,22 @@ func _on_add_score(added_score : int):
 	%ShakerComponent2D.play_shake()
 
 func _on_add_corncob():
+
+	var new_cobsprite = cobsprite.instantiate()
+	%Cobsprites.add_child(new_cobsprite)
+	new_cobsprite.position = character.position
+	var tween = create_tween()
+	tween.tween_property(new_cobsprite,
+	"position",
+	Vector2(804, 250),
+	0.6).from_current().set_ease(Tween.EASE_IN_OUT)
+	tween.tween_callback(_after_cob_collected.bind(new_cobsprite))
+	
+func _after_cob_collected(body):
 	corncob += 1
 	%CornCobLabel.text = "%d" % corncob
-
+	body.queue_free()
+	
 func _on_damaged():
 	%HPLabel.text = "%d" % character.hp
 	#%ShakerComponent2D.set_custom_target(true)
@@ -126,3 +146,9 @@ func _on_corncob_spawn_timer_timeout() -> void:
 func decide_spawn_timer_corncob() -> float:
 	var enemy_amount = %CornCobs.get_child_count()
 	return randf_range(0.75 + enemy_amount * 0.3, 1.5 + enemy_amount * 0.5)
+
+func _on_difficulty_timer_timeout() -> void:
+	if character.hp > 0:
+		instantiate_from_random_spawner(%EnemySpawners, %Enemies, every_enemies)
+		difficulty_score += randf_range(0.1, 0.2)
+		$DifficultyTimer.start(5.0 / difficulty_score)
