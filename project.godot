@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Cornucobia"
-config/version="0.0.20"
-run/main_scene="res://scenes/loading_screen.tscn"
+config/version="0.1.1"
+run/main_scene="res://scenes/menus_and_levels/loading_screen.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Cornucobia"
 config/quit_on_go_back=false
@@ -31,7 +31,7 @@ SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 GlobalVar="*res://scripts/autoloads/GlobalVar.gd"
 Shaker="*res://addons/shaker/src/Shaker.gd"
 CollisionCalc="*res://scripts/autoloads/collision_calc.gd"
-GlobalAudioPlayer="*res://scenes/global_audio_player.tscn"
+GlobalAudioPlayer="*res://scenes/autoloads/global_audio_player.tscn"
 
 [display]
 
@@ -43,7 +43,7 @@ window/handheld/orientation=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/SimpleTODO/plugin.cfg", "res://addons/alignment-tool/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/nine_patch_sprite_2d/plugin.cfg", "res://addons/save_system/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/silent_wolf/plugin.cfg", "res://addons/simple_tool_button/plugin.cfg", "res://addons/todo_4/plugin.cfg")
+enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/SimpleTODO/plugin.cfg", "res://addons/alignment-tool/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/save_system/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/silent_wolf/plugin.cfg", "res://addons/simple_tool_button/plugin.cfg", "res://addons/todo_4/plugin.cfg")
 
 [input]
 

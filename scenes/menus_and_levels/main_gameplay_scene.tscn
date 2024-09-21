@@ -1,0 +1,408 @@
+[gd_scene load_steps=41 format=3 uid="uid://k0em1dn6s2ry"]
+
+[ext_resource type="Script" path="res://scripts/menus_and_levels/main_gameplay.gd" id="1_yfvw4"]
+[ext_resource type="PackedScene" uid="uid://ci8h3yqpc5swd" path="res://scenes/gameplay_scenes/enemies/squirrel.tscn" id="2_jmauu"]
+[ext_resource type="PackedScene" uid="uid://ds343cg4f2rgm" path="res://scenes/gameplay_scenes/enemies/mouse.tscn" id="3_nl258"]
+[ext_resource type="PackedScene" uid="uid://d0ms031j0n5dd" path="res://scenes/gameplay_scenes/enemies/bird.tscn" id="4_inqq4"]
+[ext_resource type="Texture2D" uid="uid://d2gof54kg3e2f" path="res://assets/ui/scorebox/lives_point_UI.png" id="5_dvwgl"]
+[ext_resource type="Texture2D" uid="uid://bpg5gmkf4rexp" path="res://assets/ui/scorebox/kill_point_UI.png" id="6_htbct"]
+[ext_resource type="Texture2D" uid="uid://j7xr152boy14" path="res://assets/ui/scorebox/corn_point_UI.png" id="7_cm1jb"]
+[ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="8_pm44q"]
+[ext_resource type="Texture2D" uid="uid://dqck8dbmb10sl" path="res://assets/gamesprites/background/maingame_topbg.png" id="9_mackf"]
+[ext_resource type="Texture2D" uid="uid://dndperi3r3isv" path="res://assets/gamesprites/background/maingame_bottombg.png" id="10_g6agp"]
+[ext_resource type="Texture2D" uid="uid://c85umkm50513w" path="res://assets/gamesprites/level/cropsfloor.png" id="11_b17tf"]
+[ext_resource type="PackedScene" uid="uid://ckrqes2ef71te" path="res://scenes/gameplay_scenes/blocker.tscn" id="12_g05bk"]
+[ext_resource type="PackedScene" uid="uid://b3lt1gg6w63ux" path="res://scenes/gameplay_scenes/grouped_nodes/grounds.tscn" id="13_5cngx"]
+[ext_resource type="PackedScene" uid="uid://cag2xo07f5vge" path="res://scenes/gameplay_scenes/grouped_nodes/walls.tscn" id="14_x5r8k"]
+[ext_resource type="PackedScene" uid="uid://bg1yowgs0xhkn" path="res://scenes/gameplay_scenes/grouped_nodes/enemy_spawners.tscn" id="15_bpab7"]
+[ext_resource type="PackedScene" uid="uid://bb788xygbe5qp" path="res://scenes/gameplay_scenes/grouped_nodes/cornkernel_spawner.tscn" id="16_elw1u"]
+[ext_resource type="PackedScene" uid="uid://brb0icctws8db" path="res://scenes/gameplay_scenes/cobia.tscn" id="17_byqxs"]
+[ext_resource type="Shader" path="res://shaders/cooldown_v3.gdshader" id="18_3bded"]
+[ext_resource type="Texture2D" uid="uid://3pf34rq5hkuc" path="res://assets/ui/buttons/swap_button.png" id="19_iiu5e"]
+[ext_resource type="Texture2D" uid="uid://b6ilhf0pgf38" path="res://assets/ui/buttons/swap_button_pressed.png" id="20_wyncw"]
+[ext_resource type="Script" path="res://scripts/debug/debug_button.gd" id="21_8inn5"]
+[ext_resource type="Texture2D" uid="uid://bag2pvpm80skp" path="res://assets/ui/buttons/buttons-global.png" id="22_tyvnc"]
+[ext_resource type="Script" path="res://scripts/destroy_at_runtime.gd" id="23_ayqvi"]
+[ext_resource type="Script" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="24_fgl21"]
+[ext_resource type="Resource" uid="uid://bs2biqsbifqpu" path="res://resources/shaker_smooth_shake_smaller.tres" id="25_yldpf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nl51t"]
+font = ExtResource("8_pm44q")
+font_size = 86
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vu2um"]
+font = ExtResource("8_pm44q")
+font_size = 86
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ll3m6"]
+font_size = 51
+
+[sub_resource type="Animation" id="Animation_r0r68"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q5psc"]
+resource_name = "labelbounce"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ojkvo"]
+_data = {
+"RESET": SubResource("Animation_r0r68"),
+"labelbounce": SubResource("Animation_q5psc")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hckqv"]
+shader = ExtResource("18_3bded")
+shader_parameter/cooldown_progress = 0.0
+shader_parameter/start_angle = 90.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj2hy"]
+atlas = ExtResource("22_tyvnc")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1y6d"]
+atlas = ExtResource("22_tyvnc")
+region = Rect2(80, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwd4q"]
+atlas = ExtResource("22_tyvnc")
+region = Rect2(128, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lns2y"]
+atlas = ExtResource("22_tyvnc")
+region = Rect2(144, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqptt"]
+atlas = ExtResource("22_tyvnc")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85ws3"]
+atlas = ExtResource("22_tyvnc")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gsey"]
+atlas = ExtResource("22_tyvnc")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5aab"]
+atlas = ExtResource("22_tyvnc")
+region = Rect2(48, 32, 16, 16)
+
+[node name="Pixelated2DMain" type="Node2D" node_paths=PackedStringArray("character")]
+texture_filter = 1
+script = ExtResource("1_yfvw4")
+character = NodePath("Cobia")
+every_enemies = Array[PackedScene]([ExtResource("2_jmauu"), ExtResource("3_nl258"), ExtResource("4_inqq4")])
+gameover_scene_path = "res://scenes/menus_and_levels/scoreboard_scene.tscn"
+gameover_song_path = "res://assets/musics/Magic Scout - Farm_small.mp3"
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="CornkernelSpawnTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NotchRect" type="ReferenceRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 104.0
+grow_horizontal = 2
+border_width = 2.0
+
+[node name="TopUIRect" type="ReferenceRect" parent="CanvasLayer/Control"]
+texture_filter = 1
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HPUI" type="Sprite2D" parent="CanvasLayer/Control/TopUIRect"]
+position = Vector2(173, 160)
+scale = Vector2(5, 5)
+texture = ExtResource("5_dvwgl")
+
+[node name="HPUI2" type="Sprite2D" parent="CanvasLayer/Control/TopUIRect"]
+position = Vector2(905, 160)
+scale = Vector2(5, 5)
+texture = ExtResource("6_htbct")
+
+[node name="HPUI3" type="Sprite2D" parent="CanvasLayer/Control/TopUIRect"]
+position = Vector2(905, 259)
+scale = Vector2(5, 5)
+texture = ExtResource("7_cm1jb")
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 855.0
+offset_top = 125.0
+offset_right = 1145.0
+offset_bottom = 194.0
+text = "0"
+label_settings = SubResource("LabelSettings_nl51t")
+
+[node name="CornkernelLabel" type="Label" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 855.0
+offset_top = 225.0
+offset_right = 1145.0
+offset_bottom = 294.0
+text = "0"
+label_settings = SubResource("LabelSettings_vu2um")
+
+[node name="HPLabel" type="Label" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 122.0
+offset_top = 120.0
+offset_right = 412.0
+offset_bottom = 189.0
+text = "3"
+label_settings = SubResource("LabelSettings_vu2um")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 144.0
+offset_top = 100.0
+offset_right = 406.0
+offset_bottom = 170.0
+text = "Key Press: "
+label_settings = SubResource("LabelSettings_ll3m6")
+
+[node name="DebugLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 735.0
+offset_top = 9.0
+offset_right = 1061.0
+offset_bottom = 326.0
+theme_override_font_sizes/normal_font_size = 44
+text = "debugg"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 340.0
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="TopBG" type="Sprite2D" parent="Background"]
+position = Vector2(-61, -16)
+scale = Vector2(5.48611, 5.48611)
+texture = ExtResource("9_mackf")
+centered = false
+
+[node name="BottomBG" type="Sprite2D" parent="Background"]
+position = Vector2(0, 1795)
+scale = Vector2(4.94309, 4.94309)
+texture = ExtResource("10_g6agp")
+centered = false
+
+[node name="CropsRows" type="Node2D" parent="."]
+position = Vector2(1090, 0)
+
+[node name="Row2" type="Sprite2D" parent="CropsRows"]
+position = Vector2(-551, 1617)
+scale = Vector2(5, 5)
+texture = ExtResource("11_b17tf")
+
+[node name="Row3" type="Sprite2D" parent="CropsRows"]
+position = Vector2(-551, 1252)
+scale = Vector2(5, 5)
+texture = ExtResource("11_b17tf")
+flip_h = true
+
+[node name="Row4" type="Sprite2D" parent="CropsRows"]
+position = Vector2(-551, 887.5)
+scale = Vector2(5, 5)
+texture = ExtResource("11_b17tf")
+flip_v = true
+
+[node name="Row5" type="Sprite2D" parent="CropsRows"]
+position = Vector2(-551, 522.5)
+scale = Vector2(5, 5)
+texture = ExtResource("11_b17tf")
+flip_h = true
+
+[node name="BirdBlockers" type="Node2D" parent="."]
+
+[node name="Blocker" parent="BirdBlockers" groups=["blockertop"] instance=ExtResource("12_g05bk")]
+
+[node name="Blocker2" parent="BirdBlockers" groups=["blockerbottom", "blockertop"] instance=ExtResource("12_g05bk")]
+position = Vector2(131, 1742)
+
+[node name="Grounds" parent="." instance=ExtResource("13_5cngx")]
+
+[node name="Walls" parent="." instance=ExtResource("14_x5r8k")]
+visible = false
+
+[node name="EnemySpawners" parent="." instance=ExtResource("15_bpab7")]
+unique_name_in_owner = true
+
+[node name="CornkernelSpawner" parent="." instance=ExtResource("16_elw1u")]
+unique_name_in_owner = true
+
+[node name="Enemies" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CornKernels" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Cobia" parent="." instance=ExtResource("17_byqxs")]
+position = Vector2(120, 1590)
+downward_travel_offset = 10
+metadata/_edit_group_ = true
+
+[node name="LabelResetTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ojkvo")
+}
+
+[node name="Candies" type="Sprite2D" parent="." groups=["references"]]
+visible = false
+position = Vector2(0, -268)
+scale = Vector2(1.48889, 1.48889)
+centered = false
+
+[node name="UI_Main" type="Node2D" parent="."]
+position = Vector2(0, 100)
+
+[node name="Cornsprites" type="Node2D" parent="UI_Main"]
+unique_name_in_owner = true
+
+[node name="Buttons" type="Node2D" parent="UI_Main"]
+
+[node name="SwapButton" type="TouchScreenButton" parent="UI_Main/Buttons"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.623529)
+material = SubResource("ShaderMaterial_hckqv")
+position = Vector2(384, 1932)
+scale = Vector2(14, 14)
+texture_normal = ExtResource("19_iiu5e")
+texture_pressed = ExtResource("20_wyncw")
+action = "swap_direction"
+script = ExtResource("21_8inn5")
+
+[node name="FlipCooldown" type="Timer" parent="UI_Main/Buttons/SwapButton"]
+process_callback = 0
+wait_time = 0.8
+one_shot = true
+
+[node name="DebugButton" type="TouchScreenButton" parent="UI_Main/Buttons"]
+modulate = Color(1, 1, 1, 0.623529)
+position = Vector2(24, 1720)
+scale = Vector2(12, 12)
+texture_normal = SubResource("AtlasTexture_pj2hy")
+texture_pressed = SubResource("AtlasTexture_l1y6d")
+action = "debugpress"
+script = ExtResource("23_ayqvi")
+
+[node name="DebugButton2" type="TouchScreenButton" parent="UI_Main/Buttons"]
+modulate = Color(1, 1, 1, 0.623529)
+position = Vector2(24, 1925)
+scale = Vector2(12, 12)
+texture_normal = SubResource("AtlasTexture_vwd4q")
+texture_pressed = SubResource("AtlasTexture_lns2y")
+action = "debugpress2"
+script = ExtResource("23_ayqvi")
+
+[node name="UpButton" type="TouchScreenButton" parent="UI_Main/Buttons"]
+modulate = Color(1, 1, 1, 0.623529)
+position = Vector2(672, 1692)
+scale = Vector2(14, 14)
+texture_normal = SubResource("AtlasTexture_gqptt")
+texture_pressed = SubResource("AtlasTexture_85ws3")
+action = "switch_lane_up"
+
+[node name="DownButton" type="TouchScreenButton" parent="UI_Main/Buttons"]
+modulate = Color(1, 1, 1, 0.623529)
+position = Vector2(672, 1932)
+scale = Vector2(14, 14)
+texture_normal = SubResource("AtlasTexture_8gsey")
+texture_pressed = SubResource("AtlasTexture_s5aab")
+action = "switch_lane_down"
+
+[node name="MainCamera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-9.23872e-07, 9.53674e-07)
+anchor_mode = 0
+
+[node name="ShakerComponent2D" type="Node2D" parent="MainCamera"]
+unique_name_in_owner = true
+position = Vector2(-1.04308e-07, 0)
+script = ExtResource("24_fgl21")
+duration = 0.5
+fade_in = 0.001
+fade_out = 0.933
+shakerPreset = ExtResource("25_yldpf")
+
+[node name="ZoomedOutCamera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-368, -557)
+offset = Vector2(0, -400)
+anchor_mode = 0
+enabled = false
+zoom = Vector2(0.59, 0.59)
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="CornkernelSpawnTimer" to="." method="_on_cornkernel_spawn_timer_timeout"]
+[connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
+[connection signal="timeout" from="LabelResetTimer" to="." method="_on_label_reset_timer_timeout"]
+[connection signal="timeout" from="UI_Main/Buttons/SwapButton/FlipCooldown" to="UI_Main/Buttons/SwapButton" method="_on_flip_cooldown_timeout"]

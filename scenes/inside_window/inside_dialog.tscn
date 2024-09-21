@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bvjj3rrg8df6l"]
 
-[ext_resource type="Script" path="res://scripts/inside_dialog.gd" id="1_oo8xv"]
+[ext_resource type="Script" path="res://scripts/inside_window/inside_dialog.gd" id="1_oo8xv"]
 [ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="1_pkrij"]
 [ext_resource type="Theme" uid="uid://cc4xqkjslk0ic" path="res://resources/monogram_ui_theme.tres" id="2_jvgbn"]
 

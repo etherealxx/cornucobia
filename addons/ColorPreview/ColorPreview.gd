@@ -346,8 +346,3 @@ func named_or_hex_color(string: String): # Color or null
 	if string.is_valid_html_color() or ColorHelper.is_named_color(string):
 		return Color(string)
 	return null
-
-
-
-
-

@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://ivn41o6xbjun"]
 
-[ext_resource type="Script" path="res://scripts/inside_credits.gd" id="1_d32a4"]
+[ext_resource type="Script" path="res://scripts/inside_window/inside_credits.gd" id="1_d32a4"]
 [ext_resource type="Script" path="res://scripts/resources/credititem.gd" id="2_5eimu"]
 [ext_resource type="Resource" uid="uid://c8pf3istsgunl" path="res://resources/list_of_credits_credititemlist.tres" id="2_nujlt"]
 [ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="2_y5qor"]
@@ -223,7 +223,7 @@ size_flags_vertical = 3
 
 [node name="ItemList" type="ItemList" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 680)
 layout_mode = 2
 theme = ExtResource("4_yh07u")
 item_count = 1
@@ -306,12 +306,15 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
 theme = ExtResource("4_yh07u")
 theme_override_font_sizes/font_size = 40
 text = "Website : https://opengameart.org/content/pixel-squirrel"
 autowrap_mode = 3
 
 [node name="FullLicenseAsk" type="CheckButton" parent="VBoxContainer/HBoxContainer/CreditItemDescription"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_yh07u")
 text = "View Full License"
@@ -456,5 +459,6 @@ credit_reset_ref = ExtResource("7_s1uja")
 description_node = NodePath("../VBoxContainer/HBoxContainer/CreditItemDescription")
 
 [connection signal="item_clicked" from="VBoxContainer/HBoxContainer/ItemList" to="." method="_on_item_list_item_clicked"]
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer/CreditItemDescription/AssetWebsite" to="VBoxContainer/HBoxContainer/CreditItemDescription" method="_on_asset_website_gui_input"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/CreditItemDescription/FullLicenseAsk" to="." method="_on_full_license_ask_toggled"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/CreditItemDescription/FullLicenseAsk" to="VBoxContainer/HBoxContainer/CreditItemDescription" method="_on_full_license_ask_toggled"]

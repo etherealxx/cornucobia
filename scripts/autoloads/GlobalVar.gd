@@ -2,16 +2,16 @@ extends Node
 
 var score := 0
 var high_score := 0
-var corncob_score := 0
+var cornkernel_score := 0
 #var silentwolf_api_key_path = "res://scripts/api_keys/silentwolf_api_key.gd"
 var silentwolf_api_key_path = "res://secrets/api_keys/silentwolf_api_key.gd" # "res://secrets/silentwolf_api_key.gd"
 var silentwolf_configured := false
 var is_tos_accepted := false
 var playername := ""
-var silentwolf_open_scene_on_close = "res://scenes/main_gameplay_scene.tscn"
+var silentwolf_open_scene_on_close = "res://scenes/menus_and_levels/main_gameplay_scene.tscn"
 var firstload := true
 var next_scene_path :=""
-var loadingscene_path = "res://scenes/loading_screen.tscn"
+var loadingscene_path = "res://scenes/menus_and_levels/loading_screen.tscn"
 var debuglog := ""
 var mainmenu_logo_transition := true
 var music_path_to_load := ""
@@ -66,4 +66,4 @@ func initialize_leaderboard():
 		
 func reset_scores():
 	score = 0
-	corncob_score = 0
+	cornkernel_score = 0

@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://xrogsuysb7bi"]
-
-[ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="1_rwng3"]
-
-[node name="Spawner" type="Marker2D"]
-gizmo_extents = 35.3
-script = ExtResource("1_rwng3")

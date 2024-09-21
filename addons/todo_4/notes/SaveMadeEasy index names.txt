@@ -1,0 +1,3 @@
+"tos_accepted" (bool) : whether the user accepted the tos or not
+"player_name" (String) : the player's leaderboard name
+"highscore" (int) : the player's local highscore
