@@ -2,8 +2,9 @@
 .godot/
 .history/*
 .vscode/*
-*.keystore
 *.build
+*.keystore
+*.pdn
 android/*
 android
 addons_examples/*
@@ -14,4 +15,7 @@ assets/sound_effects/unused/*
 assets/saved_images/*
 fonts/Poppins/*
 releases/*
-secrets/*
+secrets/api_keys/*
+!secrets/api_keys/.gitkeep
+secrets/encryption_keys/*
+!secrets/encryption_keys/.gitkeep

@@ -4,17 +4,17 @@
 
 shader_type canvas_item;
 
-// First color you want to change
+// First color to change
 uniform vec4 u_color_key1 : source_color = vec4(1.0, 1.0, 1.0, 1.0);
-// Replacement color for the first color key
+// First color's replacement
 uniform vec4 u_replacement_color1 : source_color = vec4(0.0, 0.0, 0.0, 1.0);
-// Second color you want to change
+// Second color to change
 uniform vec4 u_color_key2 : source_color = vec4(0.75, 0.75, 0.75, 1.0);
-// Replacement color for the second color key
+// Second color's replacement
 uniform vec4 u_replacement_color2 : source_color = vec4(0.0, 0.0, 0.0, 1.0);
-// How much tolerance for the replacement colors (between 0 and 1)
-uniform float u_tolerance = 0.1;
-// Interpolation factor (between 0 and 1)
+
+uniform float u_tolerance = 0.1; // tolerance for the replacement colors
+
 uniform float u_interpolation_factor : hint_range(0.0, 1.0) = 1.0;
 
 void fragment() {
