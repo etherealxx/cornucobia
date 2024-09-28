@@ -51,7 +51,7 @@ External (free) arts used in this game, with their licenses, are:
 - [Free Summer Pixel Backgrounds](https://free-game-assets.itch.io/free-summer-pixel-art-backgrounds), licensed under their [custom license](https://craftpix.net/file-licenses/);
   - Quote from their [page](https://free-game-assets.itch.io/):
   - > We offer you to use our assets unlimited number of times in your projects. Our license allows this.
-- [Pixel Squirrel](https://opengameart.org/content/pixel-squirrel), licensed under the [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) license (CC0)
+- [Pixel Squirrel](https://opengameart.org/content/pixel-squirrel), copyright and related rights waived via [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) (CC0)
 - [100+ Pixel Buttons - Pack (16x16)](https://kaboff.itch.io/pixel-buttons-pack), not having a proper license;
   - Quote from the asset's site:
   - > Attribution is not required but appreciated, Thank you so much ! 😊
@@ -86,7 +86,9 @@ Shaders used in this game—located in [shaders/](https://github.com/etherealxx/
 
 - [windsway](https://godotshaders.com/shader/2d-wind-sway/), MIT
 - [hitflash](https://godotshaders.com/shader/hit-flash-effect/), CC0
-- change2color, a modification of [Zylann's shader](https://forum.godotengine.org/t/changing-a-specific-color-in-a-sprite-using-shaders-in-godot-3/29610/4) posted on godotforum
 - cooldown_v3, licensed under the [Zero-Clause BSD license](https://opensource.org/license/0bsd) (0BSD)
-
+- change2color, a modification of [Zylann's shader](https://forum.godotengine.org/t/changing-a-specific-color-in-a-sprite-using-shaders-in-godot-3/29610/4) posted on godotforum.
+  - Zylann waived the copyright and related rights of the original shader code, placing them in the public domain (based on our private Mastodon direct message).
+  - This derivative work is licensed under the 0BSD license.
+  
 Most of the shaders listed above are modified in some shape or form.
