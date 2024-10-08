@@ -1,4 +1,6 @@
 # Cornucobia
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fetherealxx%2Fcornucobia.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fetherealxx%2Fcornucobia?ref=badge_shield)
+
 A mobile (Android) game where the player controls Cobia, a living scarecrow, as they run across the farm, fending off varmints and collecting corn kernels. Made with Godot 4.3.
 
 This game is open source.
@@ -8,6 +10,9 @@ This game is open source.
 All pieces of code `(*.gd)`, scenes `(*.tscn)`, and resources `(*.tres)` in this project,<br/>
 **except** for those located in the [addons/](https://github.com/etherealxx/seedrunner-repo/blob/main/addons) and [shaders/](https://github.com/etherealxx/seedrunner-repo/blob/main/shaders) directories and their subdirectories,<br/>
 are licensed under the [Apache License 2.0](https://github.com/etherealxx/seedrunner-repo/blob/main/LICENSE).
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fetherealxx%2Fcornucobia.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fetherealxx%2Fcornucobia?ref=badge_large)
 
 ### Game Engine (Godot)
 
