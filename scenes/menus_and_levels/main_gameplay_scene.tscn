@@ -1,10 +1,11 @@
-[gd_scene load_steps=41 format=3 uid="uid://k0em1dn6s2ry"]
+[gd_scene load_steps=42 format=3 uid="uid://k0em1dn6s2ry"]
 
 [ext_resource type="Script" path="res://scripts/menus_and_levels/main_gameplay.gd" id="1_yfvw4"]
 [ext_resource type="PackedScene" uid="uid://ci8h3yqpc5swd" path="res://scenes/gameplay_scenes/enemies/squirrel.tscn" id="2_jmauu"]
 [ext_resource type="PackedScene" uid="uid://ds343cg4f2rgm" path="res://scenes/gameplay_scenes/enemies/mouse.tscn" id="3_nl258"]
 [ext_resource type="PackedScene" uid="uid://d0ms031j0n5dd" path="res://scenes/gameplay_scenes/enemies/bird.tscn" id="4_inqq4"]
 [ext_resource type="Texture2D" uid="uid://d2gof54kg3e2f" path="res://assets/ui/scorebox/lives_point_UI.png" id="5_dvwgl"]
+[ext_resource type="Resource" uid="uid://bq7nhqkl8emxu" path="res://resources/next_scenes/game_over_nextscn.tres" id="5_k2ekg"]
 [ext_resource type="Texture2D" uid="uid://bpg5gmkf4rexp" path="res://assets/ui/scorebox/kill_point_UI.png" id="6_htbct"]
 [ext_resource type="Texture2D" uid="uid://j7xr152boy14" path="res://assets/ui/scorebox/corn_point_UI.png" id="7_cm1jb"]
 [ext_resource type="FontFile" uid="uid://mop3gahfptvb" path="res://fonts/monogram-extended.ttf" id="8_pm44q"]
@@ -119,8 +120,7 @@ texture_filter = 1
 script = ExtResource("1_yfvw4")
 character = NodePath("Cobia")
 every_enemies = Array[PackedScene]([ExtResource("2_jmauu"), ExtResource("3_nl258"), ExtResource("4_inqq4")])
-gameover_scene_path = "res://scenes/menus_and_levels/scoreboard_scene.tscn"
-gameover_song_path = "res://assets/musics/Magic Scout - Farm_small.mp3"
+game_over_scene = ExtResource("5_k2ekg")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 process_callback = 0

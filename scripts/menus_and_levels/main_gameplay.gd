@@ -2,8 +2,8 @@ extends Node
 
 @export var character : CharacterBody2D
 @export var every_enemies : Array[PackedScene]
-@export_file("*.tscn") var gameover_scene_path : String
-@export_file("*.mp3") var gameover_song_path : String
+
+@export var game_over_scene : NextSceneRes
 
 @onready var cornkernel_scn = load("res://scenes/gameplay_scenes/cornkernel.tscn")
 @onready var cornsprite = load("res://scenes/gameplay_scenes/cornkernel_earn_sprite.tscn")
@@ -134,7 +134,7 @@ func _on_damaged():
 		await get_tree().create_timer(2.0, true, true).timeout
 		#GlobalVar.next_scene_path = gameoverscene_path
 		#get_tree().change_scene_to_file(GlobalVar.loadingscene_path)
-		GlobalVar.go_to_scene(gameover_scene_path, gameover_song_path)
+		GlobalVar.go_to_nextscene(game_over_scene)
 	
 func _on_cornkernel_spawn_timer_timeout() -> void:
 	if character.hp > 0:

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NextSceneRes" load_steps=2 format=3 uid="uid://bq7nhqkl8emxu"]
+
+[ext_resource type="Script" path="res://scripts/resources/nextsceneres.gd" id="1_bqisd"]
+
+[resource]
+script = ExtResource("1_bqisd")
+scene_name = "Game Over"
+scene_path = "res://scenes/menus_and_levels/scoreboard_scene.tscn"
+song_path = "res://assets/musics/Magic Scout - Farm_small.mp3"

@@ -1,7 +1,6 @@
 extends Node2D
 
-@export_file("*.tscn") var maingameplay_scene_path : String
-@export_file("*.mp3") var maingameplay_song_path := ""
+@export var main_gameplay_scene : NextSceneRes
 
 var taptrack := 0
 var logo_original_y : float
@@ -88,7 +87,7 @@ func toggle_version():
 
 func _on_btn_play_precise_released() -> void:
 	if safe_to_click:
-		GlobalVar.go_to_scene(maingameplay_scene_path, maingameplay_song_path)
+		GlobalVar.go_to_nextscene(main_gameplay_scene)
 		playclick()
 
 func _on_btn_options_precise_released() -> void: # opening options menu

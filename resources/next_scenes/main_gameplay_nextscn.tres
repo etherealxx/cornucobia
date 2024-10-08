@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NextSceneRes" load_steps=2 format=3 uid="uid://btby2cg7clu66"]
+
+[ext_resource type="Script" path="res://scripts/resources/nextsceneres.gd" id="1_4juaj"]
+
+[resource]
+script = ExtResource("1_4juaj")
+scene_name = "Main Gameplay"
+scene_path = "res://scenes/menus_and_levels/main_gameplay_scene.tscn"
+song_path = "res://assets/musics/Upbeat Forever.mp3"

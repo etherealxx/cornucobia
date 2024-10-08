@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://ng11y8qglaua"]
+[gd_scene load_steps=37 format=3 uid="uid://ng11y8qglaua"]
 
 [ext_resource type="Script" path="res://scripts/menus_and_levels/main_menu.gd" id="1_orpm5"]
 [ext_resource type="Shader" path="res://shaders/windsway.gdshader" id="2_26bkm"]
 [ext_resource type="Texture2D" uid="uid://dv0c78qeq1kv1" path="res://assets/gamesprites/background/summer_sky.png" id="2_0558r"]
 [ext_resource type="Script" path="res://scripts/destroy_at_runtime.gd" id="2_hb0eh"]
+[ext_resource type="Resource" uid="uid://btby2cg7clu66" path="res://resources/next_scenes/main_gameplay_nextscn.tres" id="2_icq6k"]
 [ext_resource type="Theme" uid="uid://cc4xqkjslk0ic" path="res://resources/monogram_ui_theme.tres" id="2_ielbd"]
 [ext_resource type="Texture2D" uid="uid://xys5c8adk4eb" path="res://assets/gamesprites/background/summer_grass.png" id="3_ivpr7"]
 [ext_resource type="Texture2D" uid="uid://be1may06aqfs2" path="res://assets/gamesprites/background/summer_sky_cloud.png" id="3_s03cx"]
@@ -37,7 +38,7 @@ colors = PackedColorArray(0.215686, 0.431373, 0.584314, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_j18aw"]
 gradient = SubResource("Gradient_482et")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8qat"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vohhs"]
 shader = ExtResource("10_2b4u4")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.862745, 0.729412, 0.627451, 1)
@@ -48,15 +49,15 @@ shader_parameter/u_interpolation_factor = 1.0
 
 [sub_resource type="PlaceholderMesh" id="PlaceholderMesh_08wxu"]
 
-[sub_resource type="MeshTexture" id="MeshTexture_lu7sm"]
+[sub_resource type="MeshTexture" id="MeshTexture_jlugb"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_rvmi1"]
+[sub_resource type="MeshTexture" id="MeshTexture_6ik2g"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bt2pp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6db4g"]
 shader = ExtResource("10_2b4u4")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.862745, 0.729412, 0.627451, 1)
@@ -65,15 +66,15 @@ shader_parameter/u_replacement_color2 = Color(0.737129, 0.571653, 0.439615, 1)
 shader_parameter/u_tolerance = 0.1
 shader_parameter/u_interpolation_factor = 1.0
 
-[sub_resource type="MeshTexture" id="MeshTexture_ohrvn"]
+[sub_resource type="MeshTexture" id="MeshTexture_jsy2h"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_7cnoq"]
+[sub_resource type="MeshTexture" id="MeshTexture_ouas5"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tx7qc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ej4cc"]
 shader = ExtResource("10_2b4u4")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.862745, 0.729412, 0.627451, 1)
@@ -84,15 +85,15 @@ shader_parameter/u_interpolation_factor = 1.0
 
 [sub_resource type="PlaceholderMesh" id="PlaceholderMesh_q3nf7"]
 
-[sub_resource type="MeshTexture" id="MeshTexture_ljtdc"]
+[sub_resource type="MeshTexture" id="MeshTexture_co8kt"]
 mesh = SubResource("PlaceholderMesh_q3nf7")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_sohn0"]
+[sub_resource type="MeshTexture" id="MeshTexture_eckn5"]
 mesh = SubResource("PlaceholderMesh_q3nf7")
 image_size = Vector2(60, 17)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7eoy2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f6w1g"]
 shader = ExtResource("10_2b4u4")
 shader_parameter/u_color_key1 = Color(1, 1, 1, 1)
 shader_parameter/u_replacement_color1 = Color(0.862745, 0.729412, 0.627451, 1)
@@ -101,11 +102,11 @@ shader_parameter/u_replacement_color2 = Color(0.737129, 0.571653, 0.439615, 1)
 shader_parameter/u_tolerance = 0.1
 shader_parameter/u_interpolation_factor = 1.0
 
-[sub_resource type="MeshTexture" id="MeshTexture_t2muu"]
+[sub_resource type="MeshTexture" id="MeshTexture_i1olc"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
-[sub_resource type="MeshTexture" id="MeshTexture_nuut0"]
+[sub_resource type="MeshTexture" id="MeshTexture_nwv78"]
 mesh = SubResource("PlaceholderMesh_08wxu")
 image_size = Vector2(60, 17)
 
@@ -116,8 +117,7 @@ font_size = 60
 [node name="MainMenu" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_orpm5")
-maingameplay_scene_path = "res://scenes/menus_and_levels/main_gameplay_scene.tscn"
-maingameplay_song_path = "res://assets/musics/Upbeat Forever.mp3"
+main_gameplay_scene = ExtResource("2_icq6k")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
@@ -202,39 +202,39 @@ scale = Vector2(3.82, 3.82)
 texture = ExtResource("8_7d7lc")
 
 [node name="BtnPlay" parent="." instance=ExtResource("9_g7jex")]
-material = SubResource("ShaderMaterial_e8qat")
+material = SubResource("ShaderMaterial_vohhs")
 position = Vector2(335.504, 1079)
 scale = Vector2(7, 7)
-texture_normal = SubResource("MeshTexture_lu7sm")
-texture_pressed = SubResource("MeshTexture_rvmi1")
+texture_normal = SubResource("MeshTexture_jlugb")
+texture_pressed = SubResource("MeshTexture_6ik2g")
 button_text = "Play"
 button_size = Vector2(60, 30)
 metadata/_edit_lock_ = true
 
 [node name="BtnOptions" parent="." instance=ExtResource("9_g7jex")]
-material = SubResource("ShaderMaterial_bt2pp")
+material = SubResource("ShaderMaterial_6db4g")
 position = Vector2(335.504, 1349)
 scale = Vector2(7, 7)
-texture_normal = SubResource("MeshTexture_ohrvn")
-texture_pressed = SubResource("MeshTexture_7cnoq")
+texture_normal = SubResource("MeshTexture_jsy2h")
+texture_pressed = SubResource("MeshTexture_ouas5")
 button_text = "Options"
 metadata/_edit_lock_ = true
 
 [node name="BtnCredits" parent="." instance=ExtResource("9_g7jex")]
-material = SubResource("ShaderMaterial_tx7qc")
+material = SubResource("ShaderMaterial_ej4cc")
 position = Vector2(335.504, 1517)
 scale = Vector2(7, 7)
-texture_normal = SubResource("MeshTexture_ljtdc")
-texture_pressed = SubResource("MeshTexture_sohn0")
+texture_normal = SubResource("MeshTexture_co8kt")
+texture_pressed = SubResource("MeshTexture_eckn5")
 button_text = "Credits"
 metadata/_edit_lock_ = true
 
 [node name="BtnQuit" parent="." instance=ExtResource("9_g7jex")]
-material = SubResource("ShaderMaterial_7eoy2")
+material = SubResource("ShaderMaterial_f6w1g")
 position = Vector2(335.504, 1682)
 scale = Vector2(7, 7)
-texture_normal = SubResource("MeshTexture_t2muu")
-texture_pressed = SubResource("MeshTexture_nuut0")
+texture_normal = SubResource("MeshTexture_i1olc")
+texture_pressed = SubResource("MeshTexture_nwv78")
 button_text = "Quit"
 metadata/_edit_lock_ = true
 

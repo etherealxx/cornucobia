@@ -2,9 +2,8 @@ extends Node2D
 
 var is_loading_leaderboard = false
 
-@export_file("*.tscn") var maingameplay_scene_path : String
-@export_file("*.mp3") var maingameplay_song_path := ""
-@export_file("*.tscn") var mainmenu_scene_path : String
+@export var main_gameplay_scene : NextSceneRes
+@export var main_menu_scene : NextSceneRes
 @export var debug_accept_windows := false
 
 func _ready() -> void:
@@ -96,10 +95,10 @@ func _on_insert_name_confirmed() -> void:
 
 func _on_btn_play_again_precise_released() -> void:
 	GlobalVar.reset_scores()
-	GlobalVar.go_to_scene(maingameplay_scene_path, maingameplay_song_path)
+	GlobalVar.go_to_nextscene(main_gameplay_scene)
 	playclick()
 
 func _on_btn_main_menu_precise_released() -> void:
 	GlobalVar.mainmenu_logo_transition = false
-	GlobalVar.go_to_scene(mainmenu_scene_path)
+	GlobalVar.go_to_nextscene(main_menu_scene)
 	playclick()

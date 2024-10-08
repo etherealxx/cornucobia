@@ -22,6 +22,9 @@ func go_to_scene(path := "", _music_path_to_load := ""):
 	music_path_to_load = _music_path_to_load
 	get_tree().change_scene_to_file(loadingscene_path)
 
+func go_to_nextscene(nextscene : NextSceneRes):
+	go_to_scene(nextscene.scene_path, nextscene.song_path)
+
 # Scale down the window accordingly if the project being ran in Desktop (not Android)
 func adaptive_non_android_viewport_scaling():
 	var usable_screen_height = DisplayServer.screen_get_usable_rect().size.y
